@@ -4,12 +4,12 @@ import { EyeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import LikeButton from "@/components/life/like-button";
+import LikeButton from "@/components/post/like-button";
 import { getComments, getLikeStatus, getPost } from "./actions";
 import { getUserProfile } from "@/lib/user";
-import CommentsList from "@/components/life/comment/comments-list";
+import CommentsList from "@/components/post/comment/comments-list";
 import Link from "next/link";
-import PostEditMenu from "@/components/life/post-edit-menu";
+import PostEditMenu from "@/components/post/post-edit-menu";
 
 export const metadata = {
   title: "포스트",

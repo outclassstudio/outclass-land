@@ -28,7 +28,7 @@ export default function ProductDeleteButton({
   const handleProductDelete = async () => {
     const result = await deleteProduct(productId);
     if (result) {
-      router.push("/home");
+      router.push("/program");
     }
   };
 

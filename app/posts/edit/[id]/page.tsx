@@ -1,4 +1,4 @@
-import PostEditForm from "@/components/life/post-edit-form";
+import PostEditForm from "@/components/post/post-edit-form";
 import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
 

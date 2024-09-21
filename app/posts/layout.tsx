@@ -7,7 +7,7 @@ export default function PostLayout({
 }) {
   return (
     <>
-      <SimpleHeader text="포스트" url="life" />
+      <SimpleHeader text="포스트" url="post" />
       <div className="mt-16">{children}</div>
     </>
   );

@@ -7,7 +7,7 @@ export default function ProductDetailLayout({
 }) {
   return (
     <div>
-      <SimpleHeader url="home" text="" />
+      <SimpleHeader url="program" text="" />
       <div className="mt-[50px]">{children}</div>
     </div>
   );

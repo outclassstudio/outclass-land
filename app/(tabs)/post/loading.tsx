@@ -1,4 +1,4 @@
-export default function LifeLoading() {
+export default function PostLoading() {
   return (
     <div className="flex flex-col gap-7 animate-pulse p-5 mb-5">
       {[...Array(7)].map((_, index) => (

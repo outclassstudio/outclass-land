@@ -1,4 +1,4 @@
-export default function HomeLayout({
+export default function ProgramLayout({
   children,
 }: {
   children: React.ReactNode;

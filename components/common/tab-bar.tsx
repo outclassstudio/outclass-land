@@ -21,20 +21,20 @@ export default function TabBar() {
   const pathname = usePathname();
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 mx-auto max-w-screen-md w-full grid grid-cols-5 
-    border-neutral-600 border-t px-5 py-3 *:text-white bg-neutral-800"
+      className="fixed bottom-0 left-0 right-0 mx-auto max-w-screen-md w-full grid grid-cols-4 
+    border-neutral-600 border-t px-6 py-3 *:text-white bg-neutral-800"
     >
-      <Link className="flex flex-col items-center gap-px" href="/home">
-        {pathname === "/home" ? (
+      <Link className="flex flex-col items-center gap-px" href="/program">
+        {pathname === "/program" ? (
           <SoildHomeIcon className="w-7 h-7" />
         ) : (
           <OutlineHomeIcon className="w-7 h-7" />
         )}
 
-        <span>홈</span>
+        <span>프로그램</span>
       </Link>
-      <Link className="flex flex-col items-center gap-px" href="/life">
-        {pathname === "/life" ? (
+      <Link className="flex flex-col items-center gap-px" href="/post">
+        {pathname === "/post" ? (
           <SolidNewspaperIcon className="w-7 h-7" />
         ) : (
           <OutlineNewspaperIcon className="w-7 h-7" />
@@ -50,15 +50,6 @@ export default function TabBar() {
         )}
 
         <span>채팅</span>
-      </Link>
-      <Link className="flex flex-col items-center gap-px" href="/live">
-        {pathname === "/live" ? (
-          <SoildVideoCameraIcon className="w-7 h-7" />
-        ) : (
-          <OutlineVideoCameraIcon className="w-7 h-7" />
-        )}
-
-        <span>쇼핑</span>
       </Link>
       <Link className="flex flex-col items-center gap-px" href="/profile">
         {pathname === "/profile" ? (

@@ -1,4 +1,4 @@
-import PostList from "@/components/life/post-list";
+import PostList from "@/components/post/post-list";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { Prisma } from "@prisma/client";
 import { unstable_cache as NextCache } from "next/cache";
@@ -16,9 +16,9 @@ export const metadata = {
 
 export type InitialPosts = Prisma.PromiseReturnType<typeof getPosts>;
 
-export default async function Life() {
-  const initialPosts = await getCachedPosts();
-  // const posts = await getPosts();
+export default async function Post() {
+  // const initialPosts = await getCachedPosts();
+  const initialPosts = await getPosts();
 
   return (
     <div>

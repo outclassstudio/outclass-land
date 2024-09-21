@@ -8,7 +8,7 @@ export default function ProfileHeader({ title }: { title: string }) {
 border-neutral-600"
     >
       <div className="flex gap-3 items-center">
-        <Link href="/home" className="text-white">
+        <Link href="/program" className="text-white">
           <ChevronLeftIcon className="size-6" />
         </Link>
         <span className="flex items-center font-bold text-lg">{title}</span>

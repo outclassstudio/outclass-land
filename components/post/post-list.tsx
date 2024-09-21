@@ -1,9 +1,9 @@
 "use client";
 
-import { InitialPosts } from "@/app/(tabs)/life/page";
+import { InitialPosts } from "@/app/(tabs)/post/page";
 import SinglePostBox from "./single-post-box";
 import { useEffect, useRef, useState } from "react";
-import { getMorePosts } from "@/app/(tabs)/life/actions";
+import { getMorePosts } from "@/app/(tabs)/post/actions";
 
 interface PostsListProps {
   initialPosts: InitialPosts;

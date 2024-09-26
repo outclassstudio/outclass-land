@@ -6,16 +6,24 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+// interface ListProductProps {
+//   id: number;
+//   title: string;
+//   price: number;
+//   created_at: Date;
+//   photo: string;
+//   _count: {
+//     productLikes: number;
+//     chatrooms: number;
+//   };
+// }
 interface ListProductProps {
   id: number;
   title: string;
   price: number;
-  created_at: Date;
+  description: string;
   photo: string;
-  _count: {
-    productLikes: number;
-    chatrooms: number;
-  };
+  created_at: Date;
 }
 
 export default function ListProduct({
@@ -23,45 +31,64 @@ export default function ListProduct({
   title,
   price,
   created_at,
+  description,
   photo,
-  _count,
-}: ListProductProps) {
+}: // _count,
+ListProductProps) {
   return (
     <Link
-      href={`/products/${id}`}
-      className="flex gap-5 pb-5 border-b border-neutral-700 
-      last:border-none w-full"
+      href={`/programs/${id}`}
+      className="flex flex-col gap-5 border-neutral-700 
+      w-full border-2 rounded-lg"
     >
-      <div className="relative size-28 rounded-md overflow-hidden">
+      <div className="relative aspect-video rounded-t-md overflow-hidden">
         <Image
           fill
-          src={`${photo}/width=150,height=150`}
+          src={`${photo}/width=480,height=270`}
           alt={title}
           className="object-cover"
         />
       </div>
-      <div className="flex flex-col gap-1 w-[75%] *:text-white">
-        <div className="text-lg">{title}</div>
-        <div className="text-sm text-neutral-500">
-          {formatToTimeAgo(created_at.toString())}
+      <div className="flex flex-col px-5 gap-2 w-full">
+        <div className="text-md font-semibold text-orange-700">
+          사주명리상담
         </div>
-        <span className="text-lg font-semibold">{formatToWon(price)}원</span>
+        <div className="text-2xl text-white font-bold">[자기개발] {title}</div>
+        <div className="text-neutral-300 font-light h-[80px]">
+          {description}
+        </div>
+        <div className="flex gap-2 border-b border-neutral-700 pb-7 *:text-white">
+          <span className="rounded-md bg-neutral-500 px-2 py-1 text-sm">
+            사주명리
+          </span>
+          <span className="rounded-md bg-neutral-500 px-2 py-1 text-sm">
+            자기개발
+          </span>
+        </div>
+      </div>
+      <div>
+        <div className="flex items-end gap-3 px-5">
+          <span className="text-xl font-bold">₩{formatToWon(price)}원</span>
+          <span className="text-neutral-400 line-through">₩40,000원</span>
+          <span className="text-red-500 font-bold">50%</span>
+        </div>
         <div
           className="w-full flex justify-end items-center gap-3 *:text-neutral-400
-        *:flex *:gap-1 *:items-center"
+        *:flex *:gap-1 *:items-center p-5"
         >
           <div>
             <HeartIcon className="size-4" />
-            <span>{_count.productLikes}</span>
+            <span>100</span>
+            {/* <span>{_count.productLikes}</span> */}
           </div>
-          {_count.chatrooms ? (
+          {/* {_count.chatrooms ? (
             <div>
               <ChatBubbleLeftRightIcon className="size-4" />
               <span>{_count.chatrooms}</span>
             </div>
           ) : (
             ""
-          )}
+          )} */}
         </div>
       </div>
     </Link>

@@ -3,6 +3,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 import Link from "next/link";
 import { getInitialProducts } from "./actions";
+import { dummyData } from "@/lib/dummy";
 
 //cache 사용 -> 함수는 return이 반드시 있어야 함
 const getCashedProducts = nextCache(getInitialProducts, ["home-products"], {
@@ -19,7 +20,8 @@ export const dynamic = "force-dynamic";
 export default async function Products() {
   //todo 캐싱전략 수정 필요
   // const initialProducts = await getCashedProducts();
-  const initialProducts = await getInitialProducts();
+  // const initialProducts = await getInitialProducts();
+  const initialProducts = dummyData;
 
   return (
     <div>

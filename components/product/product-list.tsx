@@ -4,8 +4,19 @@ import ListProduct from "./list-product";
 import { useEffect, useRef, useState } from "react";
 import { getMoreProducts, InitialProducts } from "@/app/(tabs)/program/actions";
 
+// interface ProductsProps {
+//   initialProducts: InitialProducts;
+// }
+
 interface ProductsProps {
-  initialProducts: InitialProducts;
+  initialProducts: {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    photo: string;
+    created_at: Date;
+  }[];
 }
 
 export default function ProductList({ initialProducts }: ProductsProps) {
@@ -15,40 +26,40 @@ export default function ProductList({ initialProducts }: ProductsProps) {
   const [page, setPage] = useState(0);
   const trigger = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      async (
-        entries: IntersectionObserverEntry[],
-        observer: IntersectionObserver
-      ) => {
-        const element = entries[0];
-        if (element.isIntersecting && trigger.current) {
-          observer.unobserve(trigger.current);
-          setIsLoading(true);
-          const newProducts = await getMoreProducts(page + 1);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     async (
+  //       entries: IntersectionObserverEntry[],
+  //       observer: IntersectionObserver
+  //     ) => {
+  //       const element = entries[0];
+  //       if (element.isIntersecting && trigger.current) {
+  //         observer.unobserve(trigger.current);
+  //         setIsLoading(true);
+  //         const newProducts = await getMoreProducts(page + 1);
 
-          if (newProducts.length) {
-            setPage((prev) => prev + 1);
-            setProducts((prev) => [...prev, ...newProducts]);
-          } else {
-            setIsLastPage(true);
-          }
-          setIsLoading(false);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -78px 0px",
-      }
-    );
-    if (trigger.current) {
-      observer.observe(trigger.current);
-    }
-    //clean-up function
-    return () => {
-      observer.disconnect();
-    };
-  }, [page]);
+  //         if (newProducts.length) {
+  //           setPage((prev) => prev + 1);
+  //           setProducts((prev) => [...prev, ...newProducts]);
+  //         } else {
+  //           setIsLastPage(true);
+  //         }
+  //         setIsLoading(false);
+  //       }
+  //     },
+  //     {
+  //       threshold: 0.1,
+  //       rootMargin: "0px 0px -78px 0px",
+  //     }
+  //   );
+  //   if (trigger.current) {
+  //     observer.observe(trigger.current);
+  //   }
+  //   //clean-up function
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [page]);
 
   return (
     <div className="p-5 flex flex-col gap-5 mb-20">

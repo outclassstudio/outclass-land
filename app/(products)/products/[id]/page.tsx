@@ -6,6 +6,7 @@ import { unstable_cache as nextCache } from "next/cache";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { getIsOwner, getLikeStatus, getProduct } from "./actions";
+import { dummyData } from "@/lib/dummy";
 
 //todo 캐싱전략 고민
 const getCashedProduct = nextCache(getProduct, ["product-detail"], {

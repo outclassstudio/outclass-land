@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  ul,
+  ol {
+    @apply list-disc;
+    @apply pl-4;
+  }
   a {
     @apply text-orange-500;
   }

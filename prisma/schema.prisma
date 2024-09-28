@@ -66,6 +66,7 @@ model Post {
   userId      Int
   comments    Comment[]
   likes       Like[]
+  photo       String
 }
 
 model Comment {

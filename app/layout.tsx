@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} bg-neutral-900 text-white max-w-screen-sm mx-auto`}
+        className={`${font.className} bg-neutral-900 text-white max-w-screen-sm mx-auto list-disc`}
       >
         {children}
       </body>

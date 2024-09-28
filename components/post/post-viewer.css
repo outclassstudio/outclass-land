@@ -1,0 +1,33 @@
+/* @media (prefers-color-scheme: dark) {
+  .wmde-markdown,
+  .wmde-markdown-var {
+    color-scheme: dark;
+    --color-canvas-default: #171717;
+  }
+} */
+
+[data-color-mode*="dark"] .wmde-markdown,
+[data-color-mode*="dark"] .wmde-markdown-var,
+.wmde-markdown-var[data-color-mode*="dark"],
+.wmde-markdown[data-color-mode*="dark"],
+body[data-color-mode*="dark"] {
+  color-scheme: dark;
+  --color-canvas-default: #171717;
+}
+
+.wmde-markdown {
+  line-height: 1;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  margin-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 1.25;
+}

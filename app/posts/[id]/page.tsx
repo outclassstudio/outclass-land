@@ -10,6 +10,8 @@ import { getUserProfile } from "@/lib/user";
 import CommentsList from "@/components/post/comment/comments-list";
 import Link from "next/link";
 import PostEditMenu from "@/components/post/post-edit-menu";
+import MDEditor from "@uiw/react-md-editor";
+import PostViewer from "@/components/post/post-viewer";
 
 export const metadata = {
   title: "포스트",
@@ -77,9 +79,10 @@ export default async function PostDetail({
         {post.userId === session.id ? <PostEditMenu id={post.id} /> : ""}
       </div>
       <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
-      <p className="mb-6 whitespace-pre-wrap leading-relaxed">
+      {/* <p className="mb-6 whitespace-pre-wrap leading-relaxed">
         {post.description}
-      </p>
+      </p> */}
+      <PostViewer contents={post.description!} />
       <div className="flex flex-col gap-5 items-start mb-5">
         <div className="flex items-center gap-2 text-neutral-400 text-sm">
           <EyeIcon className="size-5" />

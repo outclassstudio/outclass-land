@@ -4,15 +4,46 @@ import Button from "@/components/common/button";
 import Input from "@/components/common/input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { useFormState } from "react-dom";
 import { uploadPost } from "./action";
-import Textarea from "@/components/common/textarea";
+import MDEditor from "@uiw/react-md-editor";
+import { getUploadUrl } from "@/app/(products)/add/actions";
+import "@/components/post/post-viewer.css";
 
 export default function AddPost() {
   const [preview, setPreview] = useState("");
-  const [state, dispatch] = useFormState(uploadPost, null);
+  const [title, setTitle] = useState("");
+  const [post, setPost] = useState("");
+  const [uploadUrl, setUploadUrl] = useState("");
+  const [photoId, setPhotoId] = useState("");
+  const [tmpFile, setTmpFile] = useState<File | null>(null);
 
-  const onImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const cloudflareForm = new FormData();
+    cloudflareForm.append("file", tmpFile!);
+    const response = await fetch(uploadUrl, {
+      method: "post",
+      body: cloudflareForm,
+    });
+    if (response.status !== 200) {
+      return;
+    }
+
+    const photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
+    const data = {
+      title,
+      post,
+      photo,
+    };
+    await uploadPost(data);
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { files },
     } = event;
@@ -20,40 +51,44 @@ export default function AddPost() {
       return;
     }
     const file = files[0];
+    setTmpFile(file);
     const url = URL.createObjectURL(file);
     setPreview(url);
+
+    const { success, result } = await getUploadUrl();
+    if (success) {
+      const { id, uploadURL } = result;
+      setUploadUrl(uploadURL);
+      setPhotoId(id);
+    }
   };
 
   return (
-    <form action={dispatch} className="flex flex-col gap-5 p-5">
-      <input
-        onChange={onImageChange}
-        type="file"
-        id="photo"
-        name="photo"
-        className="hidden"
-      />
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 p-5">
       <div className="flex flex-col gap-3">
         <div className="font-bold text-neutral-200">제목</div>
         <Input
           name="title"
           type="text"
+          value={title}
           required
           placeholder="제목"
+          onChange={handleTitleChange}
           // errors={state?.fieldErrors.title}
         />
       </div>
       <div className="flex flex-col gap-3">
         <div className="font-bold text-neutral-200">내용</div>
-        <Textarea
-          name="post"
-          required
-          placeholder="내용"
-          // errors={state?.fieldErrors.description}
-        />
+        <div className="container" data-color-mode="dark">
+          <MDEditor
+            value={post}
+            onChange={(data) => setPost(data!)}
+            height="500px"
+          />
+        </div>
       </div>
       <div className="flex flex-col gap-3">
-        <div className="font-bold text-neutral-200">사진첨부</div>
+        <div className="font-bold text-neutral-200">썸네일</div>
         <div className="flex gap-5">
           <label
             htmlFor="photo"
@@ -62,6 +97,13 @@ export default function AddPost() {
           p-2"
           >
             <PhotoIcon />
+            <input
+              onChange={onImageChange}
+              type="file"
+              id="photo"
+              name="photo"
+              className="hidden"
+            />
           </label>
           {preview ? (
             <div
@@ -70,14 +112,7 @@ export default function AddPost() {
               style={{
                 backgroundImage: `url(${preview})`,
               }}
-            >
-              <div
-                className="absolute bottom-0 bg-black opacity-70 w-16 h-6 sm:w-20 sm:h-8 rounded-b-md
-              text-xs sm:text-sm flex justify-center items-center"
-              >
-                대표사진
-              </div>
-            </div>
+            ></div>
           ) : (
             ""
           )}

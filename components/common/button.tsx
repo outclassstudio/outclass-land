@@ -1,12 +1,16 @@
 "use client";
 
+import { ButtonHTMLAttributes } from "react";
 import { useFormStatus } from "react-dom";
 
 interface ButtonProps {
   text: string;
 }
 
-export default function Button({ text }: ButtonProps) {
+export default function Button({
+  text,
+  ...rest
+}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) {
   const { pending } = useFormStatus();
 
   return (
@@ -15,6 +19,7 @@ export default function Button({ text }: ButtonProps) {
       className="primary-btn h-10 
     disabled:bg-neutral-400 disabled:text-neutral-300
     disabled:cursor-not-allowed"
+      {...rest}
     >
       {pending ? "로딩중..." : text}
     </button>

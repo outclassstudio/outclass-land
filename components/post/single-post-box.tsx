@@ -11,7 +11,8 @@ interface PostProps {
     id: number;
     title: string;
     description: string | null;
-    photo: string;
+    photo: string | null;
+    summary: string;
     created_at: Date;
     _count: {
       likes: number;
@@ -22,9 +23,6 @@ interface PostProps {
 }
 
 export default function SinglePostBox({ post }: PostProps) {
-  const postPreview = post.description!.split(`\n`)[0];
-  console.log(post.photo);
-
   return (
     <Link
       key={post.id}
@@ -44,9 +42,9 @@ export default function SinglePostBox({ post }: PostProps) {
       ) : (
         ""
       )}
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full justify-center">
         <h2 className="text-white text-xl font-semibold">{post.title}</h2>
-        <p>{post.description}</p>
+        <p>{post.summary}</p>
         <div className="flex items-center justify-between text-sm">
           <div className="flex gap-4 items-center">
             <span>{formatToTimeAgo(post.created_at.toString())}</span>

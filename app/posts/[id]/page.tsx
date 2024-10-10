@@ -49,8 +49,9 @@ export default async function PostDetail({
   if (!user) return notFound();
 
   return (
-    <div className="text-white px-5 py-3 sm:px-3">
-      <div className="flex justify-between items-center gap-2 mb-6">
+    <div className="text-white px-5 py-3 sm:px-3 flex flex-col gap-3">
+      <h2 className="text-4xl sm:text-5xl font-bold mb-6">{post.title}</h2>
+      <div className="flex justify-between items-center gap-2">
         <div className="flex items-center gap-2">
           {post.user.avatar ? (
             <Image
@@ -78,7 +79,7 @@ export default async function PostDetail({
           /> */}
         {post.userId === session.id ? <PostEditMenu id={post.id} /> : ""}
       </div>
-      <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
+
       {/* <p className="mb-6 whitespace-pre-wrap leading-relaxed">
         {post.description}
       </p> */}

@@ -17,7 +17,7 @@ export default function PostEditMenu({ id }: { id: number }) {
   const handlePostDelete = async () => {
     const result = await deletePost(id);
     if (result) {
-      router.push("/life");
+      router.push("/post");
     }
   };
 

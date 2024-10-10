@@ -9,6 +9,7 @@ export async function getMorePosts(page: number) {
       title: true,
       description: true,
       photo: true,
+      summary: true,
       views: true,
       created_at: true,
       _count: {
@@ -34,6 +35,7 @@ export async function getPosts() {
       title: true,
       description: true,
       photo: true,
+      summary: true,
       views: true,
       created_at: true,
       _count: {

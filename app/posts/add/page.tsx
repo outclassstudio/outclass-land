@@ -8,39 +8,50 @@ import { uploadPost } from "./action";
 import MDEditor from "@uiw/react-md-editor";
 import { getUploadUrl } from "@/app/(products)/add/actions";
 import "@/components/post/post-viewer.css";
+import Textarea from "@/components/common/textarea";
 
 export default function AddPost() {
   const [preview, setPreview] = useState("");
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+  const [summary, setSummary] = useState("");
   const [uploadUrl, setUploadUrl] = useState("");
   const [photoId, setPhotoId] = useState("");
   const [tmpFile, setTmpFile] = useState<File | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const cloudflareForm = new FormData();
-    cloudflareForm.append("file", tmpFile!);
-    const response = await fetch(uploadUrl, {
-      method: "post",
-      body: cloudflareForm,
-    });
-    if (response.status !== 200) {
-      return;
+    let photo;
+    if (tmpFile instanceof File) {
+      const cloudflareForm = new FormData();
+      cloudflareForm.append("file", tmpFile);
+      const response = await fetch(uploadUrl, {
+        method: "post",
+        body: cloudflareForm,
+      });
+      if (response.status !== 200) {
+        return;
+      }
+      photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
+    } else {
+      photo = "/undefined";
     }
 
-    const photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
     const data = {
       title,
       post,
       photo,
+      summary,
     };
     await uploadPost(data);
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+  };
+
+  const handleSummayChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setSummary(e.target.value);
   };
 
   const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,6 +97,18 @@ export default function AddPost() {
             height="500px"
           />
         </div>
+      </div>
+      <div className="flex flex-col gap-3">
+        <div className="font-bold text-neutral-200">요약</div>
+        <Textarea
+          name="summary"
+          value={summary}
+          required
+          placeholder="제목"
+          onChange={handleSummayChange}
+          maxLength={150}
+          // errors={state?.fieldErrors.title}
+        />
       </div>
       <div className="flex flex-col gap-3">
         <div className="font-bold text-neutral-200">썸네일</div>

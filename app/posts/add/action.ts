@@ -13,24 +13,19 @@ interface PostDataProps {
 }
 
 export async function uploadPost(data: PostDataProps) {
-  // const data = {
-  //   title: formData.get("title"),
-  //   post: formData.get("post"),
-  // };
-
   const session = await getSession();
 
   const result = postSchema.safeParse(data);
   if (!result.success) return notFound();
-
-  // console.log(result);
 
   if (session.id) {
     const post = await db.post.create({
       data: {
         title: result.data.title,
         description: result.data.post,
-        photo: result.data.photo,
+        photo:
+          result.data.photo === "/undefined" ? undefined : result.data.photo,
+        summary: result.data.summary,
         user: {
           connect: {
             id: session.id,

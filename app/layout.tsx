@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/common/header";
+import Theme from "@/components/common/theme-provider";
 
 const font = Noto_Sans({
   subsets: ["latin"],
@@ -21,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${font.className} bg-neutral-900 text-white max-w-screen-sm mx-auto list-disc`}
+        className={`${font.className} bg-white text-neutral-800 dark:bg-neutral-900 
+        dark:text-white max-w-screen-sm sm:w-full sm:max-w-full mx-auto list-disc`}
       >
-        {children}
+        <Header />
+        <Theme>{children}</Theme>
       </body>
     </html>
   );

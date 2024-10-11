@@ -5,8 +5,9 @@ import Image from "next/image";
 
 export default function Consult() {
   const [program] = dummyData.filter((data) => data.id === 1);
+
   return (
-    <div className="flex flex-col gap-10 justify-center items-center">
+    <div className="flex flex-col gap-10 justify-center items-center px-5">
       <div>
         <div className="aspect-video mt-[80px] sm:w-[640px] w-[384px] relative overflow-hidden">
           <Image
@@ -19,7 +20,7 @@ export default function Consult() {
       </div>
       <div className="flex flex-col gap-5 items-center w-full mb-5">
         <div className="flex flex-col gap-3 w-full mb-5 items-center">
-          <div className="sm:w-[640px] flex flex-col items-start gap-3">
+          <div className="w-full sm:w-[640px] flex flex-col items-start gap-3">
             <div>
               <span className="rounded-md bg-neutral-600 px-2 py-1 text-sm text-white">
                 사주명리상담
@@ -65,11 +66,13 @@ export default function Consult() {
               <th>기준</th>
             </tr>
           </thead>
-          <tr className="*:border-[1px] *:text-center">
-            <td>메일링</td>
-            <td>20,000원</td>
-            <td>회당</td>
-          </tr>
+          <tbody>
+            <tr className="*:border-[1px] *:text-center">
+              <td>메일 상담</td>
+              <td>20,000원</td>
+              <td>회당</td>
+            </tr>
+          </tbody>
           <tbody>
             <tr className="*:border-[1px] *:text-center">
               <td>온라인 상담</td>
@@ -86,7 +89,7 @@ export default function Consult() {
       </div>
       <div className="flex flex-col mb-5 w-full sm:w-[640px]">
         <div className="text-2xl font-semibold mb-5 ">참여자 후기</div>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-5">
           {program.recommend!.map((data) => (
             <RecommendBox key={data.id} data={data} />
           ))}

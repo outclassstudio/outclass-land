@@ -3,6 +3,7 @@ import { Inter, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/header";
 import Theme from "@/components/common/theme-provider";
+import Footer from "@/components/common/footer";
 
 const font = Noto_Sans({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
       >
         <Header />
         <Theme>{children}</Theme>
+        <Footer />
       </body>
     </html>
   );

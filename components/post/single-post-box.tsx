@@ -27,8 +27,8 @@ export default function SinglePostBox({ post }: PostProps) {
     <Link
       key={post.id}
       href={`/posts/${post.id}`}
-      className="pb-5 mb-5 border-b border-neutral-700 text-neutral-400
-  flex gap-5 last:pb-0 last:border-b-0 items-center"
+      className="pb-5 mb-5 border-b border-neutral-200 dark:border-neutral-700 text-neutral-400
+      flex gap-5 last:pb-0 last:border-b-0 items-center"
     >
       {post.photo ? (
         <div className="aspect-square w-[120px] relative overflow-hidden">
@@ -43,8 +43,10 @@ export default function SinglePostBox({ post }: PostProps) {
         ""
       )}
       <div className="flex flex-col gap-2 w-full justify-center">
-        <h2 className="text-white text-xl font-semibold">{post.title}</h2>
-        <p>{post.summary}</p>
+        <h2 className="text-neutral-900 dark:text-white text-xl font-semibold">
+          {post.title}
+        </h2>
+        <p className="text-neutral-800 dark:text-neutral-200">{post.summary}</p>
         <div className="flex items-center justify-between text-sm">
           <div className="flex gap-4 items-center">
             <span>{formatToTimeAgo(post.created_at.toString())}</span>

@@ -20,6 +20,7 @@ async function getInitialProducts(userId: number) {
       price: true,
       created_at: true,
       photo: true,
+      description: true,
       _count: {
         select: {
           productLikes: true,

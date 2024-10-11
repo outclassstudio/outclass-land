@@ -4,6 +4,7 @@ import { Prisma } from "@prisma/client";
 import { unstable_cache as NextCache } from "next/cache";
 import Link from "next/link";
 import { getPosts } from "./actions";
+import { postDummy } from "@/lib/dummy";
 
 const getCachedPosts = NextCache(getPosts, ["posts"], {
   tags: ["posts"],
@@ -18,10 +19,11 @@ export type InitialPosts = Prisma.PromiseReturnType<typeof getPosts>;
 
 export default async function Post() {
   // const initialPosts = await getCachedPosts();
-  const initialPosts = await getPosts();
+  // const initialPosts = await getPosts();
+  const initialPosts = postDummy;
 
   return (
-    <div>
+    <div className="mt-[80px]">
       <PostList initialPosts={initialPosts} />
       <Link
         href="/posts/add"

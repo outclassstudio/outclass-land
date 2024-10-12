@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteComment } from "@/app/posts/[id]/actions";
+import { deleteComment } from "@/app/post/[id]/actions";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface CommentMenuProps {

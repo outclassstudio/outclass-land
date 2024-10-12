@@ -2,6 +2,7 @@ import Button from "@/components/common/button";
 import RecommendBox from "@/components/program/recommend-box";
 import { dummyData } from "@/lib/dummy";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Consult() {
   const [program] = dummyData.filter((data) => data.id === 1);
@@ -41,9 +42,9 @@ export default function Consult() {
             </div>
           </div>
         </div>
-        <div className="w-[200px]">
+        <Link href={"/apply"} className="w-[200px]">
           <Button text="상담신청" />
-        </div>
+        </Link>
       </div>
       <div className="flex flex-col gap-5 mb-5 w-full sm:w-[640px]">
         <div className="text-2xl font-semibold">이런 분에게 추천해요</div>
@@ -95,9 +96,9 @@ export default function Consult() {
           ))}
         </div>
       </div>
-      <div className="mb-24 w-[200px]">
+      <Link href={"/apply"} className="w-[200px]">
         <Button text="상담신청" />
-      </div>
+      </Link>
     </div>
   );
 }

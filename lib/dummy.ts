@@ -73,4 +73,60 @@ export const postDummy = [
       likes: 0,
     },
   },
+  {
+    summary: "preview",
+    title: "test post",
+    id: 2,
+    description: "my test test",
+    views: 0,
+    created_at: new Date(),
+    photo:
+      "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/2864229a-dc87-4f00-498c-8125010f3c00",
+    _count: {
+      comments: 0,
+      likes: 0,
+    },
+  },
+  {
+    summary: "preview22",
+    title: "test post222",
+    id: 3,
+    description: "my test test2222222",
+    views: 0,
+    created_at: new Date(),
+    photo:
+      "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/8997c530-5bcf-4a5a-7715-24a23de5e900",
+    _count: {
+      comments: 0,
+      likes: 0,
+    },
+  },
+  {
+    summary: "preview",
+    title: "test post",
+    id: 4,
+    description: "my test test",
+    views: 0,
+    created_at: new Date(),
+    photo:
+      "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/2864229a-dc87-4f00-498c-8125010f3c00",
+    _count: {
+      comments: 0,
+      likes: 0,
+    },
+  },
+  {
+    summary: "preview22",
+    title: "test post222",
+    id: 5,
+    description: "my test test2222222",
+    views: 0,
+    created_at: new Date(),
+    photo:
+      "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/8997c530-5bcf-4a5a-7715-24a23de5e900",
+    _count: {
+      comments: 0,
+      likes: 0,
+    },
+  },
 ];

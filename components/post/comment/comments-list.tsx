@@ -1,6 +1,6 @@
 "use client";
 
-import { InitialComments, saveComment } from "@/app/posts/[id]/actions";
+import { InitialComments, saveComment } from "@/app/post/[id]/actions";
 import { useRef, useState } from "react";
 import CommentInput from "./comment-input";
 import SingleComment from "./single-comment";

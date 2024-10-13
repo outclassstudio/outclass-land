@@ -4,9 +4,9 @@ import Input from "@/components/common/input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import Textarea from "@/components/common/textarea";
-import { InitialPostType } from "@/app/posts/edit/[id]/page";
+import { InitialPostType } from "@/app/post/edit/[id]/page";
 import { notFound } from "next/navigation";
-import { editPost } from "@/app/posts/edit/[id]/actions";
+import { editPost } from "@/app/post/edit/[id]/actions";
 import { useRouter } from "next/navigation";
 
 interface PostEditProps {

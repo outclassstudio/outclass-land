@@ -1,6 +1,6 @@
 "use client";
 
-import { editComment } from "@/app/posts/[id]/actions";
+import { editComment } from "@/app/post/[id]/actions";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 

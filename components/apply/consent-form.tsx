@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Button from "../common/button";
-import Input from "../common/input";
 
 export default function ConsentForm() {
   const [isConsent, setIsConsent] = useState(true);
@@ -14,6 +13,8 @@ export default function ConsentForm() {
       setIsConsent(false);
     }
   };
+
+  const handleChecked = () => {};
 
   return (
     <>
@@ -41,6 +42,7 @@ export default function ConsentForm() {
             <input
               name="consent"
               type="checkbox"
+              onChange={handleChecked}
               checked={isConsent}
               className="cursor-pointer checked:bg-orange-600"
             />
@@ -58,6 +60,7 @@ export default function ConsentForm() {
             <input
               name="consent"
               type="checkbox"
+              onChange={handleChecked}
               checked={!isConsent}
               className="cursor-pointer checked:bg-orange-600 active:bg-none"
             />

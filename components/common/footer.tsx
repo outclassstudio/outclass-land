@@ -15,19 +15,21 @@ export default function Footer() {
       <div className="flex w-full sm:w-[768px] flex-col-reverse sm:flex-row justify-between items-center gap-2">
         <div className="flex flex-col justify-center items-start gap-1">
           <div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center py-1">
               <Link className="text-neutral-800" href="/terms">
                 <span
-                  className="text-xs font-light text-neutral-800"
+                  className="text-xs font-light text-neutral-800 dark:text-neutral-200"
                   onClick={handleTop}
                 >
                   이메일 무단수집 거부
                 </span>
               </Link>
-              <span className="text-xs font-light text-neutral-800">|</span>
+              <span className="text-xs font-light text-neutral-800 dark:text-neutral-200">
+                |
+              </span>
               <Link className="text-neutral-800" href="/policy">
                 <span
-                  className="text-xs font-light text-neutral-800"
+                  className="text-xs font-light text-neutral-800 dark:text-neutral-200"
                   onClick={handleTop}
                 >
                   개인정보 이용 약관
@@ -35,26 +37,25 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <span className="text-xs font-light text-neutral-800">
+          <span className="text-xs font-light text-neutral-800 dark:text-neutral-200">
             사업자번호 : 102-80-03659
           </span>
           <div>
-            <div className="flex gap-2 items-center">
-              <span className="text-xs font-light text-neutral-800">
-                주소 : 노원구 동일로 1029 6F
-              </span>
-              <span className="text-xs font-light text-neutral-800">|</span>
-              <span className="text-xs font-light text-neutral-800">
-                문의 : outclassstudio@gmail.com
-              </span>
+            <div
+              className="flex gap-2 items-center *:text-xs *:font-light *:text-neutral-800
+            dark:*:text-neutral-200"
+            >
+              <span>주소 : 노원구 동일로 1029 6F</span>
+              <span>|</span>
+              <span>문의 : outclassstudio@gmail.com</span>
             </div>
           </div>
-          <div className="text-xs font-light text-neutral-800">
+          <div className="py-1 text-xs font-light text-neutral-800 dark:text-neutral-200">
             © Outclass Company All Rights Reserved.
           </div>
         </div>
-        <div className="flex gap-2">
-          <Link className="text-neutral-800" href="/consult">
+        <div className="flex gap-2 *:text-neutral-800 dark:*:text-neutral-200">
+          <Link href="/consult">
             <span
               className="text-sm font-light hover:text-orange-500"
               onClick={handleTop}
@@ -62,7 +63,7 @@ export default function Footer() {
               상담안내
             </span>
           </Link>
-          <Link className="text-neutral-800" href="/post">
+          <Link href="/post">
             <span
               className="text-sm font-light hover:text-orange-500"
               onClick={handleTop}
@@ -70,7 +71,7 @@ export default function Footer() {
               포스트
             </span>
           </Link>
-          <Link className="text-neutral-800" href="/about">
+          <Link href="/about">
             <span
               className="text-sm font-light hover:text-orange-500"
               onClick={handleTop}

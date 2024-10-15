@@ -71,24 +71,6 @@ export default function Apply() {
             <div className="font-bold dark:text-neutral-200">상담희망일시</div>
             <div className="flex gap-2 w-full">
               <div className="w-1/2">
-                {/* <Input
-                  name="date"
-                  type="date"
-                  required={true}
-                  // errors={state?.fieldErrors.password}
-                  minLength={PASSWORD_MIN_LENGTH}
-                />
-              </div>
-              <div className="w-1/2">
-                <Input
-                  name="dateTime"
-                  type="time"
-                  max="23:00"
-                  min="10:00"
-                  required={true}
-                  // errors={state?.fieldErrors.password}
-                  minLength={PASSWORD_MIN_LENGTH}
-                /> */}
                 <ReservationForm />
               </div>
             </div>

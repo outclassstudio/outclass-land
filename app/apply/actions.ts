@@ -55,3 +55,16 @@ export const createApply = async (prevState: any, formData: FormData) => {
     redirect("/apply");
   }
 };
+
+export async function getReservation(date: string) {
+  const reserve = await db.counsel.findMany({
+    where: {
+      date,
+    },
+    select: {
+      date: true,
+      time: true,
+    },
+  });
+  return reserve;
+}

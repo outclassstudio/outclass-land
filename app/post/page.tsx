@@ -19,8 +19,8 @@ export type InitialPosts = Prisma.PromiseReturnType<typeof getPosts>;
 
 export default async function Post() {
   // const initialPosts = await getCachedPosts();
-  // const initialPosts = await getPosts();
-  const initialPosts = postDummy;
+  const initialPosts = await getPosts();
+  // const initialPosts = postDummy;
 
   return (
     <div className="mt-[80px] flex justify-center">

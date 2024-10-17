@@ -2,14 +2,20 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// datasource db {
-//   provider  = "postgresql"
-//   url       = env("POSTGRES_PRISMA_URL")
-//   directUrl = env("POSTGRES_URL_NON_POOLING")
-// }
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+// datasource db {
+//   provider = "sqlite"
+//   url      = env("DATABASE_URL")
+// }
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model User {
@@ -30,6 +36,7 @@ model User {
   messages     Message[]
   chatRooms    ChatRoom[]
   productLikes ProductLike[]
+  role         Role          @default(USER)
 }
 
 model SMSToken {
@@ -122,4 +129,11 @@ model ProductLike {
   productId  Int
 
   @@id(name: "id", [userId, productId])
+}
+
+model Counsel {
+  id         Int      @id @default(autoincrement())
+  date       String
+  time       String
+  created_at DateTime @default(now())
 }

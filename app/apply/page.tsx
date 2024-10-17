@@ -26,17 +26,12 @@ export default function Apply() {
               placeholder="이름을 입력하세요"
               required={true}
               errors={state?.fieldErrors.username}
-              minLength={3}
-              maxLength={10}
+              minLength={1}
             />
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">성별</div>
-            <select
-              className="bg-transparent rounded-md w-full transition
-              h-10 focus:outline-none ring-2 focus:ring-4 ring-neutral-200
-            focus:ring-orange-500 border-none placeholder:text-neutral-400"
-            >
+            <select name="program" className="input-style w-full h-10">
               <option>남자</option>
               <option>여자</option>
             </select>
@@ -56,12 +51,7 @@ export default function Apply() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">프로그램 선택</div>
-            <select
-              name="program"
-              className="bg-transparent rounded-md w-full transition
-              h-10 focus:outline-none ring-2 focus:ring-4 ring-neutral-200
-            focus:ring-orange-500 border-none placeholder:text-neutral-400"
-            >
+            <select name="program" className="input-style w-full h-10">
               <option>메일 상담 / 회당 20,000원</option>
               <option>온라인 상담 / 1회 30분 50,000원</option>
               <option>오프라인 상담 / 1회 30분 80,000원</option>

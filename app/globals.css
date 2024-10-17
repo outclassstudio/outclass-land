@@ -14,14 +14,16 @@
 }
 
 @layer utilities {
-  .text-bigger-hello {
-    @apply text-3xl font-semibold;
-  }
 }
 
 @layer components {
   .primary-btn {
     @apply w-full bg-orange-500 text-white text-lg font-medium
     rounded-md text-center hover:bg-orange-400 transition-colors;
+  }
+  .input-style {
+    @apply bg-transparent rounded-md transition
+    focus:outline-none ring-2 focus:ring-4 ring-neutral-200
+  focus:ring-orange-500 border-none placeholder:text-neutral-400;
   }
 }

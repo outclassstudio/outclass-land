@@ -44,12 +44,7 @@ export default function ReservationForm() {
       />
       {startDate ? (
         <Suspense fallback={<div>로딩중</div>}>
-          <select
-            name="dateTime"
-            className="bg-transparent rounded-md transition
-        h-10 focus:outline-none ring-2 focus:ring-4 ring-neutral-200
-      focus:ring-orange-500 border-none placeholder:text-neutral-400"
-          >
+          <select name="dateTime" className="input-style h-10">
             {timeList.map((time, idx) => (
               <option key={idx}>{time}</option>
             ))}

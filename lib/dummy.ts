@@ -3,11 +3,12 @@ export const dummyData = [
     id: 1,
     title: "라이프 코칭(메일링)",
     category: "사주명리상담",
-    price: 20000,
+    price: 25000,
     description: "성장의 방향을 함께 고민하고 해결합니다",
     photo:
       "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/8c9c528c-c728-4d88-16a5-2e30b19dbc00",
     created_at: new Date(),
+    isOpen: true,
     recommend: [
       {
         id: 1,
@@ -38,6 +39,18 @@ export const dummyData = [
     category: "사주명리상담",
     price: 20000,
     description: "성장의 방향을 함께 고민하고 해결합니다",
+    isOpen: false,
+    photo:
+      "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/8c9c528c-c728-4d88-16a5-2e30b19dbc00",
+    created_at: new Date(),
+  },
+  {
+    id: 3,
+    title: "라이프 코칭(메일링)",
+    category: "사주명리상담",
+    price: 20000,
+    description: "성장의 방향을 함께 고민하고 해결합니다",
+    isOpen: false,
     photo:
       "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/8c9c528c-c728-4d88-16a5-2e30b19dbc00",
     created_at: new Date(),

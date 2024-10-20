@@ -60,7 +60,7 @@ export default function Footer() {
               className="text-sm font-light hover:text-orange-500"
               onClick={handleTop}
             >
-              상담안내
+              프로그램
             </span>
           </Link>
           <Link href="/post">

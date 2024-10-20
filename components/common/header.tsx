@@ -28,13 +28,13 @@ export default function Header() {
           <div className="font-semibold text-lg *:cursor-pointer flex gap-5">
             <Link
               className={`hover:text-orange-400 ${
-                pathname === "/consult"
+                pathname === "/program"
                   ? "text-orange-500"
                   : "text-neutral-800 dark:text-neutral-200"
               }`}
-              href="/consult"
+              href="/program"
             >
-              상담안내
+              프로그램
             </Link>
             <Link
               className={`hover:text-orange-400 ${

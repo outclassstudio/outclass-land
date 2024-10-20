@@ -19,26 +19,5 @@ export const useThemeEffect = () => {
       setDarkMode();
     }
     saveTheme(theme || "light");
-
-    // const mediaCheck = window.matchMedia(
-    //   "(prefers-color-scheme: dark)"
-    // ).matches;
-
-    // console.log("check last", mediaCheck);
-
-    // if (theme !== "dark" && mediaCheck) {
-    //   setDarkMode();
-    //   saveTheme("dark");
-    // } else if (theme === "dark" && !mediaCheck) {
-    //   setLightMode();
-    //   saveTheme("light");
-    // }
-    if (theme !== "dark") {
-      setDarkMode();
-      saveTheme("dark");
-    } else if (theme === "dark") {
-      setLightMode();
-      saveTheme("light");
-    }
   }, []);
 };

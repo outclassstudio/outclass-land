@@ -19,7 +19,7 @@ export default function Program() {
           </div>
           <div className="flex w-full gap-2 mb-2">
             <Link
-              href={"/consult"}
+              href={"/program"}
               className="primary-btn h-12 flex items-center justify-center w-[150px]"
             >
               상담받기

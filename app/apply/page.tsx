@@ -65,7 +65,7 @@ export default function Apply() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-1">
+          {/* <div className="flex flex-col gap-1">
             <div className="font-bold dark:text-neutral-200">생년월일시</div>
             <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-2">
               * 생시를 입력해야 상담을 받을 수 있어요.
@@ -90,16 +90,16 @@ export default function Apply() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">
-              상담 희망 내용
+              상담 요청 사항
             </div>
             <Input
               name="subject"
               type="text"
-              placeholder="희망하시는 상담의 내용을 간략히 기재해주세요 ex) 진로, 연애, 대인관계 등"
-              required={true}
+              placeholder="상담사에게 요청하고 싶은 내용을 자유롭게 적어주세요"
+              required={false}
               errors={state?.fieldErrors.subject}
               minLength={PASSWORD_MIN_LENGTH}
             />

@@ -26,4 +26,7 @@
     focus:outline-none ring-2 focus:ring-4 ring-neutral-200
   focus:ring-orange-500 border-none placeholder:text-neutral-400;
   }
+  .skeleton-style {
+    @apply rounded-md bg-neutral-300 dark:bg-neutral-700;
+  }
 }

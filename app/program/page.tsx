@@ -23,17 +23,24 @@ export default async function Products() {
   // const initialProducts = await getInitialProducts();
   const initialProducts = dummyData;
 
+  // const getData = () => {
+  //   return new Promise((res) => setTimeout(res, 5000)).then(() => {
+  //     return dummyData;
+  //   });
+  // };
+  // const initialProducts = await getData();
+
   return (
-    <div>
+    <div className="mt-[80px] flex justify-center">
       <ProductList initialProducts={initialProducts} />
-      <Link
+      {/* <Link
         href="/add"
         className="bg-orange-500 flex items-center justify-center 
         rounded-full size-16 fixed bottom-24 right-8 text-white
         transition-colors hover:bg-orange-400 shadow-lg shadow-neutral-800"
       >
         <PlusIcon className="size-10" />
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import ListProduct from "./list-product";
 import { useEffect, useRef, useState } from "react";
-import { getMoreProducts, InitialProducts } from "@/app/(tabs)/program/actions";
+import { getMoreProducts, InitialProducts } from "@/app/program/actions";
 
 // interface ProductsProps {
 //   initialProducts: InitialProducts;
@@ -62,7 +62,7 @@ export default function ProductList({ initialProducts }: ProductsProps) {
   // }, [page]);
 
   return (
-    <div className="p-5 flex flex-col gap-5 mb-20">
+    <div className="flex flex-col gap-10 w-full sm:w-[640px]">
       {products.map((product) => (
         <ListProduct key={product.id} {...product} />
       ))}

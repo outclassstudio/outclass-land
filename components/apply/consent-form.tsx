@@ -24,7 +24,7 @@ export default function ConsentForm() {
         </div>
         <div
           className="border-[1px] border-neutral-700 rounded-sm border-dashed
-          p-3 text-sm mb-2 text-neutral-700 dark:text-neutral-300 dark:border-neutral-300"
+          p-4 mb-4 text-neutral-700 dark:text-neutral-300 dark:border-neutral-300"
         >
           Outclass Land는 귀하의 소중한 개인정보를 수집함에 있어서
           ⌈개인정보보호법⌋에 따라 본인의 동의를 얻고 있습니다

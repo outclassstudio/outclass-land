@@ -1,18 +1,16 @@
 import ProductList from "@/components/product/product-list";
-import { PlusIcon } from "@heroicons/react/24/solid";
-import { unstable_cache as nextCache, revalidateTag } from "next/cache";
-import Link from "next/link";
-import { getInitialProducts } from "./actions";
 import { dummyData } from "@/lib/dummy";
+// import { unstable_cache as nextCache, revalidateTag } from "next/cache";
+// import { getInitialProducts } from "./actions";
 
 //cache 사용 -> 함수는 return이 반드시 있어야 함
-const getCashedProducts = nextCache(getInitialProducts, ["home-products"], {
-  tags: ["products"],
-  revalidate: 60,
-});
+// const getCashedProducts = nextCache(getInitialProducts, ["home-products"], {
+//   tags: ["products"],
+//   revalidate: 60,
+// });
 
 export const metadata = {
-  title: "홈",
+  title: "프로그램",
 };
 
 export const dynamic = "force-dynamic";
@@ -31,16 +29,11 @@ export default async function Products() {
   // const initialProducts = await getData();
 
   return (
-    <div className="mt-[80px] flex justify-center">
+    <div className="mt-[100px] flex flex-col items-center p-5">
+      <div className="w-full flex text-2xl sm:text-4xl font-bold mb-4">
+        프로그램
+      </div>
       <ProductList initialProducts={initialProducts} />
-      {/* <Link
-        href="/add"
-        className="bg-orange-500 flex items-center justify-center 
-        rounded-full size-16 fixed bottom-24 right-8 text-white
-        transition-colors hover:bg-orange-400 shadow-lg shadow-neutral-800"
-      >
-        <PlusIcon className="size-10" />
-      </Link> */}
     </div>
   );
 }

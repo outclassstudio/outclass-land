@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 // import "@/lib/db";
 
-export default function Program() {
+export const metadata = {
+  title: "홈 | Outclass Land",
+};
+
+export default function Home() {
   return (
     <div className="flex flex-col items-center justify-between h-full bg-[#fffae0] mt-[72px]">
       <div className="flex flex-col gap-2 max-w-screen-md p-3 h-[700px] justify-center">

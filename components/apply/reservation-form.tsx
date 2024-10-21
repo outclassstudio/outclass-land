@@ -4,10 +4,10 @@ import { Suspense, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { ko } from "date-fns/locale/ko";
 import { reservation_time } from "@/lib/dummy";
+import { dateFormatter } from "@/lib/utils";
+import { getReservation } from "@/app/programs/[id]/apply/actions";
 import "react-datepicker/dist/react-datepicker.css";
 import "./override.css";
-import { dateFormatter } from "@/lib/utils";
-import { getReservation } from "@/app/apply/actions";
 
 export default function ReservationForm() {
   const [startDate, setStartDate] = useState<Date | null>(null);

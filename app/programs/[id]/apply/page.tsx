@@ -6,9 +6,11 @@ import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 import { createApply } from "./actions";
 import ConsentForm from "@/components/apply/consent-form";
 import ReservationForm from "@/components/apply/reservation-form";
+import { programsList } from "@/lib/dummy";
 
-export default function Apply() {
+export default function Apply({ params: { id } }: { params: { id: string } }) {
   const [state, dispatch] = useFormState(createApply, null);
+  const [program] = programsList.filter((el) => el.id === +id);
 
   return (
     <div className="w-ful flex justify-center mt-[72px]">
@@ -17,7 +19,7 @@ export default function Apply() {
           <h1 className="text-2xl font-bold">상담신청</h1>
           <h2 className="text-xl">성장의 방향을 함께 발견해요.</h2>
         </div>
-        <form action={dispatch} className="flex flex-col gap-6">
+        <form action={dispatch} className="flex flex-col gap-8">
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">이름</div>
             <Input
@@ -31,7 +33,14 @@ export default function Apply() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">성별</div>
-            <select name="program" className="input-style w-full h-10">
+            <select
+              name="program"
+              defaultValue={"DEFAULT"}
+              className="input-style w-full h-10 text-neutral-400"
+            >
+              <option value="DEFAULT" disabled hidden>
+                성별을 선택해주세요.
+              </option>
               <option>남자</option>
               <option>여자</option>
             </select>
@@ -51,10 +60,17 @@ export default function Apply() {
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">프로그램 선택</div>
-            <select name="program" className="input-style w-full h-10">
-              <option>메일 상담 / 회당 20,000원</option>
-              <option>온라인 상담 / 1회 30분 50,000원</option>
-              <option>오프라인 상담 / 1회 30분 80,000원</option>
+            <select
+              name="program"
+              defaultValue={"DEFAULT"}
+              className="input-style w-full h-10 text-neutral-400"
+            >
+              <option value="DEFAULT" disabled hidden>
+                프로그램을 선택해주세요.
+              </option>
+              {program.programs.map((prg, idx) => (
+                <option key={idx}>{prg}</option>
+              ))}
             </select>
           </div>
           <div className="flex flex-col gap-3">
@@ -65,32 +81,6 @@ export default function Apply() {
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-col gap-1">
-            <div className="font-bold dark:text-neutral-200">생년월일시</div>
-            <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-2">
-              * 생시를 입력해야 상담을 받을 수 있어요.
-            </div>
-            <div className="flex gap-2 w-full">
-              <div className="w-1/2">
-                <Input
-                  name="birth"
-                  type="date"
-                  required={true}
-                  // errors={state?.fieldErrors.password}
-                  minLength={PASSWORD_MIN_LENGTH}
-                />
-              </div>
-              <div className="w-1/2">
-                <Input
-                  name="birthTime"
-                  type="time"
-                  required={true}
-                  // errors={state?.fieldErrors.password}
-                  minLength={PASSWORD_MIN_LENGTH}
-                />
-              </div>
-            </div>
-          </div> */}
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">
               상담 요청 사항

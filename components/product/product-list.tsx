@@ -2,7 +2,7 @@
 
 import ListProduct from "./list-product";
 import { useEffect, useRef, useState } from "react";
-import { getMoreProducts, InitialProducts } from "@/app/program/actions";
+// import { getMoreProducts, InitialProducts } from "@/app/program/actions";
 
 // interface ProductsProps {
 //   initialProducts: InitialProducts;
@@ -62,20 +62,17 @@ export default function ProductList({ initialProducts }: ProductsProps) {
   // }, [page]);
 
   return (
-    <div className="flex flex-col gap-10 w-full sm:w-[640px]">
-      {products.map((product) => (
-        <ListProduct key={product.id} {...product} />
-      ))}
+    <>
+      <div className="flex flex-col gap-14 w-full sm:w-[640px]">
+        {products.map((product) => (
+          <ListProduct key={product.id} {...product} />
+        ))}
+      </div>
       {isLastPage ? null : (
-        <div
-          ref={trigger}
-          //     className="mb-40 text-sm font-semibold bg-orange-500 w-fix mx-auto
-          // px-3 py-2 rounded-md hover:opacity-90 active:scale-95"
-          className="bg-transparent text-transparent"
-        >
+        <div ref={trigger} className="text-xs bg-transparent text-transparent">
           {isLoading ? "로딩중" : "더 가져오기"}
         </div>
       )}
-    </div>
+    </>
   );
 }

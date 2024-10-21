@@ -1,3 +1,4 @@
+import CostTable from "@/components/apply/cost-guide/cost-table";
 import Button from "@/components/common/button";
 import RecommendBox from "@/components/program/recommend-box";
 import { dummyData } from "@/lib/dummy";
@@ -12,16 +13,14 @@ export default function ProgramsDetail({
   const [program] = dummyData.filter((data) => data.id === +id);
 
   return (
-    <div className="flex flex-col gap-10 justify-center items-center px-5">
-      <div>
-        <div className="aspect-video mt-[80px] sm:w-[640px] w-[384px] relative overflow-hidden">
-          <Image
-            src={`${program.photo}/public`}
-            className="object-cover"
-            fill
-            alt=""
-          />
-        </div>
+    <div className="mt-[100px] flex flex-col gap-10 justify-center items-center px-5">
+      <div className="aspect-video sm:w-[640px] w-[384px] relative overflow-hidden">
+        <Image
+          src={`${program.photo}/public`}
+          className="object-cover"
+          fill
+          alt=""
+        />
       </div>
       <div className="flex flex-col gap-5 items-center w-full mb-5">
         <div className="flex flex-col gap-3 w-full mb-5 items-center">
@@ -46,7 +45,7 @@ export default function ProgramsDetail({
             </div>
           </div>
         </div>
-        <Link href={"/apply"} className="w-[200px]">
+        <Link href={`${[id]}/apply`} className="w-[200px]">
           <Button text="상담신청" />
         </Link>
       </div>
@@ -63,34 +62,7 @@ export default function ProgramsDetail({
       </div>
       <div className="flex flex-col gap-5 mb-5 w-full sm:w-[640px]">
         <div className="text-2xl font-semibold">비용 안내</div>
-        <table className="table-fixed border-2">
-          <thead>
-            <tr className="*:border-2 bg-neutral-100 dark:bg-neutral-700">
-              <th>구분</th>
-              <th>비용</th>
-              <th>기준</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="*:border-[1px] *:text-center">
-              <td>메일 상담</td>
-              <td>20,000원</td>
-              <td>회당</td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="*:border-[1px] *:text-center">
-              <td>온라인 상담</td>
-              <td>50,000원</td>
-              <td>1회 / 30분</td>
-            </tr>
-            <tr className="*:border-[1px] *:text-center">
-              <td>오프라인 상담</td>
-              <td>80,000원</td>
-              <td>1회 / 30분</td>
-            </tr>
-          </tbody>
-        </table>
+        <CostTable />
       </div>
       <div className="flex flex-col mb-5 w-full sm:w-[640px]">
         <div className="text-2xl font-semibold mb-5 ">참여자 후기</div>

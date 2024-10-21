@@ -2,6 +2,10 @@ import Button from "@/components/common/button";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "소개",
+};
+
 export default function About() {
   return (
     <div className="mt-[120px] mb-10 flex flex-col justify-center items-center p-4">
@@ -51,7 +55,7 @@ export default function About() {
             >
               <div className="text-xl font-semibold">개인 맞춤형 분석</div>
               <div className="text-neutral-600 dark:text-neutral-300">
-                사주팔자를 단순한 운명의 지표가 아닌, 개인의 성격과 잠재력을
+                상담 분석의 결과를 운명의 지표가 아닌, 개인의 성격과 잠재력을
                 나타내는 도구로 활용합니다.
               </div>
             </div>
@@ -61,7 +65,7 @@ export default function About() {
             >
               <div className="text-xl font-semibold">성장 중심 해석</div>
               <div className="text-neutral-600 dark:text-neutral-300">
-                같은 사주팔자라도 개인의 노력과 선택에 따라 다른 삶을 살 수
+                같은 성격 유형이라도 개인의 노력과 선택에 따라 다른 삶을 살 수
                 있다는 점을 강조합니다.
               </div>
             </div>

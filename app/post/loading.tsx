@@ -1,7 +1,7 @@
 export default function PostLoading() {
   return (
     <div className="mt-[80px] p-5 flex min-h-[600px] justify-center">
-      <div className="w-full sm:w-[640px] px-2">
+      <div className="w-full sm:w-[640px] px-2 animate-pulse">
         {[...Array(7)].map((_, index) => (
           <div
             key={index}

@@ -97,7 +97,7 @@ export default function About() {
             {`아웃클래스는 고객과 함께 무한한 가능성의 세계로 나아갑니다. 우리는 단순한 진단을 넘어, 고객이 스스로 더 나은 미래를 개척할 수 있도록 지원합니다.\n\n지금, 아웃클래스와 함께 여러분의 잠재력을 최대한 발휘하는 새로운 여정을 시작해보세요.`}
           </div>
           <div className="flex justify-center w-full">
-            <Link href={"/consult"} className="w-[200px]">
+            <Link href={"/program"} className="w-[200px]">
               <Button text="상담안내" />
             </Link>
           </div>

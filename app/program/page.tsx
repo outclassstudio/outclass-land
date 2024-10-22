@@ -30,7 +30,7 @@ export default async function Products() {
 
   return (
     <div className="mt-[100px] flex flex-col items-center p-5">
-      <div className="w-full flex text-2xl sm:text-4xl font-bold mb-4">
+      <div className="w-full sm:w-[640px] px-1 flex text-2xl sm:text-4xl font-bold mb-4">
         프로그램
       </div>
       <ProductList initialProducts={initialProducts} />

@@ -26,12 +26,12 @@ export default function SinglePostBox({ post }: PostProps) {
   return (
     <Link
       key={post.id}
-      href={`/posts/${post.id}`}
+      href={`/post/${post.id}`}
       className="pb-5 mb-5 border-b border-neutral-200 dark:border-neutral-700 text-neutral-400
       flex gap-5 last:pb-0 last:border-b-0 items-center"
     >
       {post.photo ? (
-        <div className="aspect-square w-[120px] relative overflow-hidden">
+        <div className="aspect-square w-[120px] relative rounded-md overflow-hidden">
           <Image
             src={`${post.photo}/width=120,height=120`}
             className="object-cover"

@@ -74,7 +74,7 @@ export default function CommentsList({
   };
 
   return (
-    <div className="flex flex-col gap-5 mb-[90px]">
+    <div className="flex flex-col gap-5 mb-10">
       <div className="flex justify-between items-center mb-4">
         <div className="font-semibold">
           댓글

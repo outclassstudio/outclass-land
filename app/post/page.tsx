@@ -26,7 +26,7 @@ export default async function Post() {
     <div className="mt-[80px] flex justify-center">
       <PostList initialPosts={initialPosts} />
       <Link
-        href="/posts/add"
+        href="/post/add"
         className="bg-orange-500 flex items-center justify-center 
         rounded-full size-16 fixed bottom-[90px] right-8 text-white
         transition-colors hover:bg-orange-400 shadow-lg shadow-neutral-800"

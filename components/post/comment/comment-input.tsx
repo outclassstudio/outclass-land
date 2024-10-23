@@ -22,7 +22,8 @@ export default function CommentInput({
   return (
     <div
       className="fixed bottom-0 left-0 w-full px-4 py-3 border-t
-border-neutral-800 bg-neutral-900 z-10 flex justify-center"
+      border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900 
+      z-10 flex justify-center"
     >
       <form
         onSubmit={onSubmit}
@@ -38,9 +39,10 @@ border-neutral-800 bg-neutral-900 z-10 flex justify-center"
           placeholder="댓글을 입력해주세요"
           autoComplete="off"
           ref={textarea}
-          className="bg-neutral-800 rounded-2xl w-full h-[40px]
-    focus:outline-none px-5 ring-1 transition border-none
-    ring-neutral-800 focus:ring-neutral-700 placeholder:text-neutral-300"
+          className="bg-neutral-200 dark:bg-neutral-800 rounded-2xl w-full h-[40px]
+          focus:outline-none px-5 ring-1 transition border-none
+        ring-neutral-200 dark:ring-neutral-800 focus:ring-neutral-700 
+        dark:placeholder:text-neutral-300"
         />
         <button>
           <PaperAirplaneIcon

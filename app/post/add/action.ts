@@ -38,6 +38,6 @@ export async function uploadPost(data: PostDataProps) {
     });
 
     // revalidateTag("posts");
-    redirect(`/posts/${post.id}`);
+    redirect(`/post/${post.id}`);
   }
 }

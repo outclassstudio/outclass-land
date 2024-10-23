@@ -8,9 +8,7 @@ import LikeButton from "@/components/post/like-button";
 import { getComments, getLikeStatus, getPost } from "./actions";
 import { getUserProfile } from "@/lib/user";
 import CommentsList from "@/components/post/comment/comments-list";
-import Link from "next/link";
 import PostEditMenu from "@/components/post/post-edit-menu";
-import MDEditor from "@uiw/react-md-editor";
 import PostViewer from "@/components/post/post-viewer";
 
 export const metadata = {
@@ -49,57 +47,57 @@ export default async function PostDetail({
   if (!user) return notFound();
 
   return (
-    <div className="text-white px-5 py-3 sm:px-3 flex flex-col gap-3">
-      <h2 className="text-4xl sm:text-5xl font-bold mb-6">{post.title}</h2>
-      <div className="flex justify-between items-center gap-2">
-        <div className="flex items-center gap-2">
-          {post.user.avatar ? (
-            <Image
-              width={28}
-              height={28}
-              src={`${post.user.avatar!}/avatar`}
-              alt={post.user.username}
-              className="size-7 rounded-full"
-            />
-          ) : (
-            <UserIcon className="size-7" />
-          )}
-          <div>
-            <span className="text-sm font-semibold">{post.user.username}</span>
-            <div className="text-xs">
-              <span className="text-neutral-400">
-                {formatToTimeAgo(post.created_at.toString())}
+    <div className="mt-[100px] w-full flex justify-center">
+      <div className="w-full sm:w-[768px] dark:text-white px-5 py-3 sm:px-3 flex flex-col gap-3">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6">{post.title}</h2>
+        <div className="flex justify-between items-center gap-2 mb-6">
+          <div className="flex items-center gap-2">
+            {post.user.avatar ? (
+              <Image
+                width={28}
+                height={28}
+                src={`${post.user.avatar!}/avatar`}
+                alt={post.user.username}
+                className="size-7 rounded-full"
+              />
+            ) : (
+              <UserIcon className="size-7" />
+            )}
+            <div className="flex gap-2 items-end">
+              <span className="text-sm font-semibold">
+                {post.user.username}
               </span>
+              <div className="text-xs">
+                <span className="text-neutral-400">
+                  {formatToTimeAgo(post.created_at.toString())}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        {/* <EllipsisVerticalIcon
+          {/* <EllipsisVerticalIcon
             onClick={handleModalOpen}
             className="size-5"
           /> */}
-        {post.userId === session.id ? <PostEditMenu id={post.id} /> : ""}
-      </div>
-
-      {/* <p className="mb-6 whitespace-pre-wrap leading-relaxed">
-        {post.description}
-      </p> */}
-      <PostViewer contents={post.description!} />
-      <div className="flex flex-col gap-5 items-start mb-5">
-        <div className="flex items-center gap-2 text-neutral-400 text-sm">
-          <EyeIcon className="size-5" />
-          <span>조회 {post.views}</span>
+          {post.userId === session.id ? <PostEditMenu id={post.id} /> : ""}
         </div>
-        <LikeButton isLiked={isLiked} likeCount={likeCount} postId={id} />
+        <PostViewer contents={post.description!} />
+        <div className="flex flex-col gap-5 items-start mb-5">
+          <div className="flex items-center gap-2 text-neutral-400 text-sm">
+            <EyeIcon className="size-5" />
+            <span>조회 {post.views}</span>
+          </div>
+          <LikeButton isLiked={isLiked} likeCount={likeCount} postId={id} />
+        </div>
+        <div className="border-2 border-neutral-100 dark:border-neutral-700 my-6" />
+        {/* <CommentsList
+          initialComments={comments}
+          userId={session.id!}
+          postId={post.id}
+          username={user.username!}
+          avatar={user.avatar!}
+          postUserId={post.userId}
+        /> */}
       </div>
-      <div className="border-2 border-neutral-700 my-6" />
-      <CommentsList
-        initialComments={comments}
-        userId={session.id!}
-        postId={post.id}
-        username={user.username!}
-        avatar={user.avatar!}
-        postUserId={post.userId}
-      />
     </div>
   );
 }

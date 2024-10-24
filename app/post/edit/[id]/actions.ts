@@ -3,7 +3,21 @@
 import db from "@/lib/db";
 import { revalidateTag } from "next/cache";
 
-export async function editPost(id: number, title: string, content: string) {
+interface EditPostProps {
+  id: number;
+  title: string;
+  content: string;
+  summary: string;
+  preview: string;
+}
+
+export async function editPost({
+  id,
+  title,
+  content,
+  summary,
+  preview,
+}: EditPostProps) {
   try {
     const result = await db.post.update({
       where: {
@@ -12,6 +26,8 @@ export async function editPost(id: number, title: string, content: string) {
       data: {
         title,
         description: content,
+        summary,
+        photo: preview,
       },
       select: {
         id: true,

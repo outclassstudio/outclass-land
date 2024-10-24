@@ -11,6 +11,8 @@ async function getPost(id: number) {
       id: true,
       title: true,
       description: true,
+      summary: true,
+      photo: true,
     },
   });
   return post;

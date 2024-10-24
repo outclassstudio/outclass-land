@@ -1,9 +1,6 @@
-import { formatToTimeAgo } from "@/lib/utils";
+import { dateFormatter, formatToTimeAgo } from "@/lib/utils";
 import Link from "next/link";
-import {
-  ChatBubbleBottomCenterIcon,
-  HandThumbUpIcon,
-} from "@heroicons/react/24/outline";
+import { EyeIcon, HeartIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 interface PostProps {
@@ -31,7 +28,7 @@ export default function SinglePostBox({ post }: PostProps) {
       flex gap-5 last:pb-0 last:border-b-0 items-center"
     >
       {post.photo ? (
-        <div className="aspect-square w-[120px] relative rounded-md overflow-hidden">
+        <div className="aspect-square w-[140px] relative rounded-md overflow-hidden">
           <Image
             src={`${post.photo}/width=120,height=120`}
             className="object-cover"
@@ -42,28 +39,32 @@ export default function SinglePostBox({ post }: PostProps) {
       ) : (
         ""
       )}
-      <div className="flex flex-col gap-2 w-full justify-center">
-        <h2 className="text-neutral-900 dark:text-white text-xl font-semibold">
+      <div className="flex flex-col gap-[6px] sm:gap-2 w-full justify-center">
+        <h2 className="text-neutral-900 dark:text-white text-lg sm:text-xl font-semibold">
           {post.title}
         </h2>
-        <p className="text-neutral-800 dark:text-neutral-200">{post.summary}</p>
+        <p className="h-10 sm:h-12 line-clamp-2	text-ellipsis text-sm sm:text-base text-neutral-800 dark:text-neutral-200">
+          {post.summary}
+        </p>
         <div className="flex items-center justify-between text-sm">
-          <div className="flex gap-4 items-center">
-            <span>{formatToTimeAgo(post.created_at.toString())}</span>
-            <span>.</span>
-            <span>조회 {post.views}</span>
+          <div className="flex gap-3 items-baseline">
+            <span className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-300">
+              {dateFormatter(post.created_at)}
+            </span>
+            <span className="hidden sm:block text-xs">
+              {formatToTimeAgo(post.created_at.toString())}
+            </span>
           </div>
           <div
-            className="flex gap-4 items-center 
-    *:flex *:items-center *:gap-1"
+            className="flex gap-1 sm:gap-4 items-center 
+            *:flex *:items-center *:gap-1 *:text-xs sm:*:text-sm"
           >
             <span>
-              <HandThumbUpIcon className="size-4" />
+              <HeartIcon className="size-4" />
               {post._count.likes}
             </span>
             <span>
-              <ChatBubbleBottomCenterIcon className="size-4" />
-              {post._count.comments}
+              <EyeIcon className="size-4" /> {post.views}
             </span>
           </div>
         </div>

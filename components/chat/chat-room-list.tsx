@@ -1,4 +1,4 @@
-import { ChatRoomType } from "@/app/(tabs)/chat/page";
+import { ChatRoomType } from "@/app/chat/page";
 import SingleRoom from "./single-room";
 
 interface ChatRoomListProps {

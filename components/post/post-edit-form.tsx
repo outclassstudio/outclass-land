@@ -4,13 +4,13 @@ import Input from "@/components/common/input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import Textarea from "@/components/common/textarea";
-import { InitialPostType } from "@/app/post/edit/[id]/page";
+import { InitialPostType } from "@/app/post/(admin-only)/edit/[id]/page";
 import { notFound } from "next/navigation";
-import { editPost } from "@/app/post/edit/[id]/actions";
+import { editPost } from "@/app/post/(admin-only)/edit/[id]/actions";
 import { useRouter } from "next/navigation";
-import { getUploadUrl } from "@/app/(products)/add/actions";
 import useThemeStore from "@/store/store";
 import MDEditor from "@uiw/react-md-editor";
+import { getUploadUrl } from "@/apis/common/actions";
 
 interface PostEditProps {
   initialPost: InitialPostType;
@@ -20,7 +20,9 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
   const [title, setTitle] = useState(initialPost?.title);
   const [content, setContent] = useState(initialPost?.description);
   const [summary, setSummary] = useState<string>(initialPost?.summary!);
-  const [preview, setPreview] = useState<string>(initialPost?.photo!);
+  const [preview, setPreview] = useState<string>(
+    `${initialPost?.photo!}/avatar`
+  );
   const [uploadUrl, setUploadUrl] = useState("");
   const [photoId, setPhotoId] = useState("");
   const [tmpFile, setTmpFile] = useState<File | null>(null);
@@ -40,13 +42,16 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     setTitle(e.target.value);
   };
 
-  const onContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    if (e.target.value === "") {
+  const onContentChange = (
+    value?: string,
+    event?: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    if (!value) {
       setIsContentBlank(true);
     } else {
       setIsContentBlank(false);
     }
-    setContent(e.target.value);
+    setContent(value);
   };
 
   const handleSummayChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -78,12 +83,28 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     if (title && content) {
       setPendig(true);
 
+      let photo;
+      if (tmpFile instanceof File) {
+        const cloudflareForm = new FormData();
+        cloudflareForm.append("file", tmpFile);
+        const response = await fetch(uploadUrl, {
+          method: "post",
+          body: cloudflareForm,
+        });
+        if (response.status !== 200) {
+          return;
+        }
+        photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
+      } else {
+        photo = initialPost.photo!;
+      }
+
       const data = {
         id: initialPost.id,
         title,
         content,
         summary,
-        preview,
+        photo,
       };
 
       const result = await editPost(data);
@@ -94,7 +115,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
   };
 
   return (
-    <div className="mt-[100px] w-full flex justify-center">
+    <div className="w-full flex justify-center">
       <form
         className="w-full sm:w-[768px] flex flex-col gap-5 p-5"
         onSubmit={onSubmit}
@@ -137,7 +158,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
           <div className="container" data-color-mode={isDark ? "dark" : ""}>
             <MDEditor
               value={content!}
-              onChange={(data) => setContent(data!)}
+              onChange={onContentChange}
               height="500px"
             />
           </div>
@@ -177,12 +198,12 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
                 className="bg-center bg-cover size-16 sm:size-20 rounded-md relative
               ring-[1px] ring-neutral-300"
                 style={{
-                  backgroundImage: `url(${preview}/avatar)`,
+                  backgroundImage: `url(${preview})`,
                 }}
               >
                 <div
                   className="absolute bottom-0 bg-black opacity-70 w-16 h-6 sm:w-20 sm:h-8 rounded-b-md
-              text-xs sm:text-sm flex justify-center items-center"
+                  text-white text-xs sm:text-sm flex justify-center items-center"
                 >
                   대표사진
                 </div>

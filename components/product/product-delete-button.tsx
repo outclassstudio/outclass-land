@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import DeleteConfirmModal from "../common/delete-confirm-modal";
-import { deleteProduct } from "@/app/(products)/edit/product/[id]/action";
+import { deleteProduct } from "@/app/program/(admin-only)/edit/product/[id]/action";
 import { useRouter } from "next/navigation";
 
 interface ButtonProps {

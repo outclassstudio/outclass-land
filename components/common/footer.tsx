@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex gap-2 *:text-neutral-800 dark:*:text-neutral-200">
-          <Link href="/consult">
+          <Link href="/program">
             <span
               className="text-sm font-light hover:text-orange-500"
               onClick={handleTop}

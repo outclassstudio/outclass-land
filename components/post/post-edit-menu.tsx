@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import DeleteConfirmModal from "../common/delete-confirm-modal";
-import { deletePost } from "@/app/post/edit/[id]/actions";
+import { deletePost } from "@/app/post/(admin-only)/edit/[id]/actions";
 import { useRouter } from "next/navigation";
 
 export default function PostEditMenu({ id }: { id: number }) {

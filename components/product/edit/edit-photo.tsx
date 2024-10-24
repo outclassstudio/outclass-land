@@ -1,6 +1,5 @@
 "use client";
 
-import { getUploadUrl } from "@/app/(products)/add/actions";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction, useState } from "react";
 

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import LikeButton from "@/components/post/like-button";
 import { getComments, getLikeStatus, getPost } from "./actions";
-import { getUserProfile } from "@/lib/user";
 import CommentsList from "@/components/post/comment/comments-list";
 import PostEditMenu from "@/components/post/post-edit-menu";
 import PostViewer from "@/components/post/post-viewer";
@@ -43,7 +42,7 @@ export default async function PostDetail({
 
   // const { likeCount, isLiked } = await getCachedLikeStatus(id, session.id!);
   // const comments = await getComments(id);
-  // const user = await getUserProfile();
+  // const user = await getUser();
   // if (!user) return notFound();
 
   return (

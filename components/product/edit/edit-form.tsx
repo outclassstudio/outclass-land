@@ -8,7 +8,7 @@ import { useFormState } from "react-dom";
 import {
   editProduct,
   EditProductType,
-} from "@/app/(products)/edit/product/[id]/action";
+} from "@/app/program/(admin-only)/edit/product/[id]/action";
 import EditPhoto from "@/components/product/edit/edit-photo";
 import ProductButton from "../product-button";
 import Link from "next/link";

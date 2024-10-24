@@ -5,7 +5,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import { ko } from "date-fns/locale/ko";
 import { reservation_time } from "@/lib/dummy";
 import { dateFormatter } from "@/lib/utils";
-import { getReservation } from "@/app/programs/[id]/apply/actions";
+import { getReservation } from "@/app/program/[id]/apply/actions";
 import "react-datepicker/dist/react-datepicker.css";
 import "./override.css";
 

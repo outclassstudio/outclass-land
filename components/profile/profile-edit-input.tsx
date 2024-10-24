@@ -1,13 +1,13 @@
 "use client";
 
-import { saveProfile } from "@/app/(tabs)/profile/edit/actions";
-import { GetUserData } from "@/app/(tabs)/profile/edit/page";
+import { saveProfile } from "@/app/profile/edit/actions";
+import { GetUserData } from "@/app/profile/edit/page";
 import { CameraIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import ProfileHeader from "./profile-header";
-import { getUploadUrl } from "@/app/(products)/add/actions";
 import { USER_ICON_ID, USER_ICON_URL } from "@/lib/constants";
 import Link from "next/link";
+import { getUploadUrl } from "@/apis/common/actions";
 
 interface ProfileEditInputProps {
   user: GetUserData;

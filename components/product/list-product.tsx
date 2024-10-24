@@ -39,7 +39,7 @@ ListProductProps) {
   const [program] = dummyData.filter((data) => data.id === +id);
   return (
     <Link
-      href={program.isOpen ? `/programs/${id}` : ""}
+      href={program.isOpen ? `/program/${id}` : ""}
       className={`w-full border-2 rounded-lg dark:border-neutral-700 relative ${
         program.isOpen ? "" : "cursor-not-allowed"
       }`}

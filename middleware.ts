@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import getSession from "./lib/session";
+import { getUser } from "./apis/user/actions";
 
 interface Routes {
   [key: string]: boolean;

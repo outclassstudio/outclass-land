@@ -8,7 +8,6 @@ export function formatToTimeAgo(date: string): string {
   const formatter = new Intl.RelativeTimeFormat("ko");
   let trans;
 
-  //todo 이게 맞나
   if (Math.abs(diff / MinInms) < 1) {
     return "방금전";
   } else if (Math.abs(diff / hourInms) < 1) {
@@ -21,22 +20,6 @@ export function formatToTimeAgo(date: string): string {
     trans = Math.round(diff / dayInms);
     return formatter.format(trans, "days");
   }
-
-  // if (Math.abs(diff / dayInms) > 1) {
-  //   trans = Math.round(diff / dayInms);
-  //   return formatter.format(trans, "days");
-  // } else {
-  //   if (Math.abs(diff / hourInms) < 1) {
-  //     if (Math.abs(diff / MinInms) < 1) {
-  //       return "방금전";
-  //     } else {
-  //       trans = Math.round(diff / MinInms);
-  //       return formatter.format(trans, "minutes");
-  //     }
-  //   }
-  //   trans = Math.round(diff / hourInms);
-  //   return formatter.format(trans, "hours");
-  // }
 }
 
 export function formatToWon(price: number): string {

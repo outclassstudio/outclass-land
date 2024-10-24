@@ -46,7 +46,6 @@ export default function AddPost() {
       summary,
     };
 
-    console.log("call?", data);
     await uploadPost(data);
   };
 
@@ -79,10 +78,10 @@ export default function AddPost() {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="mt-[100px] w-full flex justify-center">
       <form
         onSubmit={handleSubmit}
-        className="mt-[100px] w-full sm:w-[768px] flex flex-col gap-5 p-5"
+        className="w-full sm:w-[768px] flex flex-col gap-5 p-5"
       >
         <div className="flex flex-col gap-3">
           <div className="font-bold dakr:text-neutral-200">제목</div>

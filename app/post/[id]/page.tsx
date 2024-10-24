@@ -1,5 +1,5 @@
 import getSession from "@/lib/session";
-import { formatToTimeAgo } from "@/lib/utils";
+import { dateFormatter, formatToTimeAgo } from "@/lib/utils";
 import { EyeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 import Image from "next/image";
@@ -21,12 +21,12 @@ export const metadata = {
 //   revalidate: 60,
 // });
 
-function getCachedLikeStatus(postId: number, userId: number) {
-  const getCached = nextCache(getLikeStatus, ["post-like-status"], {
-    tags: [`like-status-${postId}`],
-  });
-  return getCached(postId, userId);
-}
+// function getCachedLikeStatus(postId: number, userId: number) {
+//   const getCached = nextCache(getLikeStatus, ["post-like-status"], {
+//     tags: [`like-status-${postId}`],
+//   });
+//   return getCached(postId, userId);
+// }
 
 export default async function PostDetail({
   params,
@@ -41,10 +41,10 @@ export default async function PostDetail({
   const post = await getPost(id);
   if (!post) return notFound;
 
-  const { likeCount, isLiked } = await getCachedLikeStatus(id, session.id!);
-  const comments = await getComments(id);
-  const user = await getUserProfile();
-  if (!user) return notFound();
+  // const { likeCount, isLiked } = await getCachedLikeStatus(id, session.id!);
+  // const comments = await getComments(id);
+  // const user = await getUserProfile();
+  // if (!user) return notFound();
 
   return (
     <div className="mt-[100px] w-full flex justify-center">
@@ -63,21 +63,18 @@ export default async function PostDetail({
             ) : (
               <UserIcon className="size-7" />
             )}
-            <div className="flex gap-2 items-end">
+            <div className="flex gap-2 items-baseline">
               <span className="text-sm font-semibold">
                 {post.user.username}
               </span>
-              <div className="text-xs">
-                <span className="text-neutral-400">
-                  {formatToTimeAgo(post.created_at.toString())}
-                </span>
-              </div>
+              <span className="text-xs text-neutral-600 dark:text-neutral-300">
+                {dateFormatter(post.created_at)}
+              </span>
+              <span className="text-xs text-neutral-400">
+                {formatToTimeAgo(post.created_at.toString())}
+              </span>
             </div>
           </div>
-          {/* <EllipsisVerticalIcon
-            onClick={handleModalOpen}
-            className="size-5"
-          /> */}
           {post.userId === session.id ? <PostEditMenu id={post.id} /> : ""}
         </div>
         <PostViewer contents={post.description!} />
@@ -86,9 +83,9 @@ export default async function PostDetail({
             <EyeIcon className="size-5" />
             <span>조회 {post.views}</span>
           </div>
-          <LikeButton isLiked={isLiked} likeCount={likeCount} postId={id} />
+          {/* <LikeButton isLiked={isLiked} likeCount={likeCount} postId={id} /> */}
         </div>
-        <div className="border-2 border-neutral-100 dark:border-neutral-700 my-6" />
+        {/* <div className="border-2 border-neutral-100 dark:border-neutral-700 my-6" /> */}
         {/* <CommentsList
           initialComments={comments}
           userId={session.id!}

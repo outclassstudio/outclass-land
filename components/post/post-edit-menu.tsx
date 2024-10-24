@@ -23,7 +23,7 @@ export default function PostEditMenu({ id }: { id: number }) {
 
   return (
     <div className="*:text-neutral-400 flex gap-2 items-center *:cursor-pointer">
-      <Link href={`/posts/edit/${id}`} className="hover:text-neutral-200">
+      <Link href={`/post/edit/${id}`} className="hover:text-neutral-200">
         수정
       </Link>
       <span onClick={handleDeleteModalopen} className="hover:text-red-500">

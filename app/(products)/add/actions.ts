@@ -46,6 +46,7 @@ export async function uploadProduct(formData: FormData) {
   }
 }
 
+//todo refactor : 위치 바꾸기
 export async function getUploadUrl() {
   const response = await fetch(
     `https://api.cloudflare.com/client/v4/accounts/${process.env.IMAGE_ACCOUNT}/images/v2/direct_upload`,

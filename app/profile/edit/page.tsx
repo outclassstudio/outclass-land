@@ -5,6 +5,8 @@ import { Prisma } from "@prisma/client";
 import { notFound } from "next/navigation";
 
 async function getUserData() {
+  // return new Promise((res) => setTimeout(res, 2000)).then(() => {
+  // });
   const session = await getSession();
   const user = db.user.findUnique({
     where: {

@@ -5,6 +5,7 @@ import ThemeToggleButton from "./theme-toggle-button";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserIcon } from "@heroicons/react/24/solid";
 
 export default function Header() {
   const pathname = usePathname();
@@ -58,7 +59,10 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <ThemeToggleButton />
+        <div className="flex gap-2 items-center relative">
+          <ThemeToggleButton />
+          <UserIcon className="size-7 text-neutral-600" />
+        </div>
       </div>
     </div>
   );

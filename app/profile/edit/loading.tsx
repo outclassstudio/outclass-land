@@ -1,21 +1,20 @@
 export default function ProfileEditLoading() {
   return (
-    <div className="animate-pulse *:rounded-md">
-      <div className="flex justify-between items-center px-3 py-4 border-b border-neutral-700">
-        <div className="flex gap-3 *:rounded-md *:bg-neutral-700">
-          <span className=" w-5 h-7"></span>
-          <span className="w-[85px] h-7"></span>
+    <div className="flex justify-center mt-[100px] h-[calc(100vh-140px)] animate-pulse">
+      <div className="flex flex-col gap-5 items-center w-full sm:w-[640px] px-4">
+        <div className="w-full mb-4">
+          <div className="skeleton-style w-[92px] h-[28px]" />
         </div>
-        <span className="bg-neutral-700 w-9 h-7 rounded-md"></span>
-      </div>
-      <div className="flex flex-col items-center w-full px-3 pt-6 pb-4 ">
-        <div className="w-24 h-24 rounded-full m-2 mb-6 overflow-hidden bg-neutral-700" />
-        <div className="mb-6 w-16 h-5 rounded-md bg-neutral-700" />
-        <div className="w-full flex flex-col gap-2 *:rounded-md *:bg-neutral-700">
-          <div className="w-10 h-5" />
+        <div className="flex flex-col items-center mb-10">
+          <div className="skeleton-style w-24 h-24 rounded-full m-4 overflow-hidden mb-2" />
+          <div className="skeleton-style w-16 h-5" />
+        </div>
+        <div className="w-full flex flex-col gap-2 *:skeleton-style">
+          <div className="w-12 h-5" />
           <div className="w-full h-10" />
         </div>
-        <div className="mt-5 w-16 h-5 rounded-md bg-neutral-700" />
+        <div className="skeleton-style w-full h-8" />
+        <div className="skeleton-style w-16 h-7" />
       </div>
     </div>
   );

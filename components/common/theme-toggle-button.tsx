@@ -60,9 +60,9 @@ export default function ThemeToggleButton() {
           </svg>
         )}
       </label>
-      <div className="text-xs text-neutral-500 dark:text-neutral-300">
+      {/* <div className="text-xs text-neutral-500 dark:text-neutral-300">
         {isDark ? "dark" : "light"}
-      </div>
+      </div> */}
     </div>
   );
 }

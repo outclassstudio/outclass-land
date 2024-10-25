@@ -4,10 +4,10 @@ import { saveProfile } from "@/app/profile/edit/actions";
 import { GetUserData } from "@/app/profile/edit/page";
 import { CameraIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import ProfileHeader from "./profile-header";
 import { USER_ICON_ID, USER_ICON_URL } from "@/lib/constants";
 import Link from "next/link";
 import { getUploadUrl } from "@/apis/common/actions";
+import Button from "../common/button";
 
 interface ProfileEditInputProps {
   user: GetUserData;
@@ -76,66 +76,68 @@ export default function ProfileEditInput({ user }: ProfileEditInputProps) {
   };
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="flex flex-col items-center w-full px-3"
-    >
-      <div className="w-full relative">
-        <ProfileHeader title="프로필 수정" />
-        <button className="text-neutral-300 absolute top-[19px] right-2">
-          완료
-        </button>
-      </div>
-      <label htmlFor="avatar" className="relative pt-6 pb-4 cursor-pointer">
-        {preview ? (
+    <div className="flex justify-center mt-[100px] h-[calc(100vh-240px)]">
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col gap-5 items-center w-full sm:w-[640px] px-4"
+      >
+        <div className="w-full">
+          <span className="text-xl font-bold">프로필 수정</span>
+        </div>
+        <div></div>
+        <div className="flex flex-col items-center mb-10">
+          <label htmlFor="avatar" className="relative cursor-pointer">
+            {preview ? (
+              <div
+                className="w-24 h-24 rounded-full m-2 overflow-hidden bg-center bg-cover"
+                style={{ backgroundImage: `url(${preview})` }}
+              />
+            ) : (
+              <UserCircleIcon className="size-28 text-neutral-300" />
+            )}
+            <CameraIcon
+              className="bg-white p-[2px] size-6 absolute right-4 bottom-5 
+            text-neutral-800 rounded-full border-[1px] border-neutral-400"
+            />
+            <input
+              id="avatar"
+              type="file"
+              onChange={onImageChange}
+              className="hidden"
+            />
+          </label>
           <div
-            className="w-24 h-24 rounded-full m-2 overflow-hidden bg-center bg-cover"
-            style={{ backgroundImage: `url(${preview})` }}
+            className="cursor-pointer text-neutral-700 dark:text-neutral-300
+        text-sm hover:text-neutral-100"
+            onClick={changeToUserIcon}
+          >
+            이미지 삭제
+          </div>
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <div className="font-semibold">닉네임</div>
+          <input
+            onChange={onChange}
+            type="text"
+            value={username}
+            className="w-full bg-transparent rounded-md ring-2 ring-neutral-500
+            border-none outline-none focus:ring-2 focus:ring-neutral-400"
           />
-        ) : (
-          <UserCircleIcon className="size-28 text-neutral-300" />
-        )}
-        <CameraIcon
-          className="bg-white p-[2px] size-6 absolute right-4 bottom-6 
-      text-neutral-800 rounded-full border-[1px] border-neutral-400"
-        />
-        <input
-          id="avatar"
-          type="file"
-          onChange={onImageChange}
-          className="hidden"
-        />
-      </label>
-      {/* 삭제 로직 정비 */}
-      <div
-        className="mb-5 cursor-pointer text-neutral-300
-      text-sm hover:text-neutral-100"
-        onClick={changeToUserIcon}
-      >
-        이미지 삭제
-      </div>
-      <div className="w-full flex flex-col gap-2">
-        <div>닉네임</div>
-        <input
-          onChange={onChange}
-          type="text"
-          value={username}
-          className="w-full bg-transparent rounded-md ring-2 ring-neutral-500
-    border-none outline-none focus:ring-2 focus:ring-neutral-400"
-        />
-        {errors.map((error, index) => (
-          <span key={index} className="text-red-500 font-medium">
-            {error}
-          </span>
-        ))}
-      </div>
-      <Link
-        href="/profile/signout"
-        className="text-red-600 w-full h-10 mt-3 hover:text-red-400
+          {errors.map((error, index) => (
+            <span key={index} className="text-red-500 font-medium">
+              {error}
+            </span>
+          ))}
+        </div>
+        <Button text="수정완료" />
+        <Link
+          href="/profile/signout"
+          className="text-red-600 w-full hover:text-red-400
         rounded-lg flex justify-center items-center text-lg font-semibold"
-      >
-        계정삭제
-      </Link>
-    </form>
+        >
+          계정삭제
+        </Link>
+      </form>
+    </div>
   );
 }

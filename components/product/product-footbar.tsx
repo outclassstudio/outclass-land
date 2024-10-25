@@ -1,14 +1,13 @@
 import { formatToWon } from "@/lib/utils";
-import ProductLikeButton from "./product-like-button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProductType } from "@/app/(products)/products/[id]/actions";
 import ProductButton from "./product-button";
 import ProductDeleteButton from "./product-delete-button";
+import { EditProductType } from "@/app/program/(admin-only)/edit/product/[id]/action";
 
 interface ProductFootbarProps {
   isLiked: boolean;
-  product: ProductType;
+  product: EditProductType;
   isOwner: boolean;
   createChatRoom: () => Promise<never>;
 }
@@ -27,7 +26,7 @@ export default function ProductFootbar({
       flex justify-between items-center sm:w-[640px] p-4 sm:p-5"
     >
       <div className="flex items-center gap-3">
-        <ProductLikeButton isLiked={isLiked} productId={product.id} />
+        {/* <ProductLikeButton isLiked={isLiked} productId={product.id} /> */}
         <span className="font-semibold text-lg sm:text-xl">
           {formatToWon(product.price)}원
         </span>

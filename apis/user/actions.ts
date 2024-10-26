@@ -5,16 +5,19 @@ import getSession from "@/lib/session";
 
 export const getUser = async () => {
   const session = await getSession();
-  const user = await db.user.findUnique({
-    where: {
-      id: session.id,
-    },
-    select: {
-      id: true,
-      username: true,
-      avatar: true,
-      role: true,
-    },
-  });
-  return user;
+  if (session.id) {
+    const user = await db.user.findUnique({
+      where: {
+        id: session.id,
+      },
+      select: {
+        id: true,
+        username: true,
+        avatar: true,
+        role: true,
+      },
+    });
+    return user;
+  }
+  return null;
 };

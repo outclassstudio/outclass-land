@@ -3,7 +3,6 @@ import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { Prisma } from "@prisma/client";
 import { unstable_cache as NextCache } from "next/cache";
 import Link from "next/link";
-
 import { getUser } from "@/apis/user/actions";
 import { getPosts } from "../actions";
 
@@ -30,8 +29,8 @@ export default async function Post() {
         <Link
           href="/post/add"
           className="bg-orange-500 flex items-center justify-center 
-  rounded-full size-16 fixed bottom-[90px] right-8 text-white
-  transition-colors hover:bg-orange-400 shadow-lg shadow-neutral-800"
+          rounded-full size-16 fixed bottom-[90px] right-8 text-white
+          transition-colors hover:bg-orange-400 shadow-lg shadow-neutral-800"
         >
           <PencilSquareIcon className="size-9" />
         </Link>

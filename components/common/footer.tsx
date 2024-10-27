@@ -1,5 +1,6 @@
 "use client";
 
+import { HEADER_MENU } from "@/lib/constants";
 import Link from "next/link";
 
 export default function Footer() {
@@ -37,9 +38,9 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <span className="text-xs font-light text-neutral-800 dark:text-neutral-200">
+          {/* <span className="text-xs font-light text-neutral-800 dark:text-neutral-200">
             사업자번호 : 102-80-03659
-          </span>
+          </span> */}
           <div>
             <div
               className="flex gap-2 items-center *:text-xs *:font-light *:text-neutral-800
@@ -55,30 +56,16 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex gap-2 *:text-neutral-800 dark:*:text-neutral-200">
-          <Link href="/program">
-            <span
-              className="text-sm font-light hover:text-orange-500"
-              onClick={handleTop}
-            >
-              프로그램
-            </span>
-          </Link>
-          <Link href="/post">
-            <span
-              className="text-sm font-light hover:text-orange-500"
-              onClick={handleTop}
-            >
-              포스트
-            </span>
-          </Link>
-          <Link href="/about">
-            <span
-              className="text-sm font-light hover:text-orange-500"
-              onClick={handleTop}
-            >
-              아웃클래스
-            </span>
-          </Link>
+          {HEADER_MENU.map((data, idx) => (
+            <Link href={data.link} key={idx}>
+              <span
+                className="text-sm font-light hover:text-orange-500"
+                onClick={handleTop}
+              >
+                {data.menu}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

@@ -6,10 +6,10 @@ import Link from "next/link";
 import { getUser } from "@/apis/user/actions";
 import { getPosts } from "../actions";
 
-const getCachedPosts = NextCache(getPosts, ["posts"], {
-  tags: ["posts"],
-  revalidate: 60,
-});
+// const getCachedPosts = NextCache(getPosts, ["posts"], {
+//   tags: ["posts"],
+//   revalidate: 60,
+// });
 
 export const metadata = {
   title: "포스트",

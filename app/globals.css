@@ -29,4 +29,7 @@
   .skeleton-style {
     @apply rounded-md bg-neutral-300 dark:bg-neutral-700;
   }
+  .header-link-style {
+    @apply flex gap-2 items-center text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md p-1;
+  }
 }

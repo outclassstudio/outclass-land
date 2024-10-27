@@ -10,3 +10,9 @@ export const USER_ICON_ID = "ea161177-57a1-4e62-270a-47ad302a0900";
 
 export const USER_ICON_URL =
   "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/ea161177-57a1-4e62-270a-47ad302a0900";
+
+export const HEADER_MENU = [
+  { menu: "프로그램", link: "/program" },
+  { menu: "포스트", link: "/post" },
+  { menu: "아웃클래스", link: "/about" },
+];

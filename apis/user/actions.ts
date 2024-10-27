@@ -2,6 +2,7 @@
 
 import db from "@/lib/db";
 import getSession from "@/lib/session";
+import { Prisma } from "@prisma/client";
 
 export const getUser = async () => {
   const session = await getSession();
@@ -12,6 +13,7 @@ export const getUser = async () => {
       },
       select: {
         id: true,
+        email: true,
         username: true,
         avatar: true,
         role: true,
@@ -21,3 +23,5 @@ export const getUser = async () => {
   }
   return null;
 };
+
+export type UserType = Prisma.PromiseReturnType<typeof getUser>;

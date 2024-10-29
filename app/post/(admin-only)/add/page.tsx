@@ -19,35 +19,8 @@ export default function AddPost() {
   const [uploadUrl, setUploadUrl] = useState("");
   const [photoId, setPhotoId] = useState("");
   const [tmpFile, setTmpFile] = useState<File | null>(null);
+  const [pending, setPendig] = useState(false);
   const { isDark } = useThemeStore();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    let photo;
-    if (tmpFile instanceof File) {
-      const cloudflareForm = new FormData();
-      cloudflareForm.append("file", tmpFile);
-      const response = await fetch(uploadUrl, {
-        method: "post",
-        body: cloudflareForm,
-      });
-      if (response.status !== 200) {
-        return;
-      }
-      photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
-    } else {
-      photo = "/undefined";
-    }
-
-    const data = {
-      title,
-      post,
-      photo,
-      summary,
-    };
-
-    await uploadPost(data);
-  };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -74,6 +47,38 @@ export default function AddPost() {
       const { id, uploadURL } = result;
       setUploadUrl(uploadURL);
       setPhotoId(id);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (title && post) {
+      setPendig(true);
+
+      let photo;
+      if (tmpFile instanceof File) {
+        const cloudflareForm = new FormData();
+        cloudflareForm.append("file", tmpFile);
+        const response = await fetch(uploadUrl, {
+          method: "post",
+          body: cloudflareForm,
+        });
+        if (response.status !== 200) {
+          return;
+        }
+        photo = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
+      } else {
+        photo = "/undefined";
+      }
+
+      const data = {
+        title,
+        post,
+        photo,
+        summary,
+      };
+
+      await uploadPost(data);
     }
   };
 
@@ -151,7 +156,14 @@ export default function AddPost() {
           {state?.fieldErrors.photo}
         </div> */}
         </div>
-        <Button text="작성 완료" />
+        <button
+          disabled={pending}
+          className="primary-btn h-10 
+        disabled:bg-neutral-400 disabled:text-neutral-300
+          disabled:cursor-not-allowed"
+        >
+          {pending ? "로딩중..." : "작성 완료"}
+        </button>
       </form>
     </div>
   );

@@ -80,7 +80,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     }
   };
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (title && content) {
       setPendig(true);
@@ -120,7 +120,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     <div className="w-full flex justify-center">
       <form
         className="w-full sm:w-[768px] flex flex-col gap-5 p-5"
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         <input
           onChange={onImageChange}
@@ -221,8 +221,8 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
         <button
           disabled={pending}
           className="primary-btn h-10 
-    disabled:bg-neutral-400 disabled:text-neutral-300
-    disabled:cursor-not-allowed"
+        disabled:bg-neutral-400 disabled:text-neutral-300
+          disabled:cursor-not-allowed"
         >
           {pending ? "로딩중..." : "수정 완료"}
         </button>

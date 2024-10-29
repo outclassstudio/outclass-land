@@ -49,7 +49,7 @@ export default async function Profile() {
   };
 
   return (
-    <div className="mt-[80px] h-[calc(100vh-220px)] flex justify-center">
+    <div className="mt-[80px] h-[calc(100vh-200px)] flex justify-center">
       <div className="w-full sm:w-[640px] flex flex-col items-center gap-5 p-3">
         <Suspense fallback={<div className="animate-pulse">로딩중입니다</div>}>
           <div className="flex items-center gap-3 p-2 w-full justify-start">

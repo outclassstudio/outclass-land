@@ -12,13 +12,13 @@ const config: Config = {
         newSize: "11.11px",
       },
       keyframes: {
-        slideinY: {
-          "100%": { transform: "translateY(0%)" },
-          "00%": { transform: "translateY(100%)" },
+        slideinX: {
+          "100%": { transform: "translateX(0%)" },
+          "00%": { transform: "translateX(100%)" },
         },
       },
       animation: {
-        slideinY: "slideinY 0.7s ease-in-out",
+        slideinX: "slideinX 0.2s ease-in-out",
       },
     },
   },

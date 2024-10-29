@@ -26,7 +26,7 @@ export default function HeaderContent({ user }: IUserProps) {
 
   return (
     <div className="w-[768px] flex justify-between items-center">
-      <div className="flex items-center gap-7">
+      <div className="flex items-center gap-4 sm:gap-7">
         <Link href={"/"}>
           <Image
             src={`https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/bf65bae9-4102-4836-eb97-9a5841ebd700/avatar`}
@@ -35,10 +35,10 @@ export default function HeaderContent({ user }: IUserProps) {
             height={40}
           />
         </Link>
-        <div className="font-semibold text-lg *:cursor-pointer flex gap-5">
+        <div className="font-semibold *:cursor-pointer flex gap-3 sm:gap-5">
           {HEADER_MENU.map((data, idx) => (
             <Link
-              className={`hover:text-orange-400 ${
+              className={`hover:text-orange-400 text-base sm:text-lg ${
                 pathname === data.link
                   ? "text-orange-500"
                   : "text-neutral-800 dark:text-neutral-200"

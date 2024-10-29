@@ -76,7 +76,7 @@ export default function ProfileEditInput({ user }: ProfileEditInputProps) {
   };
 
   return (
-    <div className="flex justify-center mt-[100px] h-[calc(100vh-240px)]">
+    <div className="flex justify-center mt-[100px] h-[calc(100vh-220px)]">
       <form
         onSubmit={onSubmit}
         className="flex flex-col gap-5 items-center w-full sm:w-[640px] px-4"

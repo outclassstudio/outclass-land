@@ -1,6 +1,7 @@
 "use server";
 
 import db from "@/lib/db";
+import { Prisma } from "@prisma/client";
 import { revalidateTag } from "next/cache";
 
 interface EditPostProps {
@@ -10,6 +11,24 @@ interface EditPostProps {
   summary: string;
   photo: string;
 }
+
+export async function getPost(id: number) {
+  const post = await db.post.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      summary: true,
+      photo: true,
+    },
+  });
+  return post;
+}
+
+export type EidtPostType = Prisma.PromiseReturnType<typeof getPost>;
 
 export async function editPost({
   id,

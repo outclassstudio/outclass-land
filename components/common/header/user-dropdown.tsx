@@ -46,7 +46,7 @@ export default function UserDropdown({
             </Link>
           </>
         ) : (
-          <LoginBox />
+          <LoginBox handleDropdownOpen={handleDropdownOpen} />
         )}
       </div>
       <div

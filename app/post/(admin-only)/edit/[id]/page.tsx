@@ -1,24 +1,7 @@
 import PostEditForm from "@/components/post/post-edit-form";
 import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
-
-async function getPost(id: number) {
-  const post = await db.post.findUnique({
-    where: {
-      id,
-    },
-    select: {
-      id: true,
-      title: true,
-      description: true,
-      summary: true,
-      photo: true,
-    },
-  });
-  return post;
-}
-
-export type InitialPostType = Prisma.PromiseReturnType<typeof getPost>;
+import { getPost } from "./actions";
 
 export default async function EditPost({
   params: { id },

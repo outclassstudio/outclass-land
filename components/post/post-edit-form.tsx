@@ -4,16 +4,18 @@ import Input from "@/components/common/input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import Textarea from "@/components/common/textarea";
-import { InitialPostType } from "@/app/post/(admin-only)/edit/[id]/page";
 import { notFound } from "next/navigation";
-import { editPost } from "@/app/post/(admin-only)/edit/[id]/actions";
+import {
+  editPost,
+  EidtPostType,
+} from "@/app/post/(admin-only)/edit/[id]/actions";
 import { useRouter } from "next/navigation";
 import useThemeStore from "@/store/store";
 import MDEditor from "@uiw/react-md-editor";
 import { getUploadUrl } from "@/apis/common/actions";
 
 interface PostEditProps {
-  initialPost: InitialPostType;
+  initialPost: EidtPostType;
 }
 
 export default function PostEditForm({ initialPost }: PostEditProps) {

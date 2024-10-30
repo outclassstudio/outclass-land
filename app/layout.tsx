@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${font.className} bg-white text-neutral-800 dark:bg-neutral-900 
-        dark:text-white max-w-screen-sm sm:w-full sm:max-w-full mx-auto list-disc`}
+        dark:text-white max-w-screen-sm sm:max-w-full list-disc`}
       >
         <Header />
         <Theme>{children}</Theme>
@@ -34,3 +34,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+//sm:w-full

@@ -72,7 +72,7 @@ export default function ProgramDetail({
           ))}
         </div>
       </div>
-      <Link href={"/apply"} className="w-[200px]">
+      <Link href={`${[id]}/apply`} className="w-[200px]">
         <Button text="상담신청" />
       </Link>
     </div>

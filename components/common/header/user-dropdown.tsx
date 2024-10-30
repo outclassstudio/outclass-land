@@ -1,14 +1,11 @@
 "use client";
 
 import { UserType } from "@/apis/user/actions";
-import {
-  ListBulletIcon,
-  PowerIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { PowerIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import UserProfileBox from "./user-profile-box";
 import LoginBox from "./login-box";
+import { DROPDOWN_MENU } from "@/lib/constants";
 
 interface IDropDownProps {
   handleDropdownOpen: () => void;
@@ -34,12 +31,11 @@ export default function UserDropdown({
               />
             </div>
             <div className="border-b dark:border-neutral-600 pb-3 flex flex-col gap-1">
-              <Link href="/profile/edit" className="header-link-style">
-                <UserIcon className="size-5" /> 프로필수정
-              </Link>
-              <Link href="/profile/products" className="header-link-style">
-                <ListBulletIcon className="size-5" /> 상담내역
-              </Link>
+              {DROPDOWN_MENU.map((item, idx) => (
+                <Link href={item.link} className="header-link-style" key={idx}>
+                  <item.icon className="size-5" /> {item.menu}
+                </Link>
+              ))}
             </div>
             <Link href="/profile" className="header-link-style">
               <PowerIcon className="size-5" /> 로그아웃

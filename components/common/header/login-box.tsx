@@ -8,7 +8,7 @@ export default function LoginBox({
   handleDropdownOpen: () => void;
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 select-none">
       <div className="flex items-center justify-between border-b pb-3 dark:border-neutral-600">
         <Link
           href={"/login"}

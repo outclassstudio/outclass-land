@@ -1,3 +1,5 @@
+import { ListBulletIcon, UserIcon } from "@heroicons/react/24/outline";
+
 export const PASSWORD_MIN_LENGTH = 4;
 
 export const PASSWORD_REGEX =
@@ -15,4 +17,9 @@ export const HEADER_MENU = [
   { menu: "프로그램", link: "/program" },
   { menu: "포스트", link: "/post" },
   { menu: "아웃클래스", link: "/about" },
+];
+
+export const DROPDOWN_MENU = [
+  { menu: "프로필수정", link: "/profile/edit", icon: UserIcon },
+  { menu: "상담내역", link: "/profile/products", icon: ListBulletIcon },
 ];

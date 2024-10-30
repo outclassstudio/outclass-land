@@ -14,7 +14,7 @@ export default function UserProfileBox({
   user,
 }: IDropDownProps) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between select-none">
       <Link
         href={"/profile"}
         className="w-full flex gap-3 items-center p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md"

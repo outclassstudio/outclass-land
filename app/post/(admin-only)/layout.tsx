@@ -1,5 +1,4 @@
 import RouteGuard from "@/components/common/route-guard";
-import SimpleHeader from "@/components/common/simple-header";
 
 export default function ProductDetailLayout({
   children,

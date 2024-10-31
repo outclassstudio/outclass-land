@@ -4,6 +4,10 @@ import getSession from "@/lib/session";
 import { Prisma } from "@prisma/client";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "프로필수정",
+};
+
 async function getUserData() {
   // return new Promise((res) => setTimeout(res, 2000)).then(() => {
   // });

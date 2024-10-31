@@ -5,6 +5,10 @@ import getSession from "@/lib/session";
 import { Prisma } from "@prisma/client";
 import { notFound } from "next/navigation";
 
+export const metadata = {
+  title: "상담내역",
+};
+
 async function getInitialProducts(userId: number) {
   const products = await db.product.findMany({
     where: {

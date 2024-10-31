@@ -41,24 +41,24 @@ export default function ApproachSection() {
           className="text-4xl sm:text-5xl font-extrabold text-neutral-800 mb-4
           flex flex-col gap-2 w-full"
         >
-          <span>아웃클래스의 차별화된</span>
-          <span>접근법</span>
+          <span>아웃클래스의 </span>
+          <span>차별화된 접근법 🔎</span>
         </h2>
-        <p className="w-full font-semibold text-lg sm:text-xl text-neutral-500 mb-12">
+        <p className="w-full font-semibold text-lg sm:text-xl text-neutral-500 mb-16">
           우리는 맞춤형 상담과 컨설팅을 제공하고 있습니다.
         </p>
         <div className="w-full flex flex-col gap-5 items-center justify-center">
           {approaches.map((item, idx) => (
             <div
               key={idx}
-              className={`w-full flex flex-col gap-5 p-14 rounded-xl ${item.bgColor}`}
+              className={`w-full flex flex-col gap-2 p-14 rounded-xl ${item.bgColor}`}
             >
               <div
-                className={`${item.textMain} font-bold text-2xl sm:text-3xl`}
+                className={`font-bold text-2xl sm:text-3xl ${item.textMain} `}
               >
                 {item.title}
               </div>
-              <div className={`${item.textSub} font-bold text-2xl sm:text-3xl`}>
+              <div className={`font-bold text-2xl sm:text-3xl ${item.textSub}`}>
                 {item.description}
               </div>
             </div>

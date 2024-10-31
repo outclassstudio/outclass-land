@@ -15,7 +15,7 @@ export default function CTASection() {
         >
           함께 만드는 미래
         </h2>
-        <p className="font-semibold text-lg sm:text-xl text-neutral-700 dark:text-neutral-300 mb-10 whitespace-pre-wrap">
+        <p className="font-semibold text-lg sm:text-xl text-neutral-700 mb-10 whitespace-pre-wrap">
           {`아웃클래스와 함께 \n삶의 새로운 여정을 시작해보세요.`}
         </p>
         <div className="flex flex-col sm:flex-row gap-3">

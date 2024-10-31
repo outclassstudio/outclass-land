@@ -4,7 +4,7 @@ import {
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
-export default function IntroSection() {
+export default function HeroSection() {
   return (
     <div className="w-screen py-40">
       <div className="text-center flex flex-col items-center px-5">

@@ -11,20 +11,26 @@ export default function ApproachSection() {
       title: "개인 맞춤형 분석",
       description:
         "상담 분석의 결과를 개인의 성격과 잠재력을 나타내는 도구로 활용합니다.",
-      color: "indigo",
+      bgColor: "bg-indigo-100",
+      textMain: "text-indigo-500",
+      textSub: "text-indigo-400",
     },
     {
       icon: SparklesIcon,
       title: "성장 중심 해석",
       description:
         "개인의 노력과 선택에 따라 다른 삶을 살 수 있다는 점을 강조합니다.",
-      color: "blue",
+      bgColor: "bg-blue-100",
+      textMain: "text-blue-500",
+      textSub: "text-blue-400",
     },
     {
       icon: ArrowRightIcon,
       title: "실천적 가이드",
       description: "구체적이고 실용적인 성장 방법을 제시합니다.",
-      color: "sky",
+      bgColor: "bg-sky-100",
+      textMain: "text-sky-500",
+      textSub: "text-sky-400",
     },
   ];
 
@@ -45,16 +51,14 @@ export default function ApproachSection() {
           {approaches.map((item, idx) => (
             <div
               key={idx}
-              className={`w-full flex flex-col gap-5 p-14 rounded-xl bg-${item.color}-100`}
+              className={`w-full flex flex-col gap-5 p-14 rounded-xl ${item.bgColor}`}
             >
               <div
-                className={`text-${item.color}-500 font-bold text-2xl sm:text-3xl`}
+                className={`${item.textMain} font-bold text-2xl sm:text-3xl`}
               >
                 {item.title}
               </div>
-              <div
-                className={`text-${item.color}-400 font-bold text-2xl sm:text-3xl`}
-              >
+              <div className={`${item.textSub} font-bold text-2xl sm:text-3xl`}>
                 {item.description}
               </div>
             </div>

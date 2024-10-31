@@ -8,21 +8,27 @@ export default function ServicesSection() {
       title: "개인 컨설팅",
       description:
         "고객의 성격과 성향을 종합적으로 분석하여 최적의 성장 경로를 제시합니다.",
-      color: "rose",
+      bgColor: "bg-rose-100",
+      textMain: "text-rose-500",
+      textSub: "text-rose-400",
     },
     {
       icon: BookOpenIcon,
       title: "온라인 코스",
       description:
         "언제 어디서나 자신의 성장을 도모할 수 있는 온라인 상담 프로그램을 운영합니다.",
-      color: "orange",
+      bgColor: "bg-orange-100",
+      textMain: "text-orange-500",
+      textSub: "text-orange-400",
     },
     {
       icon: UserIcon,
       title: "그룹 워크샵",
       description:
         "팀이나 조직의 잠재력을 끌어올리는 맞춤형 프로그램을 제공합니다.",
-      color: "amber",
+      bgColor: "bg-amber-100",
+      textMain: "text-amber-500",
+      textSub: "text-amber-400",
     },
   ];
 
@@ -43,16 +49,14 @@ export default function ServicesSection() {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`w-full flex flex-col gap-5 p-14 rounded-xl bg-${item.color}-100`}
+              className={`w-full flex flex-col gap-5 p-14 rounded-xl ${item.bgColor}`}
             >
               <div
-                className={`text-${item.color}-500 font-bold text-2xl sm:text-3xl`}
+                className={`${item.textMain} font-bold text-2xl sm:text-3xl`}
               >
                 {item.title}
               </div>
-              <div
-                className={`text-${item.color}-400 font-bold text-2xl sm:text-3xl`}
-              >
+              <div className={`${item.textSub} font-bold text-2xl sm:text-3xl`}>
                 {item.description}
               </div>
             </div>

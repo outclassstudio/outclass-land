@@ -9,7 +9,7 @@ export default function IntroSection() {
     <div className="w-screen py-40">
       <div className="text-center flex flex-col items-center px-5">
         <h1
-          className="text-4xl md:text-5xl font-bold mb-8 drop-shadow-md
+          className="text-5xl md:text-6xl font-extrabold mb-8 drop-shadow-sm
         bg-gradient-to-r from-orange-400 to-rose-500 text-transparent bg-clip-text
         whitespace-pre-wrap sm:whitespace-normal"
         >

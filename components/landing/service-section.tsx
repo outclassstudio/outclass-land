@@ -1,4 +1,5 @@
 import { BookOpenIcon, StarIcon, UserIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
 export default function ServicesSection() {
   const services = [
@@ -7,40 +8,76 @@ export default function ServicesSection() {
       title: "개인 컨설팅",
       description:
         "고객의 성격과 성향을 종합적으로 분석하여 최적의 성장 경로를 제시합니다.",
+      color: "rose",
+    },
+    {
+      icon: BookOpenIcon,
+      title: "온라인 코스",
+      description:
+        "언제 어디서나 자신의 성장을 도모할 수 있는 온라인 상담 프로그램을 운영합니다.",
+      color: "orange",
     },
     {
       icon: UserIcon,
       title: "그룹 워크샵",
       description:
         "팀이나 조직의 잠재력을 끌어올리는 맞춤형 프로그램을 제공합니다.",
-    },
-    {
-      icon: BookOpenIcon,
-      title: "온라인 코스",
-      description:
-        "언제 어디서나 자신의 성장을 도모할 수 있는 온라인 학습 플랫폼을 운영합니다.",
+      color: "amber",
     },
   ];
 
   return (
-    <div className="py-28">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-          아웃클래스와 함께하는 새로운 시작
+    <div className="py-28 px-5 flex justify-center w-full sm:w-[640px] md:w-[768px]">
+      <div className="flex flex-col items-center">
+        <h2
+          className="text-4xl sm:text-5xl font-extrabold text-neutral-800 mb-4
+          flex flex-col items-center gap-2 w-full"
+        >
+          <span>아웃클래스와 함께하는</span>
+          <span>새로운 시작</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-4">
-          {services.map((service, index) => (
+        <p className="w-full flex justify-center font-semibold text-lg sm:text-xl text-neutral-500 mb-16">
+          우리는 맞춤형 상담과 컨설팅을 제공하고 있습니다.
+        </p>
+        <div className="w-full flex flex-col gap-5 items-center justify-center">
+          {services.map((item, idx) => (
             <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+              key={idx}
+              className={`w-full flex flex-col gap-5 p-14 rounded-xl bg-${item.color}-100`}
             >
-              <service.icon className="w-12 h-12 text-[#f97316] mb-4" />
-              <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <div
+                className={`text-${item.color}-500 font-bold text-2xl sm:text-3xl`}
+              >
+                {item.title}
+              </div>
+              <div
+                className={`text-${item.color}-400 font-bold text-2xl sm:text-3xl`}
+              >
+                {item.description}
+              </div>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
+}
+
+{
+  /* <div className="w-full flex flex-col gap-1 p-14 rounded-xl bg-orange-100">
+            <div className="text-orange-500 font-bold text-2xl sm:text-3xl">
+              {services[1].title}
+            </div>
+            <div className="text-orange-400 font-bold text-2xl sm:text-3xl">
+              {services[1].description}
+            </div>
+          </div>
+          <div className="w-full flex flex-col gap-1 p-14 rounded-xl bg-amber-100">
+            <div className="text-amber-500 font-bold text-2xl sm:text-3xl">
+              {services[2].title}
+            </div>
+            <div className="text-amber-400 font-bold text-2xl sm:text-3xl">
+              {services[2].description}
+            </div>
+          </div> */
 }

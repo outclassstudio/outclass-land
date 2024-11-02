@@ -11,8 +11,9 @@ export default function About() {
     <div className="mt-[120px] mb-10 flex flex-col justify-center items-center p-4">
       <div className="flex flex-col gap-[80px] sm:gap-[120px] w-full sm:w-[640px] md:w-[768px]">
         <div className="flex flex-col gap-8 w-full md:gap-12">
-          <div className="text-5xl font-bold whitespace-pre-wrap leading-[65px]">
-            {`아웃클래스 \n: 당신의 잠재력을 깨우는 파트너`}
+          <div className="flex flex-col gap-2 text-4xl sm:text-5xl whitespace-pre-wrap">
+            <span className="font-extrabold">아웃클래스</span>
+            <span className="font-bold">: 당신의 잠재력을 깨우는 파트너</span>
           </div>
           <div className="relative aspect-video">
             <Image
@@ -36,7 +37,7 @@ export default function About() {
             />
           </div>
           <div className="sm:w-1/2 flex flex-col gap-6 sm:gap-10 justify-center">
-            <div className="text-4xl font-bold whitespace-pre-wrap leading-[50px]">
+            <div className="text-3xl sm:text-4xl font-bold whitespace-pre-wrap leading-[50px]">
               {`우리의 비전`}
             </div>
             <div className="px-1 text-lg whitespace-pre-wrap md:text-2xl">
@@ -45,7 +46,7 @@ export default function About() {
           </div>
         </div>
         <div className="flex flex-col gap-6 w-full md:gap-12">
-          <div className="text-4xl font-bold whitespace-pre-wrap leading-[50px]">
+          <div className="text-3xl sm:text-4xl font-bold whitespace-pre-wrap leading-[50px]">
             {`우리의 방식`}
           </div>
           <div className="flex flex-col sm:flex-row gap-5">
@@ -82,7 +83,7 @@ export default function About() {
           </div>
         </div>
         <div className="flex flex-col gap-8 w-full md:gap-12">
-          <div className="text-5xl font-bold whitespace-pre-wrap leading-[65px]">
+          <div className="text-4xl sm:text-5xl font-extrabold whitespace-pre-wrap leading-[65px]">
             {`함께 만드는 미래`}
           </div>
           <div className="relative aspect-video">

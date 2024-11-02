@@ -37,7 +37,7 @@ export default function ReservationForm() {
         selected={startDate}
         onChange={(date) => handleDateChange(date)}
         includeDateIntervals={[{ start: start, end: end }]}
-        placeholderText="날짜를 선택해주세요"
+        placeholderText="날짜를 선택해주세요."
         dateFormat="yyyy년 MM월 dd일"
         autoComplete="off"
       />

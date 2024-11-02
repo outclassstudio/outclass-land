@@ -24,7 +24,7 @@ export default function CTASection() {
             계정을 만들고 더 많은 혜택을 받아보세요
           </Link>
           <Link
-            href={"/create-account"}
+            href={"/login"}
             className="hover:text-orange-500 flex gap-1 items-center justify-center"
           >
             이미 계정이 있다면

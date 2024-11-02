@@ -25,7 +25,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             <Input
               name="username"
               type="text"
-              placeholder="이름을 입력하세요"
+              placeholder="이름을 입력하세요."
               required={true}
               errors={state?.fieldErrors.username}
               minLength={1}
@@ -53,7 +53,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             <Input
               name="phone"
               type="number"
-              placeholder="연락처를 입력하세요"
+              placeholder="연락처를 입력하세요."
               required={true}
               errors={state?.fieldErrors.phone}
             />
@@ -88,7 +88,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             <Input
               name="subject"
               type="text"
-              placeholder="상담사에게 요청하고 싶은 내용을 자유롭게 적어주세요"
+              placeholder="상담사에게 요청하고 싶은 내용을 자유롭게 적어주세요."
               required={false}
               errors={state?.fieldErrors.subject}
               minLength={PASSWORD_MIN_LENGTH}

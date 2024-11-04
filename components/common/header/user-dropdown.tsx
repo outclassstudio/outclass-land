@@ -6,6 +6,7 @@ import Link from "next/link";
 import UserProfileBox from "./user-profile-box";
 import LoginBox from "./login-box";
 import { DROPDOWN_MENU } from "@/lib/constants";
+import { logOut } from "@/lib/login";
 
 interface IDropDownProps {
   handleDropdownOpen: () => void;
@@ -37,9 +38,11 @@ export default function UserDropdown({
                 </Link>
               ))}
             </div>
-            <Link href="/profile" className="header-link-style">
-              <PowerIcon className="size-5" /> 로그아웃
-            </Link>
+            <form action={logOut} className="header-link-style cursor-pointer">
+              <button className="flex gap-2 items-center w-full">
+                <PowerIcon className="size-5" /> 로그아웃
+              </button>
+            </form>
           </>
         ) : (
           <LoginBox handleDropdownOpen={handleDropdownOpen} />

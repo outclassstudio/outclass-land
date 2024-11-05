@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const productSchema = z.object({
+export const programSchema = z.object({
   title: z.string({
     required_error: "필수 항목이에요title",
   }),
@@ -15,4 +15,4 @@ export const productSchema = z.object({
   }),
 });
 
-export type ProductType = z.infer<typeof productSchema>;
+export type ProgramType = z.infer<typeof programSchema>;

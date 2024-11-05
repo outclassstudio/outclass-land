@@ -1,18 +1,22 @@
 import ProgramList from "@/components/program/program-list";
 import getSession from "@/lib/session";
 import { notFound } from "next/navigation";
-import { getUserLikePrograms } from "../actions";
+import { getUserPrograms } from "../actions";
 
-export default async function UserPrograms() {
+export const metadata = {
+  title: "상담내역",
+};
+
+export default async function UserProducts() {
   const session = await getSession();
   const id = session.id;
   if (!session.id) return notFound();
-  const userLikePrograms = await getUserLikePrograms(id!);
+  const userProducts = await getUserPrograms(id!);
 
   return (
     <div>
-      {userLikePrograms ? (
-        <ProgramList initialPrograms={userLikePrograms} />
+      {userProducts ? (
+        <ProgramList initialPrograms={userProducts} />
       ) : (
         <div>판매중인 물품이 없어요</div>
       )}

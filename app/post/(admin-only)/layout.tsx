@@ -1,6 +1,6 @@
 import RouteGuard from "@/components/common/route-guard";
 
-export default function ProductDetailLayout({
+export default function PostDetailLayout({
   children,
 }: {
   children: React.ReactNode;

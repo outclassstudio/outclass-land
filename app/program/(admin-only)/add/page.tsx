@@ -4,12 +4,12 @@ import Button from "@/components/common/button";
 import Input from "@/components/common/input";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { uploadProduct } from "./actions";
 import { useFormState } from "react-dom";
 import Textarea from "@/components/common/textarea";
 import { getUploadUrl } from "@/apis/common/actions";
+import { uploadProgram } from "./actions";
 
-export default function AddProduct() {
+export default function AddProgram() {
   const [preview, setPreview] = useState("");
   const [uploadUrl, setUploadUrl] = useState("");
   const [photoId, setPhotoId] = useState("");
@@ -49,7 +49,7 @@ export default function AddProduct() {
 
     const photoUrl = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
     formData.set("photo", photoUrl);
-    return uploadProduct(formData);
+    return uploadProgram(formData);
   };
 
   const [state, dispatch] = useFormState(interceptAction, null);

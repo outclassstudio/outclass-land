@@ -1,54 +1,54 @@
 "use client";
 
-import EditInput from "@/components/product/edit/edit-input";
+import EditInput from "@/components/program/edit/edit-input";
 import { UserIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { useFormState } from "react-dom";
 import {
-  editProduct,
-  EditProductType,
-} from "@/app/program/(admin-only)/edit/product/[id]/action";
-import EditPhoto from "@/components/product/edit/edit-photo";
-import ProductButton from "../product-button";
+  editProgram,
+  EditProgramType,
+} from "@/app/program/(admin-only)/edit/[id]/action";
+import EditPhoto from "@/components/program/edit/edit-photo";
 import Link from "next/link";
+import ProgramtButton from "../program-button";
 
 export default function EditForm({
-  product,
+  program,
   id,
 }: {
-  product: EditProductType;
+  program: EditProgramType;
   id: number;
 }) {
-  const [state, dispatch] = useFormState(editProduct, id);
-  if (!product) return notFound();
+  const [state, dispatch] = useFormState(editProgram, id);
+  if (!program) return notFound();
 
   return (
     <form action={dispatch} className="h-screen mt-16">
-      <EditPhoto name="photo" url={`${product.photo}/avatar`} />
+      <EditPhoto name="photo" url={`${program.photo}/avatar`} />
       <div className="flex flex-col px-5 pb-[90px]">
         <div className="pb-5 px-1.5 flex items-center gap-3 border-b border-e-neutral-700">
           <div className="size-10 overflow-hidden rounded-full">
-            {product.user.avatar ? (
+            {program.user.avatar ? (
               <Image
                 width={40}
                 height={40}
-                src={`${product.user.avatar}/avatar`}
-                alt={product.user.username}
+                src={`${program.user.avatar}/avatar`}
+                alt={program.user.username}
               />
             ) : (
               <UserIcon />
             )}
           </div>
           <div>
-            <h3>{product.user.username} (수정중)</h3>
+            <h3>{program.user.username} (수정중)</h3>
           </div>
         </div>
         <div className="py-5 px-1.5 flex flex-col gap-3">
           <span className="*:text-2xl *:font-semibold">
-            <EditInput name={"title"} value={product.title} />
+            <EditInput name={"title"} value={program.title} />
           </span>
-          <EditInput name={"description"} value={product.description} />
+          <EditInput name={"description"} value={program.description} />
         </div>
       </div>
       <div
@@ -56,17 +56,17 @@ export default function EditForm({
       flex justify-between items-center sm:w-[640px] p-4 sm:p-5"
       >
         <span className="*:font-semibold *:text-lg *:sm:text-xl flex">
-          <EditInput name={"price"} value={product.price.toString()} />
+          <EditInput name={"price"} value={program.price.toString()} />
         </span>
         <div className="flex gap-2 sm:gap-3.5">
           <Link
             className={`bg-red-500 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-md 
           text-white font-semibold `}
-            href={`/products/${product.id}`}
+            href={`/program/${program.id}`}
           >
             취소
           </Link>
-          <ProductButton text="수정완료" color="orange-500" />
+          <ProgramtButton text="수정완료" color="orange-500" />
         </div>
       </div>
     </form>

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import DeleteConfirmModal from "../common/delete-confirm-modal";
-import { deleteProduct } from "@/app/program/(admin-only)/edit/product/[id]/action";
 import { useRouter } from "next/navigation";
+import { deleteProgram } from "@/app/program/(admin-only)/edit/[id]/action";
 
 interface ButtonProps {
   text: string;
@@ -12,7 +12,7 @@ interface ButtonProps {
   productId: number;
 }
 
-export default function ProductDeleteButton({
+export default function ProgramDeleteButton({
   text,
   color,
   productId,
@@ -26,7 +26,7 @@ export default function ProductDeleteButton({
   };
 
   const handleProductDelete = async () => {
-    const result = await deleteProduct(productId);
+    const result = await deleteProgram(productId);
     if (result) {
       router.push("/program");
     }

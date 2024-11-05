@@ -7,18 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-// interface ListProductProps {
-//   id: number;
-//   title: string;
-//   price: number;
-//   created_at: Date;
-//   photo: string;
-//   _count: {
-//     productLikes: number;
-//     chatrooms: number;
-//   };
-// }
-interface ListProductProps {
+interface ListProgramProps {
   id: number;
   title: string;
   price: number;
@@ -27,7 +16,7 @@ interface ListProductProps {
   created_at: Date;
 }
 
-export default function ListProduct({
+export default function ProgramBox({
   id,
   title,
   price,
@@ -35,7 +24,7 @@ export default function ListProduct({
   description,
   photo,
 }: // _count,
-ListProductProps) {
+ListProgramProps) {
   const [program] = dummyData.filter((data) => data.id === +id);
   return (
     <Link
@@ -54,9 +43,6 @@ ListProductProps) {
           />
         </div>
         <div className="flex flex-col px-5 gap-2 w-full">
-          {/* <div className="text-md font-semibold text-orange-700">
-          사주명리상담
-        </div> */}
           <div className="text-2xl text-neutral-800 dark:text-white font-bold">
             사주명리 상담
           </div>

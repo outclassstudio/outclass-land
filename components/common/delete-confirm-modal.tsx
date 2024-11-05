@@ -1,4 +1,4 @@
-interface DeleteProductModalProps {
+interface DeleteProgramModalProps {
   handleModalClose: () => void;
   handleDelete: () => void;
 }
@@ -6,7 +6,7 @@ interface DeleteProductModalProps {
 export default function DeleteConfirmModal({
   handleModalClose,
   handleDelete,
-}: DeleteProductModalProps) {
+}: DeleteProgramModalProps) {
   return (
     <div
       className="fixed h-screen w-full top-0 left-0 flex flex-col z-10

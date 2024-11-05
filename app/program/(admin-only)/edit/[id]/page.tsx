@@ -1,8 +1,8 @@
 // import db from "@/lib/db";
 import { unstable_cache as nextCache } from "next/cache";
 import { notFound } from "next/navigation";
-import { getProduct } from "./action";
-import EditForm from "@/components/product/edit/edit-form";
+import EditForm from "@/components/program/edit/edit-form";
+import { getProgram } from "./action";
 
 //todo 캐싱전략
 // const getCashedProduct = nextCache(getProduct, ["product-detail"], {
@@ -10,13 +10,13 @@ import EditForm from "@/components/product/edit/edit-form";
 // });
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const product = await getProduct(+params.id);
+  const program = await getProgram(+params.id);
   return {
-    title: product?.title,
+    title: program?.title,
   };
 }
 
-export default async function EditProductDetail({
+export default async function EditProgramDetail({
   params,
 }: {
   params: { id: string };
@@ -24,11 +24,11 @@ export default async function EditProductDetail({
   const id = Number(params.id);
   if (isNaN(id)) return notFound();
 
-  const product = await getProduct(id);
+  const program = await getProgram(id);
   // const product = await getCashedProduct(id);
-  if (!product) return notFound();
+  if (!program) return notFound();
 
-  return <EditForm product={product} id={id} />;
+  return <EditForm program={program} id={id} />;
 }
 
 // export async function generateStaticParams() {

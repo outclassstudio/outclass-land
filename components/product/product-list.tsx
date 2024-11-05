@@ -14,7 +14,7 @@ interface ProductsProps {
     title: string;
     price: number;
     description: string;
-    photo: string;
+    photo: string | null;
     created_at: Date;
   }[];
 }

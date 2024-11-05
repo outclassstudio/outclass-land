@@ -4,7 +4,7 @@ import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
 export async function getMoreProducts(page: number) {
-  const products = await db.product.findMany({
+  const products = await db.program.findMany({
     select: {
       id: true,
       title: true,
@@ -13,7 +13,7 @@ export async function getMoreProducts(page: number) {
       photo: true,
       _count: {
         select: {
-          productLikes: true,
+          programLikes: true,
           chatrooms: true,
         },
       },
@@ -28,7 +28,7 @@ export async function getMoreProducts(page: number) {
 }
 
 export async function getInitialProducts() {
-  const products = await db.product.findMany({
+  const products = await db.program.findMany({
     select: {
       id: true,
       title: true,
@@ -37,7 +37,7 @@ export async function getInitialProducts() {
       photo: true,
       _count: {
         select: {
-          productLikes: true,
+          programLikes: true,
           chatrooms: true,
         },
       },

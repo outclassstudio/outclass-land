@@ -1,5 +1,4 @@
 import ProductList from "@/components/product/product-list";
-import ProfileHeader from "@/components/profile/profile-header";
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { Prisma } from "@prisma/client";
@@ -10,7 +9,7 @@ export const metadata = {
 };
 
 async function getInitialProducts(userId: number) {
-  const products = await db.product.findMany({
+  const products = await db.program.findMany({
     where: {
       userId,
     },
@@ -23,7 +22,7 @@ async function getInitialProducts(userId: number) {
       description: true,
       _count: {
         select: {
-          productLikes: true,
+          programLikes: true,
           chatrooms: true,
         },
       },
@@ -48,7 +47,6 @@ export default async function UserProducts() {
 
   return (
     <div>
-      <ProfileHeader title="나의 판매내역" />
       {/* <div
         className="flex w-full justify-center items-center pt-5 px-4 pb-4
       *:w-1/2 *:text-center *:text-lg *:text-neutral-300 border-b border-neutral-600

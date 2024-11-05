@@ -35,7 +35,7 @@ async function getChatRooms() {
           userId: true,
         },
       },
-      product: {
+      program: {
         select: {
           id: true,
         },

@@ -16,8 +16,8 @@ async function getUser(id: number) {
     include: {
       _count: {
         select: {
-          products: true,
-          productLikes: true,
+          programs: true,
+          programLikes: true,
         },
       },
     },
@@ -76,7 +76,7 @@ export default async function Profile() {
           className="flex justify-between items-center p-3 w-full 
           border-b border-neutral-300 dark:border-neutral-500 text-neutral-700 dark:text-neutral-300 text-lg"
         >
-          <div>상당 목록 {user?._count.products}건</div>
+          <div>상당 목록 {user?._count.programs}건</div>
           <ChevronRightIcon className="size-10 text-neutral-400" />
         </Link>
         <form action={logOut} className="w-full">

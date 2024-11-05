@@ -18,13 +18,13 @@ interface SingleRoomProps {
     chatRoomId: string;
     userId: number;
   }[];
-  product: {
+  program: {
     id: number;
   };
 }
 
 async function getProductInfo(id: number) {
-  const product = await db.product.findUnique({
+  const product = await db.program.findUnique({
     where: {
       id,
     },
@@ -40,12 +40,12 @@ export default async function SingleRoom({
   id,
   users,
   messages,
-  product,
+  program,
 }: SingleRoomProps) {
   const session = await getSession();
   const [avatarUser] = users.filter((user) => user.id !== session.id);
   const [lastMessage] = messages.slice(-1);
-  const productInfo = await getProductInfo(product.id);
+  const productInfo = await getProductInfo(program.id);
 
   return (
     <Link

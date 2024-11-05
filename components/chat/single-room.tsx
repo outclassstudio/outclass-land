@@ -23,8 +23,8 @@ interface SingleRoomProps {
   };
 }
 
-async function getProductInfo(id: number) {
-  const product = await db.program.findUnique({
+async function getProgramInfo(id: number) {
+  const program = await db.program.findUnique({
     where: {
       id,
     },
@@ -33,7 +33,7 @@ async function getProductInfo(id: number) {
       title: true,
     },
   });
-  return product;
+  return program;
 }
 
 export default async function SingleRoom({
@@ -45,7 +45,7 @@ export default async function SingleRoom({
   const session = await getSession();
   const [avatarUser] = users.filter((user) => user.id !== session.id);
   const [lastMessage] = messages.slice(-1);
-  const productInfo = await getProductInfo(program.id);
+  const programInfo = await getProgramInfo(program.id);
 
   return (
     <Link
@@ -72,12 +72,9 @@ export default async function SingleRoom({
               {idx === users.length - 1 ? "" : ","}
             </span>
           ))}
-          {productInfo ? (
-            <div
-              // href={`/products/${productInfo.id}`}
-              className="text-sm text-neutral-400"
-            >
-              @ {productInfo.title}
+          {programInfo ? (
+            <div className="text-sm text-neutral-400">
+              @ {programInfo.title}
             </div>
           ) : null}
           <div className="text-xs text-neutral-500">

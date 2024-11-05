@@ -3,14 +3,18 @@
 import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
-export async function getMorePrograms(page: number) {
-  const programs = await db.program.findMany({
+export async function getUserPrograms(userId: number) {
+  const products = await db.program.findMany({
+    where: {
+      userId,
+    },
     select: {
       id: true,
       title: true,
       price: true,
       created_at: true,
       photo: true,
+      description: true,
       _count: {
         select: {
           programLikes: true,
@@ -18,23 +22,32 @@ export async function getMorePrograms(page: number) {
         },
       },
     },
-    skip: 6 * page,
-    take: 6,
+    take: 1,
     orderBy: {
       created_at: "desc",
     },
   });
-  return programs;
+  return products;
 }
 
-export async function getInitialPrograms() {
-  const programs = await db.program.findMany({
+export type UserPrograms = Prisma.PromiseReturnType<typeof getUserPrograms>;
+
+export async function getUserLikePrograms(userId: number) {
+  const products = await db.program.findMany({
+    where: {
+      programLikes: {
+        some: {
+          userId,
+        },
+      },
+    },
     select: {
       id: true,
       title: true,
       price: true,
       created_at: true,
       photo: true,
+      description: true,
       _count: {
         select: {
           programLikes: true,
@@ -42,14 +55,14 @@ export async function getInitialPrograms() {
         },
       },
     },
-    take: 6,
+    take: 1,
     orderBy: {
       created_at: "desc",
     },
   });
-  return programs;
+  return products;
 }
 
-export type InitialPrograms = Prisma.PromiseReturnType<
-  typeof getInitialPrograms
+export type UserLikePrograms = Prisma.PromiseReturnType<
+  typeof getUserLikePrograms
 >;

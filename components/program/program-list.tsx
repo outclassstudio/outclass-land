@@ -1,15 +1,14 @@
 "use client";
 
-import ListProduct from "./list-product";
+import ProgramBox from "./program-box";
 import { useEffect, useRef, useState } from "react";
-// import { getMoreProducts, InitialProducts } from "@/app/program/actions";
 
 // interface ProductsProps {
 //   initialProducts: InitialProducts;
 // }
 
-interface ProductsProps {
-  initialProducts: {
+interface ProgramsProps {
+  initialPrograms: {
     id: number;
     title: string;
     price: number;
@@ -19,8 +18,8 @@ interface ProductsProps {
   }[];
 }
 
-export default function ProductList({ initialProducts }: ProductsProps) {
-  const [products, setProducts] = useState(initialProducts);
+export default function ProgramList({ initialPrograms }: ProgramsProps) {
+  const [programs, setPrograms] = useState(initialPrograms);
   const [isLoading, setIsLoading] = useState(false);
   const [isLastPage, setIsLastPage] = useState(false);
   const [page, setPage] = useState(0);
@@ -36,11 +35,11 @@ export default function ProductList({ initialProducts }: ProductsProps) {
   //       if (element.isIntersecting && trigger.current) {
   //         observer.unobserve(trigger.current);
   //         setIsLoading(true);
-  //         const newProducts = await getMoreProducts(page + 1);
+  //         const newPrograms = await getMorePrograms(page + 1);
 
-  //         if (newProducts.length) {
+  //         if (newPrograms.length) {
   //           setPage((prev) => prev + 1);
-  //           setProducts((prev) => [...prev, ...newProducts]);
+  //           setPrograms((prev) => [...prev, ...newPrograms]);
   //         } else {
   //           setIsLastPage(true);
   //         }
@@ -64,8 +63,8 @@ export default function ProductList({ initialProducts }: ProductsProps) {
   return (
     <>
       <div className="flex flex-col gap-14 w-full sm:w-[640px]">
-        {products.map((product) => (
-          <ListProduct key={product.id} {...product} />
+        {programs.map((program) => (
+          <ProgramBox key={program.id} {...program} />
         ))}
       </div>
       {isLastPage ? null : (

@@ -7,7 +7,7 @@ interface ButtonProps {
   color: string;
 }
 
-export default function ProductButton({ text, color }: ButtonProps) {
+export default function ProgramtButton({ text, color }: ButtonProps) {
   const { pending } = useFormStatus();
 
   return (

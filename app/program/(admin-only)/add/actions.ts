@@ -3,10 +3,10 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { redirect } from "next/navigation";
-import { productSchema } from "./schema";
 import { revalidateTag } from "next/cache";
+import { programSchema } from "./schema";
 
-export async function uploadProduct(formData: FormData) {
+export async function uploadProgram(formData: FormData) {
   const data = {
     title: formData.get("title"),
     price: formData.get("price"),
@@ -15,14 +15,14 @@ export async function uploadProduct(formData: FormData) {
   };
 
   //todo schema의 폴더를 변경할 필요가 있음
-  const result = productSchema.safeParse(data);
+  const result = programSchema.safeParse(data);
   if (!result.success) {
     return result.error.flatten();
   } else {
     const session = await getSession();
 
     if (session.id) {
-      const product = await db.program.create({
+      const program = await db.program.create({
         data: {
           title: result.data.title,
           price: result.data.price,
@@ -40,8 +40,8 @@ export async function uploadProduct(formData: FormData) {
         },
       });
 
-      revalidateTag("products");
-      redirect(`/products/${product.id}`);
+      revalidateTag("prodgram");
+      redirect(`/program/${program.id}`);
     }
   }
 }

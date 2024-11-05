@@ -27,7 +27,7 @@ async function getUser(id: number) {
 }
 
 const getCachedUser = NextCache(getUser, ["user-profile"], {
-  tags: ["user-profile", "products"],
+  tags: ["user-profile", "program"],
   revalidate: 60,
 });
 
@@ -72,7 +72,7 @@ export default async function Profile() {
           프로필 수정
         </Link>
         <Link
-          href={`/profile/products`}
+          href={`/profile/programs`}
           className="flex justify-between items-center p-3 w-full 
           border-b border-neutral-300 dark:border-neutral-500 text-neutral-700 dark:text-neutral-300 text-lg"
         >

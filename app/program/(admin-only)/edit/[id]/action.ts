@@ -3,11 +3,11 @@
 import db from "@/lib/db";
 import { revalidateTag } from "next/cache";
 import { notFound, redirect } from "next/navigation";
-import { productSchema } from "@/app/program/(admin-only)/add/schema";
 import { Prisma } from "@prisma/client";
 import { getUploadUrl } from "@/apis/common/actions";
+import { programSchema } from "../../add/schema";
 
-export async function editProduct(prevState: any, formData: FormData) {
+export async function editProgram(prevState: any, formData: FormData) {
   const data = {
     title: formData.get("title"),
     price: formData.get("price"),
@@ -37,7 +37,7 @@ export async function editProduct(prevState: any, formData: FormData) {
     }
   }
 
-  const parseResult = productSchema.safeParse(data);
+  const parseResult = programSchema.safeParse(data);
   if (!parseResult.success) {
     return notFound();
   } else {
@@ -58,13 +58,13 @@ export async function editProduct(prevState: any, formData: FormData) {
         id: true,
       },
     });
-    revalidateTag("products");
-    redirect(`/products/${id}`);
+    revalidateTag("program");
+    redirect(`/program/${id}`);
   }
 }
 
-export async function getProduct(id: number) {
-  const product = await db.program.findUnique({
+export async function getProgram(id: number) {
+  const program = await db.program.findUnique({
     where: {
       id,
     },
@@ -77,10 +77,10 @@ export async function getProduct(id: number) {
       },
     },
   });
-  return product;
+  return program;
 }
 
-export async function deleteProduct(id: number) {
+export async function deleteProgram(id: number) {
   try {
     const result = await db.program.delete({
       where: {
@@ -90,11 +90,11 @@ export async function deleteProduct(id: number) {
         id: true,
       },
     });
-    revalidateTag("products");
+    revalidateTag("program");
     return result;
   } catch (e) {
     console.log(e);
   }
 }
 
-export type EditProductType = Prisma.PromiseReturnType<typeof getProduct>;
+export type EditProgramType = Prisma.PromiseReturnType<typeof getProgram>;

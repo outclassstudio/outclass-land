@@ -22,7 +22,7 @@ export async function uploadProduct(formData: FormData) {
     const session = await getSession();
 
     if (session.id) {
-      const product = await db.product.create({
+      const product = await db.program.create({
         data: {
           title: result.data.title,
           price: result.data.price,

@@ -2,7 +2,6 @@
 
 import Button from "@/components/common/button";
 import Input from "@/components/common/input";
-import ProfileHeader from "@/components/profile/profile-header";
 import { useFormState } from "react-dom";
 import { CheckPassword } from "./actions";
 import Link from "next/link";

@@ -41,7 +41,7 @@ export async function editProduct(prevState: any, formData: FormData) {
   if (!parseResult.success) {
     return notFound();
   } else {
-    const { id } = await db.product.update({
+    const { id } = await db.program.update({
       where: {
         id: prevState,
       },
@@ -64,7 +64,7 @@ export async function editProduct(prevState: any, formData: FormData) {
 }
 
 export async function getProduct(id: number) {
-  const product = await db.product.findUnique({
+  const product = await db.program.findUnique({
     where: {
       id,
     },
@@ -82,7 +82,7 @@ export async function getProduct(id: number) {
 
 export async function deleteProduct(id: number) {
   try {
-    const result = await db.product.delete({
+    const result = await db.program.delete({
       where: {
         id,
       },

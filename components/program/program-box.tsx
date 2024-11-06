@@ -44,7 +44,7 @@ ListProgramProps) {
         </div>
         <div className="flex flex-col px-5 gap-2 w-full">
           <div className="text-2xl text-neutral-800 dark:text-white font-bold">
-            사주명리 상담
+            {title}
           </div>
           <div className="text-neutral-700 dark:text-neutral-300 font-light mb-10">
             {description}

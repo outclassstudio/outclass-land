@@ -25,3 +25,19 @@ export const getUser = async () => {
 };
 
 export type UserType = Prisma.PromiseReturnType<typeof getUser>;
+
+export const getUserRole = async () => {
+  const session = await getSession();
+  if (session.id) {
+    const user = await db.user.findUnique({
+      where: {
+        id: session.id,
+      },
+      select: {
+        role: true,
+      },
+    });
+    return user;
+  }
+  return null;
+};

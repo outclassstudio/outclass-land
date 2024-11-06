@@ -20,9 +20,9 @@ export async function getMorePrograms(page: number) {
     },
     skip: 6 * page,
     take: 6,
-    orderBy: {
-      created_at: "desc",
-    },
+    // orderBy: {
+    //   created_at: "desc",
+    // },
   });
   return programs;
 }
@@ -34,6 +34,7 @@ export async function getInitialPrograms() {
       title: true,
       price: true,
       created_at: true,
+      description: true,
       photo: true,
       _count: {
         select: {
@@ -43,9 +44,9 @@ export async function getInitialPrograms() {
       },
     },
     take: 6,
-    orderBy: {
-      created_at: "desc",
-    },
+    // orderBy: {
+    //   created_at: "desc",
+    // },
   });
   return programs;
 }

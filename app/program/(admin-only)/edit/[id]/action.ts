@@ -18,7 +18,7 @@ export async function editProgram(prevState: any, formData: FormData) {
 
   const parseResult = programSchema.safeParse(data);
   if (!parseResult.success) {
-    return notFound();
+    return parseResult.error.flatten();
   } else {
     const { id } = await db.program.update({
       where: {

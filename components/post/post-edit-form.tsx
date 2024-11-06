@@ -35,7 +35,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
   const { isDark } = useThemeStore();
   if (!initialPost) return notFound();
 
-  const onTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") {
       setIsTitleBlank(true);
     } else {
@@ -44,7 +44,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     setTitle(e.target.value);
   };
 
-  const onContentChange = (
+  const handleContentChange = (
     value?: string,
     event?: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -60,7 +60,9 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
     setSummary(e.target.value);
   };
 
-  const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const {
       target: { files },
     } = event;
@@ -123,7 +125,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
         onSubmit={handleSubmit}
       >
         <input
-          onChange={onImageChange}
+          onChange={handleImageChange}
           type="file"
           id="photo"
           name="photo"
@@ -144,7 +146,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
             value={title}
             required
             placeholder="제목"
-            onChange={onTitleChange}
+            onChange={handleTitleChange}
             // errors={state?.fieldErrors.title}
           />
         </div>
@@ -160,7 +162,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
           <div className="container" data-color-mode={isDark ? "dark" : ""}>
             <MDEditor
               value={content!}
-              onChange={onContentChange}
+              onChange={handleContentChange}
               height="500px"
             />
           </div>
@@ -188,7 +190,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
             >
               <PhotoIcon />
               <input
-                onChange={onImageChange}
+                onChange={handleImageChange}
                 type="file"
                 id="photo"
                 name="photo"

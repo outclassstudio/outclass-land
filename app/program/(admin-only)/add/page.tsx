@@ -13,6 +13,7 @@ export default function AddProgram() {
   const [preview, setPreview] = useState("");
   const [uploadUrl, setUploadUrl] = useState("");
   const [photoId, setPhotoId] = useState("");
+  const [state, dispatch] = useFormState(interceptAction, null);
 
   const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
@@ -32,7 +33,7 @@ export default function AddProgram() {
     }
   };
 
-  const interceptAction = async (_: any, formData: FormData) => {
+  async function interceptAction(_: any, formData: FormData) {
     const file = formData.get("photo");
     if (!file) {
       return;
@@ -50,9 +51,7 @@ export default function AddProgram() {
     const photoUrl = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
     formData.set("photo", photoUrl);
     return uploadProgram(formData);
-  };
-
-  const [state, dispatch] = useFormState(interceptAction, null);
+  }
 
   return (
     <div className="w-full flex justify-center">

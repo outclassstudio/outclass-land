@@ -30,6 +30,7 @@ export default function EditForm({
   const [isOpen, setIsOpen] = useState(program?.isOpen);
   const [isTitleBlank, setIsTitleBlank] = useState(false);
   const [isContentBlank, setIsContentBlank] = useState(false);
+  const [state, dispatch] = useFormState(interceptAction, null);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") {
@@ -60,7 +61,9 @@ export default function EditForm({
     setIsOpen(open);
   };
 
-  const onImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const {
       target: { files },
     } = event;
@@ -79,7 +82,7 @@ export default function EditForm({
     }
   };
 
-  const interceptAction = async (_: any, formData: FormData) => {
+  async function interceptAction(_: any, formData: FormData) {
     const file = formData.get("photo");
     if (!file) {
       return;
@@ -100,12 +103,10 @@ export default function EditForm({
       photo = program?.photo!;
     }
 
-    // const photoUrl = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${photoId}`;
     formData.set("photo", photo);
     return editProgram(id, formData);
-  };
+  }
   if (!program) return notFound();
-  const [state, dispatch] = useFormState(interceptAction, null);
 
   return (
     <div className="w-full flex justify-center">
@@ -140,7 +141,7 @@ export default function EditForm({
             ""
           )}
           <input
-            onChange={onImageChange}
+            onChange={handleImageChange}
             type="file"
             id="photo"
             name="photo"
@@ -156,7 +157,7 @@ export default function EditForm({
             placeholder="제목"
             value={title}
             onChange={handleTitleChange}
-            // errors={state?.fieldErrors.title}
+            errors={state?.fieldErrors.title}
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -168,7 +169,7 @@ export default function EditForm({
             placeholder="₩ 가격을 입력해주세요"
             value={price}
             onChange={handlePriceChange}
-            // errors={state?.fieldErrors.price}
+            errors={state?.fieldErrors.price}
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -179,7 +180,7 @@ export default function EditForm({
             placeholder="자세한 설명"
             value={description}
             onChange={handleDescriptionChange}
-            // errors={state?.fieldErrors.description}
+            errors={state?.fieldErrors.description}
           />
         </div>
         <div className="flex flex-col gap-3">

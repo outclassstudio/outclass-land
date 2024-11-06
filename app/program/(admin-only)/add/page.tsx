@@ -55,26 +55,29 @@ export default function AddProgram() {
   const [state, dispatch] = useFormState(interceptAction, null);
 
   return (
-    <div>
-      <form action={dispatch} className="flex flex-col gap-7 p-5">
+    <div className="w-full flex justify-center">
+      <form
+        action={dispatch}
+        className="flex flex-col gap-7 p-5 w-full sm:w-[768px]"
+      >
         <div className="flex gap-5">
           <label
             htmlFor="photo"
-            className="border-2 size-16 sm:size-20 aspect-square flex flex-col items-center justify-center 
-          text-neutral-300 border-neutral-300 rounded-md border-dashed cursor-pointer p-2"
+            className="border-2 size-20 sm:size-24 aspect-square flex flex-col items-center justify-center 
+            text-neutral-300 border-neutral-300 rounded-md border-dashed cursor-pointer p-2"
           >
             <PhotoIcon className="" />
           </label>
           {preview ? (
             <div
-              className="bg-center bg-cover size-16 sm:size-20 rounded-md relative
+              className="bg-center bg-cover size-20 sm:size-24 rounded-md relative
               ring-[1px] ring-neutral-300"
               style={{
                 backgroundImage: `url(${preview})`,
               }}
             >
               <div
-                className="absolute bottom-0 bg-black opacity-70 w-16 h-6 sm:w-20 sm:h-8 rounded-b-md
+                className="absolute bottom-0 text-white bg-black opacity-70 w-20 h-6 sm:w-24 sm:h-8 rounded-b-md
               text-xs sm:text-sm flex justify-center items-center"
               >
                 대표사진
@@ -92,7 +95,7 @@ export default function AddProgram() {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <div className="font-bold text-neutral-200">제목</div>
+          <div className="font-bold">제목</div>
           <Input
             name="title"
             type="text"
@@ -102,7 +105,7 @@ export default function AddProgram() {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <div className="font-bold text-neutral-200">가격</div>
+          <div className="font-bold">가격</div>
           <Input
             name="price"
             type="number"
@@ -112,13 +115,23 @@ export default function AddProgram() {
           />
         </div>
         <div className="flex flex-col gap-3">
-          <div className="font-bold text-neutral-200">자세한 설명</div>
+          <div className="font-bold">설명</div>
           <Textarea
             name="description"
             required
             placeholder="자세한 설명"
             errors={state?.fieldErrors.description}
           />
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="font-bold">공개여부</div>
+          <select
+            name="isopen"
+            className="input-style w-full h-10 text-neutral-400"
+          >
+            <option>공개</option>
+            <option>비공개</option>
+          </select>
         </div>
         <Button text="작성 완료" />
       </form>

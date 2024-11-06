@@ -13,6 +13,9 @@ export const programSchema = z.object({
   photo: z.string({
     required_error: "필수 항목이에요photo",
   }),
+  isOpen: z.boolean({
+    required_error: "필수 항목이에요isOpen",
+  }),
 });
 
 export type ProgramType = z.infer<typeof programSchema>;

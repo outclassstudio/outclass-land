@@ -13,29 +13,8 @@ export async function editProgram(prevState: any, formData: FormData) {
     price: formData.get("price"),
     description: formData.get("description"),
     photo: formData.get("photo"),
+    isOpen: formData.get("isopen") === "공개" ? true : false,
   };
-
-  if (data.photo instanceof File) {
-    if (data.photo.size) {
-      const { success, result } = await getUploadUrl();
-      if (success) {
-        const { id, uploadURL } = result;
-        const cloudflareForm = new FormData();
-        cloudflareForm.append("file", data.photo!);
-        const response = await fetch(uploadURL, {
-          method: "post",
-          body: cloudflareForm,
-        });
-        if (response.status !== 200) {
-          return;
-        }
-        const photoUrl = `https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/${id}`;
-        data.photo = photoUrl;
-      }
-    } else {
-      data.photo = "/undefined";
-    }
-  }
 
   const parseResult = programSchema.safeParse(data);
   if (!parseResult.success) {
@@ -53,13 +32,14 @@ export async function editProgram(prevState: any, formData: FormData) {
           parseResult.data.photo === "/undefined"
             ? undefined
             : parseResult.data.photo,
+        isOpen: parseResult.data.isOpen,
       },
       select: {
         id: true,
       },
     });
     revalidateTag("program");
-    redirect(`/program/${id}`);
+    redirect(`/program/list`);
   }
 }
 

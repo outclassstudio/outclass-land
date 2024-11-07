@@ -1,6 +1,7 @@
 "use server";
 
 import db from "@/lib/db";
+import { Prisma } from "@prisma/client";
 
 export async function getMorePosts(page: number) {
   const posts = await db.post.findMany({
@@ -52,3 +53,5 @@ export async function getPosts() {
   });
   return posts;
 }
+
+export type InitialPosts = Prisma.PromiseReturnType<typeof getPosts>;

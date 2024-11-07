@@ -1,7 +1,7 @@
 export default function Looading() {
   return (
-    <div className="mt-[100px] flex flex-col items-center p-5">
-      <div className="w-full sm:w-[640px] flex justify-start mb-4">
+    <div className="mt-[80px] flex flex-col items-center p-5">
+      <div className="w-full sm:w-[640px] flex justify-start mb-6">
         <div className="skeleton-style w-[135px] h-[40px]" />
       </div>
       <div className="animate-pulse flex flex-col gap-10 w-full sm:w-[640px]">

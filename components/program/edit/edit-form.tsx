@@ -28,16 +28,9 @@ export default function EditForm({
   const [description, setDescription] = useState(program?.description);
   const [price, setPrice] = useState(program?.price);
   const [isOpen, setIsOpen] = useState(program?.isOpen);
-  const [isTitleBlank, setIsTitleBlank] = useState(false);
-  const [isContentBlank, setIsContentBlank] = useState(false);
   const [state, dispatch] = useFormState(interceptAction, null);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
-      setIsTitleBlank(true);
-    } else {
-      setIsTitleBlank(false);
-    }
     setTitle(e.target.value);
   };
 
@@ -48,11 +41,6 @@ export default function EditForm({
   const handleDescriptionChange = (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    if (!e.target.value) {
-      setIsContentBlank(true);
-    } else {
-      setIsContentBlank(false);
-    }
     setDescription(e.target.value);
   };
 
@@ -109,10 +97,13 @@ export default function EditForm({
   if (!program) return notFound();
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex flex-col items-center">
+      <div className="w-full sm:w-[640px] md:w-[768px] mt-5 px-5 flex items-center text-2xl sm:text-4xl font-bold mb-6">
+        <span>프로그램 수정</span>
+      </div>
       <form
         action={dispatch}
-        className="flex flex-col gap-7 p-5 w-full sm:w-[768px]"
+        className="flex flex-col gap-7 p-5 w-full sm:w-[640px] md:w-[768px]"
       >
         <div className="flex gap-5">
           <label

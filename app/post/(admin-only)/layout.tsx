@@ -7,7 +7,7 @@ export default function PostDetailLayout({
 }) {
   return (
     <RouteGuard allowedRoles={["ADMIN"]}>
-      <div className="mt-[100px]">{children}</div>
+      <div className="mt-[80px]">{children}</div>
     </RouteGuard>
   );
 }

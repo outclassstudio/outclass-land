@@ -26,8 +26,8 @@ export default async function Programs() {
   const userRole = await getUserRole();
 
   return (
-    <div className="mt-[100px] flex flex-col items-center p-5">
-      <div className="w-full sm:w-[640px] px-1 flex justify-between items-center text-2xl sm:text-4xl font-bold mb-4">
+    <div className="mt-[80px] flex flex-col items-center p-5">
+      <div className="w-full sm:w-[640px] px-1 flex justify-between items-center text-2xl sm:text-4xl font-bold mb-6">
         <span>프로그램</span>
         {userRole?.role === "ADMIN" ? (
           <div className="flex gap-1 sm:gap-2">

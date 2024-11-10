@@ -1,7 +1,10 @@
 "use client";
 
 import { UserType } from "@/apis/user/actions";
-import { PowerIcon } from "@heroicons/react/24/outline";
+import {
+  AdjustmentsHorizontalIcon,
+  PowerIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import UserProfileBox from "./user-profile-box";
 import LoginBox from "./login-box";
@@ -38,6 +41,15 @@ export default function UserDropdown({
                 </Link>
               ))}
             </div>
+            {user.role === "ADMIN" ? (
+              <div className="border-b dark:border-neutral-600 pb-3 flex flex-col gap-1">
+                <Link href={"/admin"} className="header-link-style">
+                  <AdjustmentsHorizontalIcon className="size-5" /> 관리자
+                </Link>
+              </div>
+            ) : (
+              ""
+            )}
             <form action={logOut} className="header-link-style cursor-pointer">
               <button className="flex gap-2 items-center w-full">
                 <PowerIcon className="size-5" /> 로그아웃

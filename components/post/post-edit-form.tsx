@@ -119,7 +119,7 @@ export default function PostEditForm({ initialPost }: PostEditProps) {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mb-[30px]">
       <form
         className="w-full sm:w-[768px] flex flex-col gap-5 p-5"
         onSubmit={handleSubmit}

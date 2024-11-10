@@ -97,7 +97,7 @@ export default function EditForm({
   if (!program) return notFound();
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center mb-[30px]">
       <div className="w-full sm:w-[640px] md:w-[768px] mt-5 px-5 flex items-center text-2xl sm:text-4xl font-bold mb-6">
         <span>프로그램 수정</span>
       </div>

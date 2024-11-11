@@ -1,4 +1,5 @@
 import { ListBulletIcon, UserIcon } from "@heroicons/react/24/outline";
+import { BookOpenIcon, FolderIcon } from "@heroicons/react/24/solid";
 
 export const PASSWORD_MIN_LENGTH = 4;
 
@@ -22,4 +23,21 @@ export const HEADER_MENU = [
 export const DROPDOWN_MENU = [
   { menu: "프로필수정", link: "/profile/edit", icon: UserIcon },
   { menu: "상담내역", link: "/profile/products", icon: ListBulletIcon },
+];
+
+export const ADMIN_MENUS = [
+  {
+    title: "프로그램",
+    description: "프로그램 추가 / 수정 / 삭제",
+    link: "/program/list",
+    icon: { comp: FolderIcon },
+    color: "rose",
+  },
+  {
+    title: "포스트",
+    description: "포스트 추가 / 수정 / 삭제",
+    link: "/post/list",
+    icon: { comp: BookOpenIcon },
+    color: "orange",
+  },
 ];

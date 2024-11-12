@@ -37,10 +37,3 @@ export function dateFormatter(date: Date): string {
   const formattedDate = `${year}년 ${month}월 ${day}일`;
   return formattedDate;
 }
-
-// const getData = () => {
-//   return new Promise((res) => setTimeout(res, 5000)).then(() => {
-//     return dummyData;
-//   });
-// };
-// const initialProducts = await getData();

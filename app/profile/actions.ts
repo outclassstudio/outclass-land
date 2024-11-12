@@ -15,6 +15,7 @@ export async function getUserPrograms(userId: number) {
       created_at: true,
       photo: true,
       description: true,
+      isOpen: true,
       _count: {
         select: {
           programLikes: true,
@@ -48,6 +49,7 @@ export async function getUserLikePrograms(userId: number) {
       created_at: true,
       photo: true,
       description: true,
+      isOpen: true,
       _count: {
         select: {
           programLikes: true,

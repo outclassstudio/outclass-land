@@ -3,7 +3,6 @@ import { getInitialPrograms } from "../actions";
 import Link from "next/link";
 import { PencilSquareIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { getUserRole } from "@/apis/user/actions";
-// import { dummyData } from "@/lib/dummy";
 // import { unstable_cache as nextCache, revalidateTag } from "next/cache";
 
 //cache 사용 -> 함수는 return이 반드시 있어야 함
@@ -22,7 +21,6 @@ export default async function Programs() {
   //todo 캐싱전략 수정 필요
   // const initialPrograms = await getCashedPrograms();
   const initialPrograms = await getInitialPrograms();
-  // const initialPrograms = dummyData;
   const userRole = await getUserRole();
 
   return (

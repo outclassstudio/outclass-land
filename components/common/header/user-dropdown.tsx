@@ -8,8 +8,8 @@ import {
 import Link from "next/link";
 import UserProfileBox from "./user-profile-box";
 import LoginBox from "./login-box";
-import { DROPDOWN_MENU } from "@/lib/constants";
 import { logOut } from "@/lib/login";
+import { DROPDOWN_MENU } from "@/lib/contents/menus";
 
 interface IDropDownProps {
   handleDropdownOpen: () => void;

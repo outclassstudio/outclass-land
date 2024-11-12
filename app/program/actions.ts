@@ -36,6 +36,7 @@ export async function getInitialPrograms() {
       created_at: true,
       description: true,
       photo: true,
+      isOpen: true,
       _count: {
         select: {
           programLikes: true,
@@ -54,3 +55,27 @@ export async function getInitialPrograms() {
 export type InitialPrograms = Prisma.PromiseReturnType<
   typeof getInitialPrograms
 >;
+
+export async function getProgram(id: number) {
+  const program = await db.program.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      title: true,
+      price: true,
+      created_at: true,
+      description: true,
+      photo: true,
+      isOpen: true,
+      _count: {
+        select: {
+          programLikes: true,
+          chatrooms: true,
+        },
+      },
+    },
+  });
+  return program;
+}

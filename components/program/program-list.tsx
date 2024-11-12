@@ -1,21 +1,11 @@
 "use client";
 
+import { InitialPrograms } from "@/app/program/actions";
 import ProgramBox from "./program-box";
 import { useEffect, useRef, useState } from "react";
 
-// interface ProductsProps {
-//   initialProducts: InitialProducts;
-// }
-
 interface ProgramsProps {
-  initialPrograms: {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    photo: string | null;
-    created_at: Date;
-  }[];
+  initialPrograms: InitialPrograms;
 }
 
 export default function ProgramList({ initialPrograms }: ProgramsProps) {

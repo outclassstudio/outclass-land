@@ -1,6 +1,5 @@
 "use client";
 
-import { HEADER_MENU } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggleButton from "./theme-toggle-button";
@@ -10,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { useThemeEffect } from "@/lib/hooks/useThemeState";
 import { useEffect, useState } from "react";
 import { UserType } from "@/apis/user/actions";
+import { HEADER_MENU } from "@/lib/contents/menus";
 
 interface IUserProps {
   user: UserType;

@@ -1,5 +1,5 @@
 import AdminMenuBox from "@/components/admin/admin-menu-box";
-import { ADMIN_MENUS } from "@/lib/constants";
+import { ADMIN_MENUS } from "@/lib/contents/menus";
 
 export default function Admin() {
   return (

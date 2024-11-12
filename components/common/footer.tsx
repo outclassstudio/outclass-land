@@ -1,6 +1,6 @@
 "use client";
 
-import { HEADER_MENU } from "@/lib/constants";
+import { HEADER_MENU } from "@/lib/contents/menus";
 import Link from "next/link";
 
 export default function Footer() {

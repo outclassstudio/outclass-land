@@ -1,4 +1,3 @@
-import { dummyData } from "@/lib/dummy";
 import { formatToTimeAgo, formatToWon } from "@/lib/utils";
 import {
   ChatBubbleLeftRightIcon,
@@ -14,6 +13,7 @@ interface ListProgramProps {
   description: string;
   photo: string | null;
   created_at: Date;
+  isOpen: boolean | null;
 }
 
 export default function ProgramBox({
@@ -23,17 +23,17 @@ export default function ProgramBox({
   created_at,
   description,
   photo,
+  isOpen,
 }: // _count,
 ListProgramProps) {
-  const [program] = dummyData.filter((data) => data.id === +id);
   return (
     <Link
-      href={program.isOpen ? `/program/${id}` : ""}
+      href={isOpen ? `/program/${id}` : ""}
       className={`w-full border-2 rounded-lg dark:border-neutral-700 relative ${
-        program.isOpen ? "" : "cursor-not-allowed"
+        isOpen ? "" : "cursor-not-allowed"
       }`}
     >
-      <div className={`flex flex-col gap-5 ${program.isOpen ? "" : "blur-md"}`}>
+      <div className={`flex flex-col gap-5 ${isOpen ? "" : "blur-md"}`}>
         <div className="relative aspect-video rounded-t-md overflow-hidden">
           <Image
             fill
@@ -84,7 +84,7 @@ ListProgramProps) {
           </div>
         </div>
       </div>
-      {program.isOpen ? (
+      {isOpen ? (
         ""
       ) : (
         <div

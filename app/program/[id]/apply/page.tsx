@@ -2,15 +2,18 @@
 
 import Input from "@/components/common/input";
 import { useFormState } from "react-dom";
-import { PASSWORD_MIN_LENGTH } from "@/lib/constants";
 import { createApply } from "./actions";
 import ConsentForm from "@/components/apply/consent-form";
 import ReservationForm from "@/components/apply/reservation-form";
-import { programsList } from "@/lib/dummy";
+import { PROGRAM_OPTIONS } from "@/lib/contents/program";
 
 export default function Apply({ params: { id } }: { params: { id: string } }) {
   const [state, dispatch] = useFormState(createApply, null);
-  const [program] = programsList.filter((el) => el.id === +id);
+  const [program] = PROGRAM_OPTIONS.filter((el) => el.id === +id);
+
+  // const handleSubmit = (e: React.FormEventHandler<HTMLFormElement>) => {
+  //   console.log(e);
+  // };
 
   return (
     <div className="w-ful flex justify-center mt-[72px]">
@@ -19,22 +22,27 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
           <h1 className="text-2xl font-bold">상담신청</h1>
           <h2 className="text-xl">성장의 방향을 함께 발견해요.</h2>
         </div>
-        <form action={dispatch} className="flex flex-col gap-8">
+        <form
+          // onSubmit={handleSubmit}
+          action={dispatch}
+          className="flex flex-col gap-8"
+        >
           <div className="flex flex-col gap-3">
+            <input type="text" value={id} name="program" className="hidden" />
             <div className="font-bold dark:text-neutral-200">이름</div>
             <Input
-              name="username"
+              name="name"
               type="text"
               placeholder="이름을 입력하세요."
               required={true}
-              errors={state?.fieldErrors.username}
+              errors={state?.fieldErrors.name}
               minLength={1}
             />
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">성별</div>
             <select
-              name="program"
+              name="sex"
               defaultValue={"DEFAULT"}
               className="input-style w-full h-10 text-neutral-400"
             >
@@ -61,7 +69,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">프로그램 선택</div>
             <select
-              name="program"
+              name="option"
               defaultValue={"DEFAULT"}
               className="input-style w-full h-10 text-neutral-400"
             >
@@ -91,7 +99,6 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
               placeholder="상담사에게 요청하고 싶은 내용을 자유롭게 적어주세요."
               required={false}
               errors={state?.fieldErrors.subject}
-              minLength={PASSWORD_MIN_LENGTH}
             />
           </div>
           <ConsentForm />

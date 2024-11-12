@@ -61,7 +61,7 @@ model Program {
   userId       Int
   chatrooms    ChatRoom[]
   programLikes ProgramLike[]
-  counsel      Counsel[]
+  applies      Apply[]
 }
 
 model Post {
@@ -133,10 +133,16 @@ model ProgramLike {
   @@id(name: "id", [userId, programId])
 }
 
-model Counsel {
+model Apply {
   id         Int      @id @default(autoincrement())
+  name       String
+  phone      String
+  sex        String
+  option     String
   date       String
-  time       String
+  dateTime   String
+  subject    String
+  consent    String
   created_at DateTime @default(now())
   program    Program  @relation(fields: [programId], references: [id])
   programId  Int

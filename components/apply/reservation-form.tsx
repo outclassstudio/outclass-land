@@ -3,15 +3,15 @@
 import { Suspense, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { ko } from "date-fns/locale/ko";
-import { reservation_time } from "@/lib/dummy";
 import { dateFormatter } from "@/lib/utils";
 import { getReservation } from "@/app/program/[id]/apply/actions";
+import { RESERVATION_TIME } from "@/lib/contents/program";
 import "react-datepicker/dist/react-datepicker.css";
 import "./override.css";
 
 export default function ReservationForm() {
   const [startDate, setStartDate] = useState<Date | null>(null);
-  const [timeList, setTimeList] = useState(reservation_time);
+  const [timeList, setTimeList] = useState(RESERVATION_TIME);
   registerLocale("ko", ko);
 
   const start = new Date();
@@ -23,7 +23,7 @@ export default function ReservationForm() {
     if (date) {
       const newDate = dateFormatter(date);
       const reservation = await getReservation(newDate);
-      const reservedTime = reservation.map((el) => el.time);
+      const reservedTime = reservation.map((el) => el.dateTime);
       const newTimeList = timeList.filter((el) => !reservedTime.includes(el));
       setTimeList(newTimeList);
     }

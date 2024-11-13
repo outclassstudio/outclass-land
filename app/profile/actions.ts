@@ -4,28 +4,25 @@ import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
 
 export async function getUserPrograms(userId: number) {
-  const products = await db.program.findMany({
+  const products = await db.apply.findMany({
     where: {
       userId,
     },
     select: {
-      id: true,
-      title: true,
-      price: true,
+      name: true,
+      phone: true,
+      sex: true,
+      option: true,
+      date: true,
+      dateTime: true,
+      subject: true,
       created_at: true,
-      photo: true,
-      description: true,
-      isOpen: true,
-      _count: {
+      status: true,
+      program: {
         select: {
-          programLikes: true,
-          chatrooms: true,
+          title: true,
         },
       },
-    },
-    take: 1,
-    orderBy: {
-      created_at: "desc",
     },
   });
   return products;

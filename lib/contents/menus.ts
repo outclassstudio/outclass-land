@@ -9,7 +9,7 @@ export const HEADER_MENU = [
 
 export const DROPDOWN_MENU = [
   { menu: "프로필수정", link: "/profile/edit", icon: UserIcon },
-  { menu: "상담내역", link: "/profile/products", icon: ListBulletIcon },
+  { menu: "상담내역", link: "/profile/programs", icon: ListBulletIcon },
 ];
 
 export const ADMIN_MENUS = [

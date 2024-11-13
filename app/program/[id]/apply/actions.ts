@@ -4,6 +4,7 @@ import db from "@/lib/db";
 import { z } from "zod";
 import { redirect } from "next/navigation";
 import validator from "validator";
+import getSession from "@/lib/session";
 
 const formSchema = z.object({
   programId: z.coerce.number(),
@@ -33,6 +34,7 @@ const formSchema = z.object({
 });
 
 export const createApply = async (prevState: any, formData: FormData) => {
+  const session = await getSession();
   const data = {
     programId: formData.get("program"),
     name: formData.get("name"),
@@ -53,6 +55,7 @@ export const createApply = async (prevState: any, formData: FormData) => {
     // console.log("check formdata", result);
     await db.apply.create({
       data: {
+        userId: session.id!,
         programId: result.data.programId,
         name: result.data.name,
         phone: result.data.phone,

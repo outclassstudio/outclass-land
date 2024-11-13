@@ -11,15 +11,11 @@ export default async function UserProducts() {
   const session = await getSession();
   const id = session.id;
   if (!session.id) return notFound();
-  const userProducts = await getUserPrograms(id!);
+  const userPrograms = await getUserPrograms(id!);
 
   return (
     <div>
-      {userProducts ? (
-        <ProgramList initialPrograms={userProducts} />
-      ) : (
-        <div>판매중인 물품이 없어요</div>
-      )}
+      {userPrograms ? <div>준비중</div> : <div>참여한 프로그램이 없어요</div>}
     </div>
   );
 }

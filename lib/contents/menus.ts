@@ -19,6 +19,9 @@ export const ADMIN_MENUS = [
     link: "/program/list",
     icon: { comp: FolderIcon },
     color: "rose",
+    bgColor: "bg-rose-50",
+    bgHoverColor: "bg-rose-100",
+    iconColor: "text-rose-700",
   },
   {
     title: "포스트",
@@ -26,5 +29,8 @@ export const ADMIN_MENUS = [
     link: "/post/list",
     icon: { comp: BookOpenIcon },
     color: "orange",
+    bgColor: "bg-orange-50",
+    bgHoverColor: "bg-orange-100",
+    iconColor: "text-orange-700",
   },
 ];

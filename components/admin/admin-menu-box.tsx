@@ -14,6 +14,9 @@ interface IMenuBoxProps {
   title: string;
   description: string;
   color: string;
+  bgColor: string;
+  bgHoverColor: string;
+  iconColor: string;
 }
 
 export default function AdminMenuBox({
@@ -22,14 +25,17 @@ export default function AdminMenuBox({
   title,
   description,
   color,
+  bgColor,
+  bgHoverColor,
+  iconColor,
 }: IMenuBoxProps) {
   return (
     <Link
       href={link}
       className={`text-neutral-700 border-2 w-full sm:aspect-square flex flex-col justify-center items-center gap-3
-      shadow-md bg-${color}-50 hover:bg-${color}-100 `}
+      shadow-md ${bgColor} hover:${bgHoverColor}`}
     >
-      <icon.comp className={`size-[15%] text-${color}-700`} />
+      <icon.comp className={`size-[15%] ${iconColor}`} />
       <div className={`text-2xl sm:text-3xl font-bold text-${color}-500 mb-2`}>
         {title}
       </div>

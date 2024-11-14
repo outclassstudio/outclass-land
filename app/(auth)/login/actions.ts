@@ -8,7 +8,7 @@ import {
 import db from "@/lib/db";
 import { z } from "zod";
 import bcrypt from "bcrypt";
-import { Login } from "@/lib/login";
+import { Login } from "@/apis/login/actions";
 import { redirect } from "next/navigation";
 
 const passwordRegex = new RegExp(PASSWORD_REGEX);

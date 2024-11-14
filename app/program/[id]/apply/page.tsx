@@ -6,6 +6,7 @@ import { createApply } from "./actions";
 import ConsentForm from "@/components/apply/consent-form";
 import ReservationForm from "@/components/apply/reservation-form";
 import { PROGRAM_OPTIONS } from "@/lib/contents/program";
+import ProgramSelectForm from "@/components/apply/program-select-form";
 
 export default function Apply({ params: { id } }: { params: { id: string } }) {
   const [state, dispatch] = useFormState(createApply, null);
@@ -68,26 +69,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">프로그램 선택</div>
-            <select
-              name="option"
-              defaultValue={"DEFAULT"}
-              className="input-style w-full h-10 text-neutral-400"
-            >
-              <option value="DEFAULT" disabled hidden>
-                프로그램을 선택해주세요.
-              </option>
-              {program.programs.map((prg, idx) => (
-                <option key={idx}>{prg}</option>
-              ))}
-            </select>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="font-bold dark:text-neutral-200">상담희망일시</div>
-            <div className="flex gap-2 w-full">
-              <div className="w-1/2">
-                <ReservationForm />
-              </div>
-            </div>
+            <ProgramSelectForm />
           </div>
           <div className="flex flex-col gap-3">
             <div className="font-bold dark:text-neutral-200">

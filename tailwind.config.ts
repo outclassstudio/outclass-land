@@ -22,7 +22,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("flyonui")],
   darkMode: "selector",
+  flyonui: {
+    themes: [],
+  },
 };
 export default config;

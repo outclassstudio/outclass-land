@@ -1,10 +1,10 @@
 export default function PostLoading() {
   return (
-    <div className="mt-[80px] flex flex-col items-center p-5">
-      <div className="w-full sm:w-[640px] md:w-[768px] px-2 flex justify-start mb-6">
+    <div className="mt-[80px] flex flex-col items-center">
+      <div className="w-screen md:w-[768px] flex justify-start mb-6 px-5 mt-5">
         <div className="skeleton-style w-[120px] h-[40px] animate-pulse" />
       </div>
-      <div className="w-full sm:w-[640px] md:w-[768px] px-2 animate-pulse">
+      <div className="w-screen md:w-[768px] nimate-pulse px-5">
         {[...Array(7)].map((_, index) => (
           <div
             key={index}

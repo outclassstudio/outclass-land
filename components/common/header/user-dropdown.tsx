@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 import UserProfileBox from "./user-profile-box";
 import LoginBox from "./login-box";
-import { logOut } from "@/lib/login";
+import { logOut } from "@/apis/login/actions";
 import { DROPDOWN_MENU } from "@/lib/contents/menus";
 
 interface IDropDownProps {

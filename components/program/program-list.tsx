@@ -52,7 +52,7 @@ export default function ProgramList({ initialPrograms }: ProgramsProps) {
 
   return (
     <>
-      <div className="flex flex-col gap-14 w-full sm:w-[640px]">
+      <div className="w-full flex flex-col gap-14">
         {programs.map((program) => (
           <ProgramBox key={program.id} {...program} />
         ))}

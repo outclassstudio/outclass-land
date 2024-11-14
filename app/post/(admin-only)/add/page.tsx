@@ -86,7 +86,7 @@ export default function AddPost() {
     <div className="w-full flex justify-center mb-[30px]">
       <form
         onSubmit={handleSubmit}
-        className="w-full sm:w-[768px] flex flex-col gap-5 p-5"
+        className="w-screen md:w-[768px] flex flex-col gap-5 p-5"
       >
         <div className="flex flex-col gap-3">
           <div className="font-bold dakr:text-neutral-200">제목</div>

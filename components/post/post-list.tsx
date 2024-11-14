@@ -52,7 +52,7 @@ export default function PostList({ initialPosts }: PostsListProps) {
   }, [page]);
 
   return (
-    <div className="w-full sm:w-[640px] md:w-[768px] flex flex-col items-center min-h-[calc(100vh-300px)]">
+    <div className="w-screen md:w-[768px] flex flex-col items-center min-h-[calc(100vh-300px)]">
       {posts.map((post) => (
         <SinglePostBox key={post.id} post={post} />
       ))}

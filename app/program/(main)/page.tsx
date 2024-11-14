@@ -24,33 +24,35 @@ export default async function Programs() {
   const userRole = await getUserRole();
 
   return (
-    <div className="mt-[80px] flex flex-col items-center p-5">
-      <div className="w-full sm:w-[640px] px-1 flex justify-between items-center text-2xl sm:text-4xl font-bold mb-6">
-        <span>프로그램</span>
-        {userRole?.role === "ADMIN" ? (
-          <div className="flex gap-1 sm:gap-2">
-            <Link
-              className="bg-orange-500 hover:bg-orange-600 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-md 
+    <div className="mt-[80px] flex flex-col items-center ">
+      <div className="w-screen md:w-[768px] flex flex-col justify-center items-center p-5">
+        <div className="w-full px-1 flex justify-between items-center text-2xl sm:text-4xl font-bold mb-6">
+          <span>프로그램</span>
+          {userRole?.role === "ADMIN" ? (
+            <div className="flex gap-1 sm:gap-2">
+              <Link
+                className="bg-orange-500 hover:bg-orange-600 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-md 
             text-white text-xs sm:text-sm font-semibold flex gap-1 justify-center items-center"
-              href={"/program/add"}
-            >
-              새프로그램
-              <PlusIcon className="size-4 sm:size-5" />
-            </Link>
-            <Link
-              className="bg-orange-500 hover:bg-orange-600 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-md 
+                href={"/program/add"}
+              >
+                새프로그램
+                <PlusIcon className="size-4 sm:size-5" />
+              </Link>
+              <Link
+                className="bg-orange-500 hover:bg-orange-600 px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-md 
             text-white text-xs sm:text-sm font-semibold flex gap-1 justify-center items-center"
-              href={"/program/list"}
-            >
-              프로그램수정
-              <PencilSquareIcon className="size-4 sm:size-5" />
-            </Link>
-          </div>
-        ) : (
-          ""
-        )}
+                href={"/program/list"}
+              >
+                프로그램수정
+                <PencilSquareIcon className="size-4 sm:size-5" />
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <ProgramList initialPrograms={initialPrograms} />
       </div>
-      <ProgramList initialPrograms={initialPrograms} />
     </div>
   );
 }

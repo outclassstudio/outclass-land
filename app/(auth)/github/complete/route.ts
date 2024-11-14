@@ -1,5 +1,5 @@
 import db from "@/lib/db";
-import { Login } from "@/lib/login";
+import { Login } from "@/apis/login/actions";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 

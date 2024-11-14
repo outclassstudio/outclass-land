@@ -12,8 +12,8 @@ export default function Footer() {
   };
 
   return (
-    <div className="w-full flex justify-center items-center p-5">
-      <div className="flex w-full sm:w-[768px] flex-col-reverse sm:flex-row justify-between items-center gap-2">
+    <div className="w-full flex justify-center items-center">
+      <div className="flex w-full sm:w-[768px] flex-col-reverse sm:flex-row justify-between items-center gap-2 p-5">
         <div className="flex flex-col justify-center items-start gap-1">
           <div>
             <div className="flex gap-2 items-center py-1">

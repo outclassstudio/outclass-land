@@ -24,7 +24,7 @@ export default async function Post() {
 
   return (
     <div className="mt-[80px] w-full flex flex-col items-center">
-      <div className="flex flex-col w-full sm:w-[640px] md:w-[768px] items-center p-5">
+      <div className="flex flex-col w-screen md:w-[768px] items-center p-5">
         <div className="w-full flex justify-between items-center text-2xl sm:text-4xl font-bold mb-6">
           <span>포스트</span>
           {user?.role === "ADMIN" ? (

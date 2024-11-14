@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="mt-[120px] mb-10 flex flex-col justify-center items-center p-4">
-      <div className="flex flex-col gap-[80px] sm:gap-[120px] w-full sm:w-[640px] md:w-[768px]">
+    <div className="mt-[120px] mb-10 flex flex-col justify-center items-center">
+      <div className="flex flex-col gap-[80px] sm:gap-[120px] w-screen md:w-[768px] p-5">
         <div className="flex flex-col gap-8 w-full md:gap-12">
           <div className="flex flex-col gap-2 text-4xl sm:text-5xl whitespace-pre-wrap">
             <span className="font-extrabold">아웃클래스</span>

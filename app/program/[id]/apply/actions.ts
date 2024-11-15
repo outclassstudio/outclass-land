@@ -22,7 +22,7 @@ const formSchema = z.object({
       (phone) => validator.isMobilePhone(phone, "ko-KR"),
       "전화번호 형식을 확인해주세요"
     ),
-  sex: z.string(),
+  sex: z.string().refine((str) => str === "남자" || str === "여자"),
   option: z.string(),
   date: z.string().nullable(),
   dateTime: z.string().nullable(),
@@ -49,24 +49,24 @@ export const createApply = async (prevState: any, formData: FormData) => {
 
   const result = await formSchema.spa(data);
   if (!result.success) {
-    console.log("check error", result.error);
+    // console.log("check error", result.error);
     return result.error.flatten();
   } else {
-    console.log("check formdata", result);
-    // await db.apply.create({
-    //   data: {
-    //     userId: session.id!,
-    //     programId: result.data.programId,
-    //     name: result.data.name,
-    //     phone: result.data.phone,
-    //     sex: result.data.sex,
-    //     option: result.data.option,
-    //     date: result.data.date,
-    //     dateTime: result.data.dateTime,
-    //     subject: result.data.subject,
-    //     consent: result.data.consent,
-    //   },
-    // });
+    // console.log("check formdata", result);
+    await db.apply.create({
+      data: {
+        userId: session.id!,
+        name: result.data.name,
+        phone: result.data.phone,
+        sex: result.data.sex,
+        option: result.data.option,
+        date: result.data.date,
+        dateTime: result.data.dateTime,
+        subject: result.data.subject,
+        consent: result.data.consent,
+        programId: result.data.programId,
+      },
+    });
     redirect(`/program/${result.data.programId}/payments`);
   }
 };

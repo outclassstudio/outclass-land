@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import ReservationForm from "./reservation-form";
-import { PROGRAM_OPTIONS } from "@/lib/contents/program";
+import { PROGRAM_OPTIONS, PROGRAM_OPTIONS_KOR } from "@/lib/contents/program";
 import { formatToWon } from "@/lib/utils";
 
 type ProgramKey = {
@@ -28,7 +28,9 @@ p-4 mb-4 text-neutral-700 dark:text-neutral-300 dark:border-neutral-300"
   ),
   online: () => (
     <div className="flex flex-col gap-3 mb-2">
-      <div className="font-bold dark:text-neutral-200">상담희망일시</div>
+      <div className="font-bold dark:text-neutral-200">
+        상담희망일시 <span className="text-rose-500">*</span>
+      </div>
       <div className="flex gap-2 w-full">
         <div className="w-1/2">
           <ReservationForm />
@@ -68,8 +70,9 @@ export default function ProgramSelectForm() {
         name="option"
         type="text"
         onChange={handleChecked}
-        value={program}
+        value={program && option ? PROGRAM_OPTIONS_KOR[program][option] : ""}
         className="hidden"
+        required
       />
       <div className="grid grid-cols-3 gap-4 w-full px-1 mb-4">
         <div
@@ -128,7 +131,10 @@ export default function ProgramSelectForm() {
         ""
       ) : (
         <div className="flex flex-col gap-3 mb-4">
-          <div className="font-bold">프로그램 옵션을 선택해주세요</div>
+          <div className="font-bold">
+            프로그램 옵션을 선택해주세요
+            <span className="text-rose-500">*</span>
+          </div>
           <div className="grid grid-cols-3 gap-4 w-full px-1">
             <div
               onClick={() => handleChangeOption("decade")}

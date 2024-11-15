@@ -146,8 +146,8 @@ model Apply {
   phone      String
   sex        String
   option     String
-  date       String
-  dateTime   String
+  date       String?
+  dateTime   String?
   subject    String?
   consent    String
   created_at DateTime @default(now())

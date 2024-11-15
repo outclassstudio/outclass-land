@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Apply" ALTER COLUMN "date" DROP NOT NULL,
+ALTER COLUMN "dateTime" DROP NOT NULL;

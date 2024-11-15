@@ -61,16 +61,16 @@ export const RESERVATION_TIME = [
   "21:30",
 ];
 
-export const PROGRAM_OPTIONS = [
-  {
-    id: 1,
-    programs: [
-      "채팅 상담(10년 분석) / 25,000원",
-      "채팅 상담(평생 분석) / 30,000원",
-      "메일 상담 (10년 분석) / 45,000원",
-      "메일 상담(평생 분석) / 50,000원",
-      "온라인 화상 상담(10년 분석) / 45,000원",
-      "온라인 화상 상담(평생 분석) / 50,000원",
-    ],
-  },
-];
+type ServiceData = {
+  [key: string]: number;
+};
+
+type Services = {
+  [key: string]: ServiceData;
+};
+
+export const PROGRAM_OPTIONS: Services = {
+  chat: { decade: 25000, whole: 30000 },
+  mail: { decade: 45000, whole: 50000 },
+  online: { decade: 45000, whole: 50000 },
+};

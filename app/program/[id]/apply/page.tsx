@@ -5,16 +5,16 @@ import { useFormState } from "react-dom";
 import { createApply } from "./actions";
 import ConsentForm from "@/components/apply/consent-form";
 import ReservationForm from "@/components/apply/reservation-form";
-import { PROGRAM_OPTIONS } from "@/lib/contents/program";
 import ProgramSelectForm from "@/components/apply/program-select-form";
 
 export default function Apply({ params: { id } }: { params: { id: string } }) {
   const [state, dispatch] = useFormState(createApply, null);
-  const [program] = PROGRAM_OPTIONS.filter((el) => el.id === +id);
 
   // const handleSubmit = (e: React.FormEventHandler<HTMLFormElement>) => {
   //   console.log(e);
   // };
+
+  const handleChange = () => {};
 
   return (
     <div className="w-ful flex justify-center mt-[72px]">
@@ -29,7 +29,13 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
           className="flex flex-col gap-8"
         >
           <div className="flex flex-col gap-3">
-            <input type="text" value={id} name="program" className="hidden" />
+            <input
+              type="text"
+              value={id}
+              name="program"
+              className="hidden"
+              onChange={handleChange}
+            />
             <div className="font-bold dark:text-neutral-200">이름</div>
             <Input
               name="name"

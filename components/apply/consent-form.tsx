@@ -20,7 +20,7 @@ export default function ConsentForm() {
     <>
       <div className="flex flex-col gap-3 mb-4">
         <div className="font-bold dark:text-neutral-200">
-          개인 정보 이용 동의
+          개인 정보 이용 동의 <span className="text-rose-500">*</span>
         </div>
         <div
           className="border-[1px] border-neutral-700 rounded-sm border-dashed

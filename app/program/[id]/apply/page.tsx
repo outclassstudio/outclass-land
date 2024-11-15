@@ -4,15 +4,10 @@ import Input from "@/components/common/input";
 import { useFormState } from "react-dom";
 import { createApply } from "./actions";
 import ConsentForm from "@/components/apply/consent-form";
-import ReservationForm from "@/components/apply/reservation-form";
 import ProgramSelectForm from "@/components/apply/program-select-form";
 
 export default function Apply({ params: { id } }: { params: { id: string } }) {
   const [state, dispatch] = useFormState(createApply, null);
-
-  // const handleSubmit = (e: React.FormEventHandler<HTMLFormElement>) => {
-  //   console.log(e);
-  // };
 
   const handleChange = () => {};
 
@@ -23,11 +18,7 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
           <h1 className="text-2xl font-bold">상담신청</h1>
           <h2 className="text-xl">성장의 방향을 함께 발견해요.</h2>
         </div>
-        <form
-          // onSubmit={handleSubmit}
-          action={dispatch}
-          className="flex flex-col gap-8"
-        >
+        <form action={dispatch} className="flex flex-col gap-8">
           <div className="flex flex-col gap-3">
             <input
               type="text"
@@ -36,7 +27,9 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
               className="hidden"
               onChange={handleChange}
             />
-            <div className="font-bold dark:text-neutral-200">이름</div>
+            <div className="font-bold dark:text-neutral-200">
+              이름 <span className="text-rose-500">*</span>
+            </div>
             <Input
               name="name"
               type="text"
@@ -47,7 +40,9 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             />
           </div>
           <div className="flex flex-col gap-3">
-            <div className="font-bold dark:text-neutral-200">성별</div>
+            <div className="font-bold dark:text-neutral-200">
+              성별 <span className="text-rose-500">*</span>
+            </div>
             <select
               name="sex"
               defaultValue={"DEFAULT"}
@@ -61,7 +56,9 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             </select>
           </div>
           <div className="flex flex-col gap-1">
-            <div className="font-bold dark:text-neutral-200">연락처</div>
+            <div className="font-bold dark:text-neutral-200">
+              연락처 <span className="text-rose-500">*</span>
+            </div>
             <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-2">
               * - 없이 01012345678 형식으로 적어주세요
             </div>
@@ -74,7 +71,9 @@ export default function Apply({ params: { id } }: { params: { id: string } }) {
             />
           </div>
           <div className="flex flex-col gap-3">
-            <div className="font-bold dark:text-neutral-200">프로그램 선택</div>
+            <div className="font-bold dark:text-neutral-200">
+              프로그램 선택 <span className="text-rose-500">*</span>
+            </div>
             <ProgramSelectForm />
           </div>
           <div className="flex flex-col gap-3">

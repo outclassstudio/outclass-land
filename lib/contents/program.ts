@@ -74,3 +74,20 @@ export const PROGRAM_OPTIONS: Services = {
   mail: { decade: 45000, whole: 50000 },
   online: { decade: 45000, whole: 50000 },
 };
+
+type KOROptionsData = {
+  [key: string]: string;
+};
+
+type KOROptions = {
+  [key: string]: KOROptionsData;
+};
+
+export const PROGRAM_OPTIONS_KOR: KOROptions = {
+  chat: { decade: "채팅 / 10년 분석", whole: "채팅 / 평생 분석" },
+  mail: { decade: "메일 / 10년 분석", whole: "메일 / 평생 분석" },
+  online: {
+    decade: "온라인 미팅 / 10년 분석",
+    whole: "온라인 미팅 / 평생 분석",
+  },
+};

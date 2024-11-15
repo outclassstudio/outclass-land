@@ -37,7 +37,7 @@ export default function AdminMenuBox({
     >
       <icon.comp className={`size-[15%] ${iconColor}`} />
       <div className={`text-2xl sm:text-3xl font-bold text-${color}-500 mb-2`}>
-        {title}
+        {title}z
       </div>
       <div className={`text-${color}-400 text-sm sm:text-base`}>
         {description}

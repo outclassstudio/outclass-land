@@ -24,8 +24,8 @@ const formSchema = z.object({
     ),
   sex: z.string(),
   option: z.string(),
-  date: z.string(),
-  dateTime: z.string(),
+  date: z.string().nullable(),
+  dateTime: z.string().nullable(),
   subject: z.string({
     invalid_type_error: "문자가 아니에요",
     required_error: "상담 주제 입력은 필수에요",
@@ -49,24 +49,24 @@ export const createApply = async (prevState: any, formData: FormData) => {
 
   const result = await formSchema.spa(data);
   if (!result.success) {
-    // console.log("check error", result.error);
+    console.log("check error", result.error);
     return result.error.flatten();
   } else {
-    // console.log("check formdata", result);
-    await db.apply.create({
-      data: {
-        userId: session.id!,
-        programId: result.data.programId,
-        name: result.data.name,
-        phone: result.data.phone,
-        sex: result.data.sex,
-        option: result.data.option,
-        date: result.data.date,
-        dateTime: result.data.dateTime,
-        subject: result.data.subject,
-        consent: result.data.consent,
-      },
-    });
+    console.log("check formdata", result);
+    // await db.apply.create({
+    //   data: {
+    //     userId: session.id!,
+    //     programId: result.data.programId,
+    //     name: result.data.name,
+    //     phone: result.data.phone,
+    //     sex: result.data.sex,
+    //     option: result.data.option,
+    //     date: result.data.date,
+    //     dateTime: result.data.dateTime,
+    //     subject: result.data.subject,
+    //     consent: result.data.consent,
+    //   },
+    // });
     redirect(`/program/${result.data.programId}/payments`);
   }
 };

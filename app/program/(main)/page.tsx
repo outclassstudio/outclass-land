@@ -24,7 +24,7 @@ export default async function Programs() {
   const userRole = await getUserRole();
 
   return (
-    <div className="mt-[80px] flex flex-col items-center ">
+    <div className="mt-[80px] flex flex-col items-center min-h-[calc(100vh-200px)]">
       <div className="w-screen md:w-[768px] flex flex-col justify-center items-center p-5">
         <div className="w-full px-1 flex justify-between items-center text-2xl sm:text-4xl font-bold mb-6">
           <span>프로그램</span>

@@ -66,7 +66,7 @@ ListProgramProps) {
           </div>
           <div
             className="w-full flex justify-end items-center gap-3 *:text-neutral-400
-        *:flex *:gap-1 *:items-center p-5"
+        *:flex *:gap-1 *:items-center p-5 sm:pb-0 sm:mt-5"
           >
             <div>
               <HeartIcon className="size-4" />

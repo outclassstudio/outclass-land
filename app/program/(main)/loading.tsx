@@ -4,8 +4,8 @@ export default function Looading() {
       <div className="w-screen md:w-[768px] flex justify-start mb-6 px-5 mt-5">
         <div className="skeleton-style w-[135px] h-[40px] animate-pulse" />
       </div>
-      <div className="w-screen md:w-[768px] animate-pulse flex flex-col gap-10 px-5">
-        {[...Array(2)].map((_, index) => (
+      <div className="w-screen md:w-[768px] animate-pulse flex flex-col sm:grid sm:grid-cols-2 gap-14 sm:gap-4 px-5">
+        {[...Array(4)].map((_, index) => (
           <div
             key={index}
             className="flex flex-col gap-5 rounded-lg border-2 dark:border-neutral-700"

@@ -32,12 +32,16 @@ export default function AdminMenuBox({
   return (
     <Link
       href={link}
-      className={`text-neutral-700 border-2 w-full sm:aspect-square flex flex-col justify-center items-center gap-3
-      shadow-md ${bgColor} hover:${bgHoverColor}`}
+      style={{ backgroundColor: bgColor }}
+      className={`hover:bg-${color}-100 text-neutral-700 border-2 w-full sm:aspect-square flex flex-col justify-center items-center gap-3
+      shadow-md`}
     >
-      <icon.comp className={`size-[15%] ${iconColor}`} />
+      <icon.comp
+        style={{ color: iconColor }}
+        className={`size-[15%] ${iconColor}`}
+      />
       <div className={`text-2xl sm:text-3xl font-bold text-${color}-500 mb-2`}>
-        {title}z
+        {title}
       </div>
       <div className={`text-${color}-400 text-sm sm:text-base`}>
         {description}

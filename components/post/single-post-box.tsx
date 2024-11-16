@@ -24,7 +24,7 @@ export default function SinglePostBox({ post }: PostProps) {
     <Link
       key={post.id}
       href={`/post/${post.id}`}
-      className="w-full pb-5 sm:px-5 mb-5 border-b border-neutral-200 dark:border-neutral-700 text-neutral-400
+      className="w-full pb-5 px-5 mb-5 border-b border-neutral-200 dark:border-neutral-700 text-neutral-400
       flex gap-5 last:pb-0 last:border-b-0 items-center"
     >
       {post.photo ? (

@@ -2,6 +2,7 @@
 
 import db from "@/lib/db";
 import { Prisma } from "@prisma/client";
+import UserPrograms from "./likes/page";
 
 export async function getUserPrograms(userId: number) {
   const products = await db.apply.findMany({

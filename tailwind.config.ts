@@ -27,5 +27,11 @@ const config: Config = {
   flyonui: {
     themes: [],
   },
+  safelist: [
+    {
+      pattern:
+        /bg-(red|green|blue|yellow|gray|purple|pink|indigo|teal|orange|rose)-[0-9]{3}/,
+    },
+  ],
 };
 export default config;

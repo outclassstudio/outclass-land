@@ -33,4 +33,14 @@ export const ADMIN_MENUS = [
     bgHoverColor: "hover: bg-orange-100",
     iconColor: "#c2410c",
   },
+  {
+    title: "상담현황",
+    description: "상담현황 조회 / 수정 / 삭제",
+    link: "/admin/apply",
+    icon: { comp: ListBulletIcon },
+    color: "amber",
+    bgColor: "#fffbeb",
+    bgHoverColor: "hover: bg-amber-100",
+    iconColor: "#b45309",
+  },
 ];

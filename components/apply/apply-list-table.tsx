@@ -1,4 +1,7 @@
+"use client";
+
 import { UserPrograms } from "@/app/profile/actions";
+import ApplyContentBox from "./apply-content-box";
 
 interface IUserProgramsProps {
   userPrograms: UserPrograms;
@@ -31,22 +34,12 @@ export default function AppliedListTable({ userPrograms }: IUserProgramsProps) {
         </thead>
         <tbody>
           {userPrograms.map((program, idx) => (
-            <tr key={idx}>
-              <td className="text-nowrap text-center">{program.name}</td>
-              <td className="text-center">{program.phone}</td>
-              <td className="text-center">{program.sex}</td>
-              <td className="text-center">{program.program.title}</td>
-              <td className="text-center">{program.option}</td>
-              <td className="text-center">{program.date}</td>
-              <td className="text-center">{program.dateTime}</td>
-              <td className="text-center">{program.subject}</td>
-              <td className="text-center text-xs">
-                {program.status === "INPROGRESS" ? "접수됨" : "확정됨"}
-              </td>
-            </tr>
+            <ApplyContentBox key={idx} program={program} />
           ))}
         </tbody>
       </table>
     </div>
   );
 }
+
+// {PROGRAM_STATUS[program.status]}

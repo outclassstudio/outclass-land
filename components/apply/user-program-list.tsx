@@ -1,24 +1,19 @@
-"use client";
-
 import { UserPrograms } from "@/app/profile/actions";
-import ApplyContentBox from "./apply-content-box";
+import UserProgramBox from "./user-program-box";
 
 interface IUserProgramsProps {
   userPrograms: UserPrograms;
 }
 
-export default function AppliedListTable({ userPrograms }: IUserProgramsProps) {
+export default function UserProgramList({ userPrograms }: IUserProgramsProps) {
   const categories = [
     "이름",
-    "연락처",
-    "성별",
     "신청 프로그램",
     "프로그램분류",
     "신청날짜",
     "신청시간",
-    "요청사항",
-    "상담사",
     "접수상태",
+    "더보기",
   ];
 
   return (
@@ -35,12 +30,10 @@ export default function AppliedListTable({ userPrograms }: IUserProgramsProps) {
         </thead>
         <tbody>
           {userPrograms.map((program, idx) => (
-            <ApplyContentBox key={idx} program={program} />
+            <UserProgramBox key={idx} program={program} />
           ))}
         </tbody>
       </table>
     </div>
   );
 }
-
-// {PROGRAM_STATUS[program.status]}

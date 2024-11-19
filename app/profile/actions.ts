@@ -10,6 +10,7 @@ export async function getUserPrograms(userId: number) {
       userId,
     },
     select: {
+      id: true,
       name: true,
       phone: true,
       sex: true,

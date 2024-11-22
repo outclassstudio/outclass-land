@@ -91,3 +91,21 @@ export const PROGRAM_OPTIONS_KOR: KOROptions = {
     whole: "온라인 미팅 / 평생 분석",
   },
 };
+
+export const PROGRAM_STATUS = {
+  INPROGRESS: {
+    name: "INPROGRESS",
+    color: "text-amber-800 bg-amber-300",
+    text: "접수중",
+  },
+  CONFIRMED: {
+    name: "CONFIRMED",
+    color: "text-green-800 bg-green-300",
+    text: "확정됨",
+  },
+  CANCELLED: {
+    name: "CANCELLED",
+    color: "text-rose-800 bg-rose-300",
+    text: "취소됨",
+  },
+};

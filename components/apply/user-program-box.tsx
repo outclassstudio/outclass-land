@@ -1,7 +1,9 @@
 "use client";
 
+import { PROGRAM_STATUS } from "@/lib/contents/program";
 import { StatusOptions } from "@/lib/types/apply";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 
 interface AppliedProgramProps {
   program: {
@@ -22,22 +24,10 @@ interface AppliedProgramProps {
 }
 
 export default function UserProgramBox({ program }: AppliedProgramProps) {
-  const PROGRAM_STATUS = {
-    INPROGRESS: {
-      name: "INPROGRESS",
-      color: "text-amber-800 bg-amber-300",
-      text: "접수중",
-    },
-    CONFIRMED: {
-      name: "CONFIRMED",
-      color: "text-green-800 bg-green-300",
-      text: "확정됨",
-    },
-    CANCELLED: {
-      name: "CANCELLED",
-      color: "text-rose-800 bg-rose-300",
-      text: "취소됨",
-    },
+  const router = useRouter();
+
+  const handleMoveToDetail = () => {
+    router.push(`/profile/programs/${program.id}`);
   };
 
   return (
@@ -56,7 +46,10 @@ export default function UserProgramBox({ program }: AppliedProgramProps) {
         </div>
       </td>
       <td className="flex justify-center items-center">
-        <MagnifyingGlassIcon className="size-4 m-1" />
+        <MagnifyingGlassIcon
+          onClick={handleMoveToDetail}
+          className="size-4 m-1 cursor-pointer"
+        />
       </td>
     </tr>
   );

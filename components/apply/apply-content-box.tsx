@@ -1,6 +1,7 @@
 "use client";
 
 import { editApplyStatus } from "@/app/admin/apply/actions";
+import { PROGRAM_STATUS } from "@/lib/contents/program";
 import { StatusOptions } from "@/lib/types/apply";
 import { useState } from "react";
 
@@ -24,12 +25,6 @@ interface AppliedProgramProps {
 
 export default function ApplyContentBox({ program }: AppliedProgramProps) {
   const [status, setStatus] = useState<StatusOptions>(program.status);
-
-  const PROGRAM_STATUS = {
-    INPROGRESS: { name: "INPROGRESS", color: "text-amber-800 bg-amber-300" },
-    CONFIRMED: { name: "CONFIRMED", color: "text-green-800 bg-green-300" },
-    CANCELLED: { name: "CANCELLED", color: "text-rose-800 bg-rose-300" },
-  };
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;

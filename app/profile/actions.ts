@@ -32,6 +32,32 @@ export async function getUserPrograms(userId: number) {
 
 export type UserPrograms = Prisma.PromiseReturnType<typeof getUserPrograms>;
 
+export async function getOneProgram(id: number) {
+  const product = await db.apply.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      name: true,
+      phone: true,
+      sex: true,
+      option: true,
+      date: true,
+      dateTime: true,
+      subject: true,
+      created_at: true,
+      status: true,
+      program: {
+        select: {
+          title: true,
+        },
+      },
+    },
+  });
+  return product;
+}
+
 export async function getUserLikePrograms(userId: number) {
   const products = await db.program.findMany({
     where: {

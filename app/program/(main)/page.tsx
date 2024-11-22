@@ -18,16 +18,8 @@ export const metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function Programs() {
-  const getProgramDelay = async () => {
-    return new Promise((res) => setTimeout(res, 5000)).then(() => {
-      return getInitialPrograms();
-    });
-  };
-
-  //todo 캐싱전략 수정 필요
   // const initialPrograms = await getCashedPrograms();
-  // const initialPrograms = await getInitialPrograms();
-  const initialPrograms = await getProgramDelay();
+  const initialPrograms = await getInitialPrograms();
   const userRole = await getUserRole();
 
   return (

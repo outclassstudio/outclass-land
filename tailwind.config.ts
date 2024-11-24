@@ -30,7 +30,11 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /bg-(red|green|blue|yellow|gray|purple|pink|indigo|teal|orange|rose)-[0-9]{3}/,
+        /bg-(red|green|blue|yellow|gray|purple|pink|indigo|teal|orange|rose|amber)-[0-9]{3}/,
+    },
+    {
+      pattern:
+        /text-(red|green|blue|yellow|gray|purple|pink|indigo|teal|orange|rose|amber)-[0-9]{3}/,
     },
   ],
 };

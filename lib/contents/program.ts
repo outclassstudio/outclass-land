@@ -109,3 +109,16 @@ export const PROGRAM_STATUS = {
     text: "취소됨",
   },
 };
+
+export const PROGRAM_TABLE_CATEGORIES = [
+  "이름",
+  "연락처",
+  "성별",
+  "신청 프로그램",
+  "프로그램분류",
+  "신청날짜",
+  "신청시간",
+  "요청사항",
+  "상담사",
+  "접수상태",
+];

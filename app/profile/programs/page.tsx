@@ -4,6 +4,7 @@ import { getUserPrograms } from "../actions";
 import AppliedListTable from "@/components/apply/apply-list-table";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 import UserProgramList from "@/components/apply/user-program-list";
+import NoContents from "@/components/common/no-contents";
 
 export const metadata = {
   title: "상담내역",
@@ -24,12 +25,7 @@ export default async function UserProducts() {
         {userPrograms ? (
           <UserProgramList userPrograms={userPrograms} />
         ) : (
-          <div className="w-full flex gap-2 justify-center items-center h-[calc(100vh-310px)]">
-            <ExclamationTriangleIcon className="size-10 text-amber-500" />
-            <span className="text-2xl sm:text-3xl font-bold">
-              참여한 프로그램이 없어요
-            </span>
-          </div>
+          <NoContents text={"참여한 프로그램이 없어요"} />
         )}
       </div>
     </div>

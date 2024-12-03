@@ -1,6 +1,7 @@
 import AppliedListTable from "@/components/apply/apply-list-table";
 import { getAppliedPrograms } from "./actions";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+import NoContents from "@/components/common/no-contents";
 
 export default async function ApplyList() {
   const appliedPrograms = await getAppliedPrograms();
@@ -11,15 +12,10 @@ export default async function ApplyList() {
         <div className="w-full flex justify-start items-center text-2xl sm:text-4xl font-bold mb-6">
           <span>상담 내역</span>
         </div>
-        {appliedPrograms ? (
+        {appliedPrograms.length ? (
           <AppliedListTable userPrograms={appliedPrograms} />
         ) : (
-          <div className="w-full h-full flex gap-2 justify-center items-center">
-            <ExclamationTriangleIcon className="size-10 text-amber-500" />
-            <span className="text-2xl sm:text-3xl font-bold">
-              참여한 프로그램이 없어요
-            </span>
-          </div>
+          <NoContents text={"신청한 상담이 없어요"} />
         )}
       </div>
     </div>

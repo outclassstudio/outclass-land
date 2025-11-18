@@ -4,54 +4,58 @@ import { Suspense, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { ko } from "date-fns/locale/ko";
 import { dateFormatter } from "@/lib/utils";
-import { getReservation } from "@/app/program/[id]/apply/actions";
+import { getReservation } from "@/app/(programs)/program/[id]/apply/actions";
 import { RESERVATION_TIME } from "@/lib/contents/program";
 import "react-datepicker/dist/react-datepicker.css";
 import "./override.css";
 
 export default function ReservationForm() {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [timeList, setTimeList] = useState(RESERVATION_TIME);
-  registerLocale("ko", ko);
+	const [startDate, setStartDate] = useState<Date | null>(null);
+	const [timeList, setTimeList] = useState(RESERVATION_TIME);
+	registerLocale("ko", ko);
 
-  const start = new Date();
-  const end = new Date();
-  end.setDate(start.getDate() + 20);
+	const start = new Date();
+	const end = new Date();
+	end.setDate(start.getDate() + 20);
 
-  const handleDateChange = async (date: Date | null) => {
-    setStartDate(date);
-    if (date) {
-      const newDate = dateFormatter(date);
-      const reservation = await getReservation(newDate);
-      const reservedTime = reservation.map((el) => el.dateTime);
-      const newTimeList = timeList.filter((el) => !reservedTime.includes(el));
-      setTimeList(newTimeList);
-    }
-  };
+	const handleDateChange = async (date: Date | null) => {
+		setStartDate(date);
+		if (date) {
+			const newDate = dateFormatter(date);
+			const reservation = await getReservation(newDate);
+			const reservedTime = reservation.map((el) => el.dateTime);
+			const newTimeList = timeList.filter(
+				(el) => !reservedTime.includes(el)
+			);
+			setTimeList(newTimeList);
+		}
+	};
 
-  return (
-    <div className="flex gap-3 items-center">
-      <DatePicker
-        name="date"
-        locale="ko"
-        selected={startDate}
-        onChange={(date) => handleDateChange(date)}
-        includeDateIntervals={[{ start: start, end: end }]}
-        placeholderText="날짜를 선택해주세요."
-        dateFormat="yyyy년 MM월 dd일"
-        autoComplete="off"
-      />
-      {startDate ? (
-        <Suspense fallback={<div className="animate-pulse">로딩중...</div>}>
-          <select name="dateTime" className="input-style h-10">
-            {timeList.map((time, idx) => (
-              <option key={idx}>{time}</option>
-            ))}
-          </select>
-        </Suspense>
-      ) : (
-        ""
-      )}
-    </div>
-  );
+	return (
+		<div className="flex gap-3 items-center">
+			<DatePicker
+				name="date"
+				locale="ko"
+				selected={startDate}
+				onChange={(date) => handleDateChange(date)}
+				includeDateIntervals={[{ start: start, end: end }]}
+				placeholderText="날짜를 선택해주세요."
+				dateFormat="yyyy년 MM월 dd일"
+				autoComplete="off"
+			/>
+			{startDate ? (
+				<Suspense
+					fallback={<div className="animate-pulse">로딩중...</div>}
+				>
+					<select name="dateTime" className="input-style h-10">
+						{timeList.map((time, idx) => (
+							<option key={idx}>{time}</option>
+						))}
+					</select>
+				</Suspense>
+			) : (
+				""
+			)}
+		</div>
+	);
 }

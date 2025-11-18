@@ -2,11 +2,11 @@ import db from "@/lib/db";
 import { z } from "zod";
 import {
 	PASSWORD_MIN_LENGTH,
-	PASSWORD_REGEX,
-	PASSWORD_REGEX_ERROR,
+	// PASSWORD_REGEX,
+	// PASSWORD_REGEX_ERROR,
 } from "@/lib/constants";
 
-const passwordRegex = new RegExp(PASSWORD_REGEX);
+// const passwordRegex = new RegExp(PASSWORD_REGEX);
 
 const checkEmailExist = async (email: string) => {
 	const user = await db.user.findUnique({

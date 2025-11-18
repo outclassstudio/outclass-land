@@ -1,14 +1,15 @@
 "use client";
 
 import { InitialPrograms } from "@/app/(programs)/program/actions";
-import ProgramBox from "./program-box";
+import ProgramBox from "../program/program-box";
 import { useEffect, useRef, useState } from "react";
+import CourseBox from "./course-box";
 
 interface ProgramsProps {
 	initialPrograms: InitialPrograms;
 }
 
-export default function ProgramList({ initialPrograms }: ProgramsProps) {
+export default function CourseList({ initialPrograms }: ProgramsProps) {
 	const [programs, setPrograms] = useState(initialPrograms);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLastPage, setIsLastPage] = useState(false);
@@ -52,9 +53,9 @@ export default function ProgramList({ initialPrograms }: ProgramsProps) {
 
 	return (
 		<>
-			<div className="w-full flex flex-col sm:grid sm:grid-cols-2 gap-10 sm:gap-4">
+			<div className="w-full flex flex-col gap-6">
 				{programs.map((program) => (
-					<ProgramBox key={program.id} {...program} />
+					<CourseBox key={program.id} {...program} />
 				))}
 			</div>
 			{isLastPage ? null : (
